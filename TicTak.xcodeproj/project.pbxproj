@@ -18,6 +18,7 @@
 		8225F01C22ECAC5B007F01E7 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F01B22ECAC5B007F01E7 /* Field.swift */; };
 		8225F01E22ECAC9A007F01E7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F01D22ECAC9A007F01E7 /* Game.swift */; };
 		8225F02122ECAEAD007F01E7 /* TicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F02022ECAEAD007F01E7 /* TicCollectionViewCell.swift */; };
+		8225F02622ECCD40007F01E7 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F02522ECCD40007F01E7 /* GameController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		8225F01B22ECAC5B007F01E7 /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		8225F01D22ECAC9A007F01E7 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		8225F02022ECAEAD007F01E7 /* TicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicCollectionViewCell.swift; sourceTree = "<group>"; };
+		8225F02522ECCD40007F01E7 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 		8225F02422ECCCA2007F01E7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8225F02522ECCD40007F01E7 /* GameController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				8225F01C22ECAC5B007F01E7 /* Field.swift in Sources */,
 				8225F01A22ECAB1B007F01E7 /* Cell.swift in Sources */,
 				8225F02122ECAEAD007F01E7 /* TicCollectionViewCell.swift in Sources */,
+				8225F02622ECCD40007F01E7 /* GameController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

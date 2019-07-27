@@ -11,11 +11,14 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var startButton: UIButton!
+    
     let reuseIdentifier = "ticTakCell"
+    let gameController = GameController.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        updateView()
     }
     
 //    override func viewDidLayoutSubviews() {
@@ -25,6 +28,15 @@ class ViewController: UIViewController {
 //            flowLayout.itemSize = CGSize(width: self.collectionView.bounds.width, height: 120)
 //        }
 //    }
+    
+    func updateView () {
+        startButton.layer.cornerRadius = 5
+    }
+    
+    @IBAction func startNewGame(_ sender: Any) {
+        collectionView.reloadData()
+        gameController.startNewGame()
+    }
 }
 
 extension ViewController: UICollectionViewDataSource {
@@ -41,6 +53,7 @@ extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TicCollectionViewCell
         cell.imgView.backgroundColor = UIColor.lightGray
+        cell.emptyCell()
         return cell
     }
 }

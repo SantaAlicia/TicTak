@@ -11,8 +11,6 @@ import UIKit
 class Field  {
     var arr = [[Cell]]()
     
-    //    override init () {
-    //        arr = [[Cell]]()
-    //    }
+    static let shared = Field()
 }
 

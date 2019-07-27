@@ -9,12 +9,27 @@
 import UIKit
 
 class TicCollectionViewCell: UICollectionViewCell {
+ 
     @IBOutlet weak var imgView: UIImageView!
+    var cell : Cell?
     
-//    override func prepareForReuse() {
-//        super.prepareForReuse()
-//
-//        self.imgView.backgroundColor = UIColor.lightGray
-//    }
+    func emptyCell() {
+        cell = Cell()
+        cell?.emptyCell()
+        fillCell()
+    }
+    
+    func crossCell() {
+        cell = Cell()
+        cell?.crossCell()
+        fillCell()
+    }
+    
+    func fillCell() {
+        if cell != nil {
+            imgView.image = cell?.image
+            imgView.backgroundColor = cell?.backgroundColor
+        }
+    }
 }
 

@@ -16,5 +16,31 @@ enum CellFill {
 class Cell {
     var isEmpty : Bool = true
     var fill : CellFill!
+    var image : UIImage!
+    var backgroundColor : UIColor!
+    
+    func emptyCell() {
+        isEmpty = true
+        fill = nil
+        image = nil
+        backgroundColor = UIColor.lightGray
+    }
+    
+    func crossCell() {
+        isEmpty = false
+        fill = CellFill.cross
+        image = UIImage(named: "cross")
+        backgroundColor = nil
+    }
+    
+    func zeroCell() {
+        isEmpty = false
+        fill = CellFill.zero
+        image = UIImage(named: "zero")
+        backgroundColor = nil
+    }
 }
+
+
+
 
