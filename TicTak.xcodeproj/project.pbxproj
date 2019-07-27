@@ -14,6 +14,9 @@
 		8225EFF522ECA89B007F01E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8225EFF322ECA89B007F01E7 /* LaunchScreen.storyboard */; };
 		8225F00022ECA89B007F01E7 /* TicTakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225EFFF22ECA89B007F01E7 /* TicTakTests.swift */; };
 		8225F00B22ECA89B007F01E7 /* TicTakUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F00A22ECA89B007F01E7 /* TicTakUITests.swift */; };
+		8225F01A22ECAB1B007F01E7 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F01922ECAB1B007F01E7 /* Cell.swift */; };
+		8225F01C22ECAC5B007F01E7 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F01B22ECAC5B007F01E7 /* Field.swift */; };
+		8225F01E22ECAC9A007F01E7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F01D22ECAC9A007F01E7 /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		8225F00622ECA89B007F01E7 /* TicTakUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicTakUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8225F00A22ECA89B007F01E7 /* TicTakUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTakUITests.swift; sourceTree = "<group>"; };
 		8225F00C22ECA89B007F01E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8225F01922ECAB1B007F01E7 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		8225F01B22ECAC5B007F01E7 /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
+		8225F01D22ECAC9A007F01E7 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,7 @@
 		8225EFE922ECA89A007F01E7 /* TicTak */ = {
 			isa = PBXGroup;
 			children = (
+				8225F01822ECAAE3007F01E7 /* Model */,
 				8225EFEA22ECA89B007F01E7 /* AppDelegate.swift */,
 				8225EFEC22ECA89B007F01E7 /* ViewController.swift */,
 				8225EFEE22ECA89B007F01E7 /* Main.storyboard */,
@@ -123,6 +130,16 @@
 				8225F00C22ECA89B007F01E7 /* Info.plist */,
 			);
 			path = TicTakUITests;
+			sourceTree = "<group>";
+		};
+		8225F01822ECAAE3007F01E7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8225F01922ECAB1B007F01E7 /* Cell.swift */,
+				8225F01B22ECAC5B007F01E7 /* Field.swift */,
+				8225F01D22ECAC9A007F01E7 /* Game.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +274,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8225EFED22ECA89B007F01E7 /* ViewController.swift in Sources */,
+				8225F01E22ECAC9A007F01E7 /* Game.swift in Sources */,
 				8225EFEB22ECA89B007F01E7 /* AppDelegate.swift in Sources */,
+				8225F01C22ECAC5B007F01E7 /* Field.swift in Sources */,
+				8225F01A22ECAB1B007F01E7 /* Cell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +453,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 84VQUVTVEC;
 				INFOPLIST_FILE = TicTak/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,6 +471,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 84VQUVTVEC;
 				INFOPLIST_FILE = TicTak/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -1,5 +1,5 @@
 //
-//  Cell.swift
+//  Field.swift
 //  TicTak
 //
 //  Created by SantaAlicia on 27/07/2019.
@@ -8,13 +8,11 @@
 
 import UIKit
 
-enum CellFill {
-    case cross
-    case zero
-}
-
-class Cell {
-    var isEmpty : Bool = true
-    var fill : CellFill!
+class Field  {
+    var arr = [[Cell]]()
+    
+    //    override init () {
+    //        arr = [[Cell]]()
+    //    }
 }
 
