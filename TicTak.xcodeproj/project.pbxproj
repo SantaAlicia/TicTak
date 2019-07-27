@@ -17,6 +17,7 @@
 		8225F01A22ECAB1B007F01E7 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F01922ECAB1B007F01E7 /* Cell.swift */; };
 		8225F01C22ECAC5B007F01E7 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F01B22ECAC5B007F01E7 /* Field.swift */; };
 		8225F01E22ECAC9A007F01E7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F01D22ECAC9A007F01E7 /* Game.swift */; };
+		8225F02122ECAEAD007F01E7 /* TicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F02022ECAEAD007F01E7 /* TicCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		8225F01922ECAB1B007F01E7 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		8225F01B22ECAC5B007F01E7 /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		8225F01D22ECAC9A007F01E7 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		8225F02022ECAEAD007F01E7 /* TicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,8 @@
 		8225EFE922ECA89A007F01E7 /* TicTak */ = {
 			isa = PBXGroup;
 			children = (
+				8225F02422ECCCA2007F01E7 /* Controllers */,
+				8225F01F22ECAE6D007F01E7 /* Cells */,
 				8225F01822ECAAE3007F01E7 /* Model */,
 				8225EFEA22ECA89B007F01E7 /* AppDelegate.swift */,
 				8225EFEC22ECA89B007F01E7 /* ViewController.swift */,
@@ -140,6 +144,21 @@
 				8225F01D22ECAC9A007F01E7 /* Game.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8225F01F22ECAE6D007F01E7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8225F02022ECAEAD007F01E7 /* TicCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		8225F02422ECCCA2007F01E7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +297,7 @@
 				8225EFEB22ECA89B007F01E7 /* AppDelegate.swift in Sources */,
 				8225F01C22ECAC5B007F01E7 /* Field.swift in Sources */,
 				8225F01A22ECAB1B007F01E7 /* Cell.swift in Sources */,
+				8225F02122ECAEAD007F01E7 /* TicCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
