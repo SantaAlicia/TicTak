@@ -51,6 +51,8 @@ class TicTakTests: XCTestCase {
             let cell = gameController.game.playingField.arr[i]
             XCTAssertEqual(cell.isEmpty, true, "startNewGame works wrong")
         }
+        let text = gameController.textGameOver()
+        XCTAssertEqual(text, nil, "testIsGameOver is Failed")
     }
     
     func testChangeItems() {
