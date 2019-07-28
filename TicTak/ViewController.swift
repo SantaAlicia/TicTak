@@ -59,7 +59,7 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TicCollectionViewCell
+        let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TicTacCollectionViewCell
 
         collectionCell.layer.borderColor = UIColor.lightGray.cgColor
         collectionCell.layer.borderWidth = 2
@@ -73,7 +73,7 @@ extension ViewController: UICollectionViewDataSource {
 extension ViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if (gameController.playerChangeCellBy(index: indexPath.row)) {
+        if (gameController.playerChangedCellBy(index: indexPath.row)) {
             collectionView.reloadData()
             updateInfoLabels()
         }

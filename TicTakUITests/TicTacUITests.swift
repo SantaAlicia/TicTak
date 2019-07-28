@@ -8,7 +8,7 @@
 
 import XCTest
 
-class TicTakUITests: XCTestCase {
+class TicTacUITests: XCTestCase {
 
     var app: XCUIApplication!
     

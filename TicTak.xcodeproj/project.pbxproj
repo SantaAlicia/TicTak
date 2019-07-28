@@ -12,13 +12,15 @@
 		8225EFF022ECA89B007F01E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8225EFEE22ECA89B007F01E7 /* Main.storyboard */; };
 		8225EFF222ECA89B007F01E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8225EFF122ECA89B007F01E7 /* Assets.xcassets */; };
 		8225EFF522ECA89B007F01E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8225EFF322ECA89B007F01E7 /* LaunchScreen.storyboard */; };
-		8225F00022ECA89B007F01E7 /* TicTakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225EFFF22ECA89B007F01E7 /* TicTakTests.swift */; };
-		8225F00B22ECA89B007F01E7 /* TicTakUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F00A22ECA89B007F01E7 /* TicTakUITests.swift */; };
+		8225F00B22ECA89B007F01E7 /* TicTacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F00A22ECA89B007F01E7 /* TicTacUITests.swift */; };
 		8225F01A22ECAB1B007F01E7 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F01922ECAB1B007F01E7 /* Cell.swift */; };
 		8225F01E22ECAC9A007F01E7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F01D22ECAC9A007F01E7 /* Game.swift */; };
-		8225F02122ECAEAD007F01E7 /* TicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F02022ECAEAD007F01E7 /* TicCollectionViewCell.swift */; };
+		8225F02122ECAEAD007F01E7 /* TicTacCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F02022ECAEAD007F01E7 /* TicTacCollectionViewCell.swift */; };
 		8225F02622ECCD40007F01E7 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F02522ECCD40007F01E7 /* GameController.swift */; };
+		828A2F0A22EE4BD000184CF5 /* TicTacTestsGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828A2F0722EE4BD000184CF5 /* TicTacTestsGameController.swift */; };
+		828A2F0B22EE4BD000184CF5 /* TicTcTestGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828A2F0822EE4BD000184CF5 /* TicTcTestGame.swift */; };
 		82942BC422EE211100E5EE97 /* Contants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82942BC322EE211100E5EE97 /* Contants.swift */; };
+		82942BC822EE312100E5EE97 /* CheckForWinning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82942BC722EE312100E5EE97 /* CheckForWinning.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,16 +49,18 @@
 		8225EFF422ECA89B007F01E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8225EFF622ECA89B007F01E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8225EFFB22ECA89B007F01E7 /* TicTakTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicTakTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8225EFFF22ECA89B007F01E7 /* TicTakTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTakTests.swift; sourceTree = "<group>"; };
-		8225F00122ECA89B007F01E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8225F00622ECA89B007F01E7 /* TicTakUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicTakUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8225F00A22ECA89B007F01E7 /* TicTakUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTakUITests.swift; sourceTree = "<group>"; };
+		8225F00A22ECA89B007F01E7 /* TicTacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacUITests.swift; sourceTree = "<group>"; };
 		8225F00C22ECA89B007F01E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8225F01922ECAB1B007F01E7 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		8225F01D22ECAC9A007F01E7 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		8225F02022ECAEAD007F01E7 /* TicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicCollectionViewCell.swift; sourceTree = "<group>"; };
+		8225F02022ECAEAD007F01E7 /* TicTacCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacCollectionViewCell.swift; sourceTree = "<group>"; };
 		8225F02522ECCD40007F01E7 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		828A2F0722EE4BD000184CF5 /* TicTacTestsGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicTacTestsGameController.swift; sourceTree = "<group>"; };
+		828A2F0822EE4BD000184CF5 /* TicTcTestGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicTcTestGame.swift; sourceTree = "<group>"; };
+		828A2F0922EE4BD000184CF5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82942BC322EE211100E5EE97 /* Contants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contants.swift; sourceTree = "<group>"; };
+		82942BC722EE312100E5EE97 /* CheckForWinning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckForWinning.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,8 +128,9 @@
 		8225EFFE22ECA89B007F01E7 /* TicTakTests */ = {
 			isa = PBXGroup;
 			children = (
-				8225EFFF22ECA89B007F01E7 /* TicTakTests.swift */,
-				8225F00122ECA89B007F01E7 /* Info.plist */,
+				828A2F0722EE4BD000184CF5 /* TicTacTestsGameController.swift */,
+				828A2F0822EE4BD000184CF5 /* TicTcTestGame.swift */,
+				828A2F0922EE4BD000184CF5 /* Info.plist */,
 			);
 			path = TicTakTests;
 			sourceTree = "<group>";
@@ -133,7 +138,7 @@
 		8225F00922ECA89B007F01E7 /* TicTakUITests */ = {
 			isa = PBXGroup;
 			children = (
-				8225F00A22ECA89B007F01E7 /* TicTakUITests.swift */,
+				8225F00A22ECA89B007F01E7 /* TicTacUITests.swift */,
 				8225F00C22ECA89B007F01E7 /* Info.plist */,
 			);
 			path = TicTakUITests;
@@ -151,7 +156,7 @@
 		8225F01F22ECAE6D007F01E7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				8225F02022ECAEAD007F01E7 /* TicCollectionViewCell.swift */,
+				8225F02022ECAEAD007F01E7 /* TicTacCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				8225F02522ECCD40007F01E7 /* GameController.swift */,
+				82942BC722EE312100E5EE97 /* CheckForWinning.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -308,8 +314,9 @@
 				8225EFEB22ECA89B007F01E7 /* AppDelegate.swift in Sources */,
 				82942BC422EE211100E5EE97 /* Contants.swift in Sources */,
 				8225F01A22ECAB1B007F01E7 /* Cell.swift in Sources */,
-				8225F02122ECAEAD007F01E7 /* TicCollectionViewCell.swift in Sources */,
+				8225F02122ECAEAD007F01E7 /* TicTacCollectionViewCell.swift in Sources */,
 				8225F02622ECCD40007F01E7 /* GameController.swift in Sources */,
+				82942BC822EE312100E5EE97 /* CheckForWinning.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +324,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8225F00022ECA89B007F01E7 /* TicTakTests.swift in Sources */,
+				828A2F0A22EE4BD000184CF5 /* TicTacTestsGameController.swift in Sources */,
+				828A2F0B22EE4BD000184CF5 /* TicTcTestGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8225F00B22ECA89B007F01E7 /* TicTakUITests.swift in Sources */,
+				8225F00B22ECA89B007F01E7 /* TicTacUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +534,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 84VQUVTVEC;
 				INFOPLIST_FILE = TicTakTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -546,6 +555,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 84VQUVTVEC;
 				INFOPLIST_FILE = TicTakTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -16,3 +16,4 @@ struct GameConstants {
 struct DesignConstants {
     static let cornerRadius: CGFloat = 6.0
 }
+

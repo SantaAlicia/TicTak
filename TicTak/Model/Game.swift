@@ -15,7 +15,7 @@ class Game {
         static let shared = Field()
     }
     
-    private let gameBorder : Field = Field()
+    private let gameBorder = Field.shared
     static let shared = Game()
 
     init () {
@@ -32,11 +32,11 @@ class Game {
 }
 
 extension Game {
-    func changeOneCell(atIndex : Int, newValue : Cell) {
+    func changeCellAtIndex(atIndex : Int, newValue : Cell) {
         gameBorder.arr[atIndex]  = newValue
     }
     
-    func valueForCell(atIndex : Int) -> Cell{
+    func cellAtIndex(atIndex : Int) -> Cell{
         let cell = gameBorder.arr[atIndex]
         return cell
     }
@@ -52,7 +52,36 @@ extension Game {
         return result
     }
     
-    func isGameJustStarted () {
-        
+    func isGameJustStarted() -> Bool {
+        var result = true
+        for i in 0..<GameConstants.gameDimension  {
+            let cell : Cell = gameBorder.arr[i]
+            result = cell.isEmpty && result
+        }
+        return result
     }
 }
+
+extension Game {
+    private func findAllCellWithType(type : CellType) -> [Int]? {
+        if (!isGameOver()) {
+            return nil
+        }
+        var array : [Int] = [Int]()
+        for i in 0..<GameConstants.gameDimension  {
+            let cell : Cell = gameBorder.arr[i]
+            if (cell.type == type) {
+                array.append(i)
+            }
+        }
+        return array
+    }
+    func fintAllCellWithCross() ->[Int]? {
+        return findAllCellWithType(type: CellType.cross)
+    }
+    
+    func fintAllCellWithZero() ->[Int]? {
+        return findAllCellWithType(type: CellType.zero)
+    }
+}
+

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TicCollectionViewCell: UICollectionViewCell {
+class TicTacCollectionViewCell: UICollectionViewCell {
  
     @IBOutlet weak var imageView: UIImageView!
     
