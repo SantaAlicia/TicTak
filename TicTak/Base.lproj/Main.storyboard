@@ -18,6 +18,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="QPW-hC-MU5">
+                                <rect key="frame" x="37" y="524" width="347" height="189.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sbi-Tn-3Mh">
+                                        <rect key="frame" x="0.0" y="0.0" width="347" height="24"/>
+                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.30439319349315069" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="22"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3l-mL-rGT">
+                                        <rect key="frame" x="0.0" y="66" width="347" height="31.5"/>
+                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
+                                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DfW-w8-VVv">
+                                        <rect key="frame" x="0.0" y="139.5" width="347" height="50"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Sbi-Tn-3Mh" firstAttribute="top" secondItem="QPW-hC-MU5" secondAttribute="top" id="CDw-WX-6tl"/>
+                                    <constraint firstItem="Sbi-Tn-3Mh" firstAttribute="centerX" secondItem="QPW-hC-MU5" secondAttribute="centerX" id="PCv-7Q-aVu"/>
+                                    <constraint firstItem="f3l-mL-rGT" firstAttribute="centerX" secondItem="QPW-hC-MU5" secondAttribute="centerX" id="WaK-ZP-7w1"/>
+                                    <constraint firstItem="DfW-w8-VVv" firstAttribute="centerX" secondItem="QPW-hC-MU5" secondAttribute="centerX" id="agj-tb-nXe"/>
+                                    <constraint firstItem="Sbi-Tn-3Mh" firstAttribute="top" secondItem="QPW-hC-MU5" secondAttribute="top" id="z7L-Z1-I5D"/>
+                                </constraints>
+                            </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pYt-1i-1zF">
                                 <rect key="frame" x="37" y="144" width="340" height="340"/>
                                 <color key="backgroundColor" red="0.63731935220187008" green="0.78330002845228475" blue="0.8971269057263056" alpha="0.35592358732876711" colorSpace="custom" customColorSpace="sRGB"/>
@@ -55,15 +86,20 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="BNh-wo-VaD"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSm-Er-f5K">
-                                <rect key="frame" x="132" y="78" width="150" height="34"/>
-                                <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSm-Er-f5K">
+                                <rect key="frame" x="127" y="76" width="160" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="w4q-XE-Nt3"/>
+                                    <constraint firstAttribute="height" constant="40" id="Lzs-Ev-6yR"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="OWM-Bh-FKg"/>
+                                    <constraint firstAttribute="width" constant="160" id="dpT-gS-tib"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
-                                <state key="normal" title="Start new game">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                <state key="normal" title="Start new game" backgroundImage="buttonBlack">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="selected" backgroundImage="buttonGray"/>
+                                <state key="highlighted" backgroundImage="buttonGray">
+                                    <color key="titleColor" red="0.89999997620000005" green="0.89999997620000005" blue="0.89999997620000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="startNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XEr-00-FUR"/>
@@ -73,15 +109,21 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="pYt-1i-1zF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6Ux-EQ-obS"/>
+                            <constraint firstItem="WSm-Er-f5K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CVB-BA-00A"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QPW-hC-MU5" secondAttribute="trailing" constant="30" id="FKB-EE-W5l"/>
                             <constraint firstItem="pYt-1i-1zF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="UcL-ss-fv3"/>
-                            <constraint firstItem="WSm-Er-f5K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="34" id="YG2-Xp-0XZ"/>
-                            <constraint firstItem="WSm-Er-f5K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bxf-9f-Km1"/>
+                            <constraint firstItem="QPW-hC-MU5" firstAttribute="top" secondItem="pYt-1i-1zF" secondAttribute="bottom" constant="40" id="W9C-80-oSC"/>
+                            <constraint firstItem="WSm-Er-f5K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="oh1-pI-jdg"/>
+                            <constraint firstItem="QPW-hC-MU5" firstAttribute="leading" secondItem="pYt-1i-1zF" secondAttribute="leading" id="zSd-hd-IXJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="pYt-1i-1zF" id="rYY-uE-2DB"/>
-                        <outlet property="startButton" destination="WSm-Er-f5K" id="ifG-07-gd5"/>
+                        <outlet property="currentPlayerInfo" destination="Sbi-Tn-3Mh" id="gFG-Re-ezF"/>
+                        <outlet property="gameOverInfo" destination="f3l-mL-rGT" id="Glh-wy-Er4"/>
+                        <outlet property="gameResultInfo" destination="DfW-w8-VVv" id="Ltb-GK-adB"/>
+                        <outlet property="startButton" destination="WSm-Er-f5K" id="Z2K-it-jJG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -89,4 +131,8 @@
             <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="buttonBlack" width="1280" height="720"/>
+        <image name="buttonGray" width="512" height="256"/>
+    </resources>
 </document>

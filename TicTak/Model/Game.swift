@@ -27,10 +27,10 @@ class Game {
     }
     
     func isGameOver() -> Bool {
-        var result = false
+        var result = true
         for i in 0..<dimension {
                 let cell : Cell = playingField.arr[i]
-                result = cell.isEmpty && result
+                result = !cell.isEmpty && result
         }
         return result
     }

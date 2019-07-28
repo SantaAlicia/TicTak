@@ -65,16 +65,16 @@ class TicTakTests: XCTestCase {
     }
     
     //func testplayerChangeCellBy() {
-    func testpFirsMove() {
+    func testFirsTurm() {
         let gameController = GameController.shared
         gameController.startNewGame()
-        gameController.playerChangeCellBy(index: 3)
-        
+        let res : Bool = gameController.playerChangeCellBy(index: 3)
+        XCTAssertTrue(res)
         let cell : Cell = gameController.game.playingField.arr[3]
-         XCTAssertEqual(cell.type, CellType.cross, "testpFirsMove is Failed")
+         XCTAssertEqual(cell.type, CellType.cross, "testFirsTurm is Failed")
     }
     
-     func testplayerChangeCellBy() {
+     func testPlayerChangeCellBy() {
         let gameController = GameController.shared
         gameController.startNewGame()
         gameController.game.changeItem(atIndex: 4, newValue: CrossCell())
@@ -84,7 +84,7 @@ class TicTakTests: XCTestCase {
         
         let cell : Cell = gameController.game.playingField.arr[4]
         //cell does not have to be changed
-        XCTAssertEqual(cell.type, CellType.cross, "testplayerChangeCellBy is Failed")
+        XCTAssertEqual(cell.type, CellType.cross, "testPlayerChangeCellBy is Failed")
     }
     
     func testZeroPlayerChangeCellBy() {
@@ -102,10 +102,29 @@ class TicTakTests: XCTestCase {
         let gameController = GameController.shared
         gameController.startNewGame()
         gameController.currentPlayer = Player.cross
-         let res : Bool = gameController.playerChangeCellBy(index: 4)
+        let res : Bool = gameController.playerChangeCellBy(index: 4)
     
         XCTAssertTrue(res)
         let cell : Cell = gameController.game.playingField.arr[4]
         XCTAssertEqual(cell.type, CellType.cross, "testCrossPlayerChangeCellBy is Failed")
+        
+        let text = gameController.textGameOver()
+        XCTAssertEqual(text, nil, "testCrossPlayerChangeCellBy is Failed")
+        let textCurrenPlayer = gameController.textAboutCurrentPlayer()
+        XCTAssertNotEqual(textCurrenPlayer, nil, "testCrossPlayerChangeCellBy is Failed")
+    }
+    
+    func testIsGameOver() {
+        let gameController = GameController.shared
+        for i in 0..<size {
+            gameController.game.changeItem(atIndex: i, newValue: CrossCell())
+        }
+        let res : Bool = gameController.isGameOver()
+        XCTAssertEqual(res, true, "testIsGameOver is Failed")
+        
+        let text = gameController.textGameOver()
+        XCTAssertNotEqual(text, nil, "testIsGameOver is Failed")
+        
+        
     }
 }

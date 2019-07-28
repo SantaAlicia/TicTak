@@ -12,6 +12,9 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var currentPlayerInfo: UILabel!
+    @IBOutlet weak var gameOverInfo: UILabel!
+    @IBOutlet weak var gameResultInfo: UILabel!
     
     let reuseIdentifier = "ticTakCell"
     let gameController = GameController.shared
@@ -19,16 +22,29 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateView()
+        callFuncNewGame()
     }
     
     func updateView () {
-        startButton.layer.cornerRadius = 5
+        startButton.layer.cornerRadius = 6
+        startButton.clipsToBounds = true
         collectionView.backgroundColor = UIColor(patternImage: UIImage(named: "notebookBackground")!)
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "woodBackground")!)
+    }
+    
+    func updateInfoLabels () {
+        currentPlayerInfo.text = gameController.textAboutCurrentPlayer()
+        gameOverInfo.text = gameController.textGameOver()
+    }
+    
+    func callFuncNewGame() {
+        gameController.startNewGame()
+        collectionView.reloadData()
+        updateInfoLabels()
     }
     
     @IBAction func startNewGame(_ sender: Any) {
-        collectionView.reloadData()
-        gameController.startNewGame()
+        callFuncNewGame()
     }
 }
 
@@ -60,6 +76,7 @@ extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (gameController.playerChangeCellBy(index: indexPath.row)) {
             collectionView.reloadData()
+            updateInfoLabels()
         }
     }
     

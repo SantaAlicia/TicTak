@@ -28,7 +28,7 @@ class GameController {
         currentPlayer = Player.cross
     }
     
-    func makeNextMove() {
+    func makeNextTurn() {
         if currentPlayer == Player.cross {
             currentPlayer = Player.zero
         } else {
@@ -50,7 +50,35 @@ class GameController {
         } else {
             game.changeItem(atIndex: index, newValue: ZeroCell())
         }
-        makeNextMove()
+        makeNextTurn()
         return true
     }
+    
+    func isGameOver() -> Bool {
+        return game.isGameOver()
+    }
+    
+    func textAboutCurrentPlayer() -> String? {
+        if (isGameOver()) {
+            return nil
+        }
+        
+        
+        switch currentPlayer {
+        case Player.cross:
+           return "Turn of Player \"Cross\""
+            
+        case Player.zero:
+            return "Turn of Player \"Zero\""
+        }
+    }
+    
+    func textGameOver() -> String? {
+        var result : String?
+        if (isGameOver()) {
+            result = "Game is Over!"
+        }
+        return result
+    }
+    
 }
