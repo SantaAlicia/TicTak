@@ -22,6 +22,7 @@ class TicTakTests: XCTestCase {
         super.tearDown()
 
     }
+    
     func testGameInitialization() {
         let game = Game()
         
@@ -31,15 +32,24 @@ class TicTakTests: XCTestCase {
         }
     }
 
-
-    func testGameStarted() {
+    func testPreparationForNewGame() {
         let game = Game()
         game.changeItem(atIndex: 4, newValue: CrossCell())
         game.preparationForNewGame()
         
         for i in 0..<size {
             let cell = game.playingField.arr[i]
-            XCTAssertEqual(cell.isEmpty, true, "ChangeStarted works wrong")
+            XCTAssertEqual(cell.isEmpty, true, "preparationForNewGame works wrong")
+        }
+    }
+    
+    func testGameStarted() {
+        let gameController = GameController.shared
+        gameController.startNewGame()
+        
+        for i in 0..<size {
+            let cell = gameController.game.playingField.arr[i]
+            XCTAssertEqual(cell.isEmpty, true, "startNewGame works wrong")
         }
     }
     
@@ -52,5 +62,47 @@ class TicTakTests: XCTestCase {
             if i == 4 {
                 XCTAssertEqual(cell.type, CellType.cross, "ChangeItems works wrong")}
         }
+    }
+    
+    //func testplayerChangeCellBy() {
+    func testpFirsMove() {
+        let gameController = GameController.shared
+        gameController.startNewGame()
+        gameController.playerChangeCellBy(index: 3)
+        
+        let cell : Cell = gameController.game.playingField.arr[3]
+         XCTAssertEqual(cell.type, CellType.cross, "testpFirsMove is Failed")
+    }
+    
+     func testplayerChangeCellBy() {
+        let gameController = GameController.shared
+        gameController.startNewGame()
+        gameController.game.changeItem(atIndex: 4, newValue: CrossCell())
+        gameController.currentPlayer = Player.zero
+        gameController.playerChangeCellBy(index: 4)
+        
+        let cell : Cell = gameController.game.playingField.arr[4]
+        //cell does not have to be changed
+        XCTAssertEqual(cell.type, CellType.cross, "testplayerChangeCellBy is Failed")
+    }
+    
+    func testZeroPlayerChangeCellBy() {
+        let gameController = GameController.shared
+        gameController.startNewGame()
+        gameController.currentPlayer = Player.zero
+        gameController.playerChangeCellBy(index: 5)
+        
+        let cell : Cell = gameController.game.playingField.arr[5]
+        XCTAssertEqual(cell.type, CellType.zero, "testZeroPlayerChangeCellBy is Failed")
+    }
+    
+    func testCrossPlayerChangeCellBy() {
+        let gameController = GameController.shared
+        gameController.startNewGame()
+        gameController.currentPlayer = Player.cross
+        gameController.playerChangeCellBy(index: 4)
+    
+    let cell : Cell = gameController.game.playingField.arr[4]
+    XCTAssertEqual(cell.type, CellType.cross, "testCrossPlayerChangeCellBy is Failed")
     }
 }

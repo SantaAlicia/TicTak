@@ -36,7 +36,11 @@ class GameController {
         }
     }
     
-    func typeOfCellinPosition (index : Int) -> CellType {
+    func typeOfCellinPosition(index : Int) -> CellType {
         return game.playingField.arr[index].type
+    }
+    
+    func playerChangeCellBy(index : Int) {
+        
     }
 }
