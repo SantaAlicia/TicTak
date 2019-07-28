@@ -8,36 +8,32 @@
 
 import UIKit
 
-enum CellFill {
+enum CellType {
     case cross
     case zero
+    case empty
 }
-
 class Cell {
     var isEmpty : Bool = true
-    var fill : CellFill!
     var image : UIImage!
-    var backgroundColor : UIColor!
+    var type : CellType = CellType.empty
     
     func emptyCell() {
+        type = CellType.empty
         isEmpty = true
-        fill = nil
         image = nil
-        backgroundColor = UIColor.lightGray
     }
     
     func crossCell() {
+        type = CellType.cross
         isEmpty = false
-        fill = CellFill.cross
         image = UIImage(named: "cross")
-        backgroundColor = nil
     }
     
     func zeroCell() {
+        type = CellType.zero
         isEmpty = false
-        fill = CellFill.zero
         image = UIImage(named: "zero")
-        backgroundColor = nil
     }
 }
 

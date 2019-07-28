@@ -21,16 +21,9 @@ class ViewController: UIViewController {
         updateView()
     }
     
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//
-//        if let flowLayout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-//            flowLayout.itemSize = CGSize(width: self.collectionView.bounds.width, height: 120)
-//        }
-//    }
-    
     func updateView () {
         startButton.layer.cornerRadius = 5
+        collectionView.backgroundColor = UIColor(patternImage: UIImage(named: "notebookBackground")!)
     }
     
     @IBAction func startNewGame(_ sender: Any) {
@@ -52,8 +45,13 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TicCollectionViewCell
-        cell.imgView.backgroundColor = UIColor.lightGray
-        cell.emptyCell()
+
+        cell.layer.borderColor = UIColor.lightGray.cgColor
+        cell.layer.borderWidth = 2
+        cell.isUserInteractionEnabled = true
+        
+        let objectCell : Cell = gameController.game.playingField.arr[indexPath.row]
+        cell.fillCell(cell: objectCell)
         return cell
     }
 }
@@ -61,7 +59,10 @@ extension ViewController: UICollectionViewDataSource {
 extension ViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item + 1)
+        let cell = Cell()
+        cell.crossCell()
+        gameController.game.changeItem(atIndex: indexPath.row, newValue: cell)
+        collectionView.reloadData()
     }
 }
 

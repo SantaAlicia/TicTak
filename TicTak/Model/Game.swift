@@ -9,34 +9,38 @@
 import UIKit
 
 class Game {
-    let dimension = 3
+    let dimension = 9
     let playingField : Field = Field()
     
     static let shared = Game()
 
     init () {
-        playingField.arr = Array(repeating: Array(repeating: Cell(), count: 3), count: 3)
+        var cell : Cell!
+        for _ in 0..<dimension {
+            cell = Cell()
+            playingField.arr.append(cell)
+        }
     }
     
     func startGame() {
         for i in 0..<dimension {
-            for j in 0..<dimension {
-                let cell : Cell = playingField.arr[i][j]
-                cell.isEmpty = true
-            }
+            let cell : Cell = playingField.arr[i]
+            cell.zeroCell()
+            playingField.arr[i] = cell
         }
     }
     
     func isGameOver() -> Bool {
         var result = false
         for i in 0..<dimension {
-            for j in 0..<dimension {
-                let cell : Cell = playingField.arr[i][j]
+                let cell : Cell = playingField.arr[i]
                 result = cell.isEmpty && result
-            }
         }
         return result
     }
     
+    func changeItem(atIndex : Int, newValue : Cell) {
+        playingField.arr[atIndex]  = newValue
+    }
 }
 

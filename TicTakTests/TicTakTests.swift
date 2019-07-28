@@ -10,7 +10,7 @@ import XCTest
 @testable import TicTak
 
 class TicTakTests: XCTestCase {
-    let size: Int = 3
+    let size: Int = 9
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -26,12 +26,36 @@ class TicTakTests: XCTestCase {
         let game = Game()
         
         for i in 0..<size {
-            for j in 0..<size {
-                let cell = game.playingField.arr[i][j]
-                XCTAssertEqual(cell.isEmpty, true, "Game init wrong")
-            }
+            let cell = game.playingField.arr[i]
+            XCTAssertEqual(cell.isEmpty, true, "Game init wrong")
         }
     }
 
 
+    func testGameStarted() {
+        let game = Game()
+        let cell = Cell()
+        cell.crossCell()
+        game.changeItem(atIndex: 4, newValue: cell)
+
+        game.startGame()
+        
+        for i in 0..<size {
+            let cell = game.playingField.arr[i]
+            XCTAssertEqual(cell.isEmpty, true, "ChangeStarted works wrong")
+        }
+    }
+    
+    func testChangeItems() {
+        let game = Game()
+        let cell = Cell()
+        cell.crossCell()
+        game.changeItem(atIndex: 4, newValue: cell)
+        
+        for i in 0..<size {
+            let cell = game.playingField.arr[i]
+            if i == 4 {
+                XCTAssertEqual(cell.type, CellType.cross, "ChangeItems works wrong")}
+        }
+    }
 }

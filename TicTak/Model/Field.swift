@@ -9,7 +9,7 @@
 import UIKit
 
 class Field  {
-    var arr = [[Cell]]()
+    var arr = [Cell]()
     
     static let shared = Field()
 }
