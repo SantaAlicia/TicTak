@@ -23,9 +23,6 @@ class TicCollectionViewCell: UICollectionViewCell {
             
         case CellType.zero:
             imageView.image = UIImage(named: "zero")
-            
-        default:
-            imageView.image = nil
         }
     }
 }

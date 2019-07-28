@@ -10,7 +10,6 @@ import XCTest
 @testable import TicTak
 
 class TicTakTests: XCTestCase {
-    let size: Int = 9
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -26,19 +25,19 @@ class TicTakTests: XCTestCase {
     func testGameInitialization() {
         let game = Game()
         
-        for i in 0..<size {
-            let cell = game.playingField.arr[i]
+        for i in 0..<GameConstants.gameDimension {
+            let cell = game.valueForCell(atIndex: i)
             XCTAssertEqual(cell.isEmpty, true, "Game init wrong")
         }
     }
 
     func testPreparationForNewGame() {
         let game = Game()
-        game.changeItem(atIndex: 4, newValue: CrossCell())
+        game.changeOneCell(atIndex: 4, newValue: CrossCell())
         game.preparationForNewGame()
         
-        for i in 0..<size {
-            let cell = game.playingField.arr[i]
+        for i in 0..<GameConstants.gameDimension {
+            let cell = game.valueForCell(atIndex: i)
             XCTAssertEqual(cell.isEmpty, true, "preparationForNewGame works wrong")
         }
     }
@@ -47,8 +46,8 @@ class TicTakTests: XCTestCase {
         let gameController = GameController.shared
         gameController.startNewGame()
         
-        for i in 0..<size {
-            let cell = gameController.game.playingField.arr[i]
+        for i in 0..<GameConstants.gameDimension {
+            let cell = gameController.game.valueForCell(atIndex: i)
             XCTAssertEqual(cell.isEmpty, true, "startNewGame works wrong")
         }
         let text = gameController.textGameOver()
@@ -57,34 +56,33 @@ class TicTakTests: XCTestCase {
     
     func testChangeItems() {
         let game = Game()
-        game.changeItem(atIndex: 4, newValue: CrossCell())
+        game.changeOneCell(atIndex: 4, newValue: CrossCell())
         
-        for i in 0..<size {
-            let cell = game.playingField.arr[i]
+        for i in 0..<GameConstants.gameDimension {
+            let cell = game.valueForCell(atIndex: i)
             if i == 4 {
                 XCTAssertEqual(cell.type, CellType.cross, "ChangeItems works wrong")}
         }
     }
     
-    //func testplayerChangeCellBy() {
     func testFirsTurm() {
         let gameController = GameController.shared
         gameController.startNewGame()
         let res : Bool = gameController.playerChangeCellBy(index: 3)
         XCTAssertTrue(res)
-        let cell : Cell = gameController.game.playingField.arr[3]
+        let cell = gameController.game.valueForCell(atIndex: 3)
          XCTAssertEqual(cell.type, CellType.cross, "testFirsTurm is Failed")
     }
     
      func testPlayerChangeCellBy() {
         let gameController = GameController.shared
         gameController.startNewGame()
-        gameController.game.changeItem(atIndex: 4, newValue: CrossCell())
+        gameController.game.changeOneCell(atIndex: 4, newValue: CrossCell())
         gameController.currentPlayer = Player.zero
         let res : Bool = gameController.playerChangeCellBy(index: 4)
         XCTAssertFalse(res)
         
-        let cell : Cell = gameController.game.playingField.arr[4]
+        let cell = gameController.game.valueForCell(atIndex: 4)
         //cell does not have to be changed
         XCTAssertEqual(cell.type, CellType.cross, "testPlayerChangeCellBy is Failed")
     }
@@ -96,7 +94,7 @@ class TicTakTests: XCTestCase {
         let res : Bool = gameController.playerChangeCellBy(index: 5)
         
         XCTAssertTrue(res)
-        let cell : Cell = gameController.game.playingField.arr[5]
+        let cell = gameController.game.valueForCell(atIndex: 5)
         XCTAssertEqual(cell.type, CellType.zero, "testZeroPlayerChangeCellBy is Failed")
     }
     
@@ -107,7 +105,7 @@ class TicTakTests: XCTestCase {
         let res : Bool = gameController.playerChangeCellBy(index: 4)
     
         XCTAssertTrue(res)
-        let cell : Cell = gameController.game.playingField.arr[4]
+        let cell : Cell = gameController.game.valueForCell(atIndex: 4)
         XCTAssertEqual(cell.type, CellType.cross, "testCrossPlayerChangeCellBy is Failed")
         
         let text = gameController.textGameOver()
@@ -118,8 +116,8 @@ class TicTakTests: XCTestCase {
     
     func testIsGameOver() {
         let gameController = GameController.shared
-        for i in 0..<size {
-            gameController.game.changeItem(atIndex: i, newValue: CrossCell())
+        for i in 0..<GameConstants.gameDimension {
+            gameController.game.changeOneCell(atIndex: i, newValue: CrossCell())
         }
         let res : Bool = gameController.isGameOver()
         XCTAssertEqual(res, true, "testIsGameOver is Failed")

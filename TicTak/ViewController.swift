@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     }
     
     func updateView () {
-        startButton.layer.cornerRadius = 6
+        startButton.layer.cornerRadius = DesignConstants.cornerRadius
         startButton.clipsToBounds = true
         collectionView.backgroundColor = UIColor(patternImage: UIImage(named: "notebookBackground")!)
         view.backgroundColor = UIColor(patternImage: UIImage(named: "woodBackground")!)
@@ -50,24 +50,23 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDataSource {
 
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return GameConstants.gameDimension
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TicCollectionViewCell
+        let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TicCollectionViewCell
 
-        cell.layer.borderColor = UIColor.lightGray.cgColor
-        cell.layer.borderWidth = 2
-        cell.isUserInteractionEnabled = true
+        collectionCell.layer.borderColor = UIColor.lightGray.cgColor
+        collectionCell.layer.borderWidth = 2
+        collectionCell.isUserInteractionEnabled = true
 
-        cell.fillCell(type : gameController.typeOfCellinPosition(index : indexPath.row))
-        return cell
+        collectionCell.fillCell(type : gameController.typeOfCellInPosition(index : indexPath.row))
+        return collectionCell
     }
 }
 
@@ -79,6 +78,5 @@ extension ViewController: UICollectionViewDelegate {
             updateInfoLabels()
         }
     }
-    
 }
 

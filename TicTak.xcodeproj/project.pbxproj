@@ -15,10 +15,10 @@
 		8225F00022ECA89B007F01E7 /* TicTakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225EFFF22ECA89B007F01E7 /* TicTakTests.swift */; };
 		8225F00B22ECA89B007F01E7 /* TicTakUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F00A22ECA89B007F01E7 /* TicTakUITests.swift */; };
 		8225F01A22ECAB1B007F01E7 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F01922ECAB1B007F01E7 /* Cell.swift */; };
-		8225F01C22ECAC5B007F01E7 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F01B22ECAC5B007F01E7 /* Field.swift */; };
 		8225F01E22ECAC9A007F01E7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F01D22ECAC9A007F01E7 /* Game.swift */; };
 		8225F02122ECAEAD007F01E7 /* TicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F02022ECAEAD007F01E7 /* TicCollectionViewCell.swift */; };
 		8225F02622ECCD40007F01E7 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F02522ECCD40007F01E7 /* GameController.swift */; };
+		82942BC422EE211100E5EE97 /* Contants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82942BC322EE211100E5EE97 /* Contants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,10 +53,10 @@
 		8225F00A22ECA89B007F01E7 /* TicTakUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTakUITests.swift; sourceTree = "<group>"; };
 		8225F00C22ECA89B007F01E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8225F01922ECAB1B007F01E7 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
-		8225F01B22ECAC5B007F01E7 /* Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		8225F01D22ECAC9A007F01E7 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		8225F02022ECAEAD007F01E7 /* TicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicCollectionViewCell.swift; sourceTree = "<group>"; };
 		8225F02522ECCD40007F01E7 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		82942BC322EE211100E5EE97 /* Contants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +107,7 @@
 		8225EFE922ECA89A007F01E7 /* TicTak */ = {
 			isa = PBXGroup;
 			children = (
+				82942BC222EE20F800E5EE97 /* Utils */,
 				8225F02422ECCCA2007F01E7 /* Controllers */,
 				8225F01F22ECAE6D007F01E7 /* Cells */,
 				8225F01822ECAAE3007F01E7 /* Model */,
@@ -142,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				8225F01922ECAB1B007F01E7 /* Cell.swift */,
-				8225F01B22ECAC5B007F01E7 /* Field.swift */,
 				8225F01D22ECAC9A007F01E7 /* Game.swift */,
 			);
 			path = Model;
@@ -162,6 +162,14 @@
 				8225F02522ECCD40007F01E7 /* GameController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		82942BC222EE20F800E5EE97 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				82942BC322EE211100E5EE97 /* Contants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,7 +306,7 @@
 				8225EFED22ECA89B007F01E7 /* ViewController.swift in Sources */,
 				8225F01E22ECAC9A007F01E7 /* Game.swift in Sources */,
 				8225EFEB22ECA89B007F01E7 /* AppDelegate.swift in Sources */,
-				8225F01C22ECAC5B007F01E7 /* Field.swift in Sources */,
+				82942BC422EE211100E5EE97 /* Contants.swift in Sources */,
 				8225F01A22ECAB1B007F01E7 /* Cell.swift in Sources */,
 				8225F02122ECAEAD007F01E7 /* TicCollectionViewCell.swift in Sources */,
 				8225F02622ECCD40007F01E7 /* GameController.swift in Sources */,

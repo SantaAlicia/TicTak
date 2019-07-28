@@ -36,19 +36,19 @@ class GameController {
         }
     }
     
-    func typeOfCellinPosition(index : Int) -> CellType {
-        return game.playingField.arr[index].type
+    func typeOfCellInPosition(index : Int) -> CellType {
+        return game.valueForCell(atIndex: index).type
     }
     
     func playerChangeCellBy(index : Int) -> Bool {
-        let cell : Cell = game.playingField.arr[index]
+        let cell : Cell = game.valueForCell(atIndex: index)
         if !cell.isEmpty {
             return false
         }
         if (currentPlayer == Player.cross) {
-            game.changeItem(atIndex: index, newValue: CrossCell())
+            game.changeOneCell(atIndex: index, newValue: CrossCell())
         } else {
-            game.changeItem(atIndex: index, newValue: ZeroCell())
+            game.changeOneCell(atIndex: index, newValue: ZeroCell())
         }
         makeNextTurn()
         return true
