@@ -40,7 +40,17 @@ class GameController {
         return game.playingField.arr[index].type
     }
     
-    func playerChangeCellBy(index : Int) {
-        
+    func playerChangeCellBy(index : Int) -> Bool {
+        let cell : Cell = game.playingField.arr[index]
+        if !cell.isEmpty {
+            return false
+        }
+        if (currentPlayer == Player.cross) {
+            game.changeItem(atIndex: index, newValue: CrossCell())
+        } else {
+            game.changeItem(atIndex: index, newValue: ZeroCell())
+        }
+        makeNextMove()
+        return true
     }
 }

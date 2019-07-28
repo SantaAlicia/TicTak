@@ -79,7 +79,8 @@ class TicTakTests: XCTestCase {
         gameController.startNewGame()
         gameController.game.changeItem(atIndex: 4, newValue: CrossCell())
         gameController.currentPlayer = Player.zero
-        gameController.playerChangeCellBy(index: 4)
+        let res : Bool = gameController.playerChangeCellBy(index: 4)
+        XCTAssertFalse(res)
         
         let cell : Cell = gameController.game.playingField.arr[4]
         //cell does not have to be changed
@@ -90,8 +91,9 @@ class TicTakTests: XCTestCase {
         let gameController = GameController.shared
         gameController.startNewGame()
         gameController.currentPlayer = Player.zero
-        gameController.playerChangeCellBy(index: 5)
+        let res : Bool = gameController.playerChangeCellBy(index: 5)
         
+        XCTAssertTrue(res)
         let cell : Cell = gameController.game.playingField.arr[5]
         XCTAssertEqual(cell.type, CellType.zero, "testZeroPlayerChangeCellBy is Failed")
     }
@@ -100,9 +102,10 @@ class TicTakTests: XCTestCase {
         let gameController = GameController.shared
         gameController.startNewGame()
         gameController.currentPlayer = Player.cross
-        gameController.playerChangeCellBy(index: 4)
+         let res : Bool = gameController.playerChangeCellBy(index: 4)
     
-    let cell : Cell = gameController.game.playingField.arr[4]
-    XCTAssertEqual(cell.type, CellType.cross, "testCrossPlayerChangeCellBy is Failed")
+        XCTAssertTrue(res)
+        let cell : Cell = gameController.game.playingField.arr[4]
+        XCTAssertEqual(cell.type, CellType.cross, "testCrossPlayerChangeCellBy is Failed")
     }
 }
