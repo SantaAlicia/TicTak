@@ -2,7 +2,7 @@
 //  TicTakTests.swift
 //  TicTakTests
 //
-//  Created by liudmila vladimirova on 27/07/2019.
+//  Created by SantaAlicia on 27/07/2019.
 //  Copyright © 2019 SantaAlicia. All rights reserved.
 //
 
@@ -35,7 +35,7 @@ class TicTakTests: XCTestCase {
     func testGameStarted() {
         let game = Game()
         game.changeItem(atIndex: 4, newValue: CrossCell())
-        game.startGame()
+        game.preparationForNewGame()
         
         for i in 0..<size {
             let cell = game.playingField.arr[i]

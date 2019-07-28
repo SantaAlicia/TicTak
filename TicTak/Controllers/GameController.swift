@@ -20,11 +20,11 @@ class GameController {
     var currentPlayer : Player = Player.cross
     
     init() {
-        game.startGame()
+        game.preparationForNewGame()
     }
 
     func startNewGame() {
-        game.startGame()
+        game.preparationForNewGame()
         currentPlayer = Player.cross
     }
     
@@ -34,5 +34,9 @@ class GameController {
         } else {
             currentPlayer = Player.cross
         }
+    }
+    
+    func typeOfCellinPosition (index : Int) -> CellType {
+        return game.playingField.arr[index].type
     }
 }

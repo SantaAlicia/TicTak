@@ -20,10 +20,9 @@ class Game {
         }
     }
     
-    func startGame() {
+    func preparationForNewGame() {
         for i in 0..<dimension {
-            //let cell : Cell = playingField.arr[i]
-            playingField.arr[i] = ZeroCell()
+            playingField.arr[i] = EmptyCell()
         }
     }
     
@@ -40,4 +39,3 @@ class Game {
         playingField.arr[atIndex]  = newValue
     }
 }
-

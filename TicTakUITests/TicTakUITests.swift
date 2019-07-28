@@ -2,7 +2,7 @@
 //  TicTakUITests.swift
 //  TicTakUITests
 //
-//  Created by liudmila vladimirova on 27/07/2019.
+//  Created by SantaAlicia on 27/07/2019.
 //  Copyright © 2019 SantaAlicia. All rights reserved.
 //
 
@@ -29,7 +29,6 @@ class TicTakUITests: XCTestCase {
 
         let collectionViewsQuery = XCUIApplication().collectionViews
         
-       
         //collectionViewsQuery.children(matching: .cell).element(boundBy: 8).children(matching: .other).element.tap()
         XCTAssertEqual(collectionViewsQuery.cells.count, 9, "Count of collection's elemets wrong")
         

@@ -49,9 +49,8 @@ extension ViewController: UICollectionViewDataSource {
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 2
         cell.isUserInteractionEnabled = true
-        
-        let objectCell : Cell = gameController.game.playingField.arr[indexPath.row]
-        cell.fillCell(cell: objectCell)
+
+        cell.fillCell(type : gameController.typeOfCellinPosition(index : indexPath.row))
         return cell
     }
 }
@@ -59,6 +58,7 @@ extension ViewController: UICollectionViewDataSource {
 extension ViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         gameController.game.changeItem(atIndex: indexPath.row, newValue: CrossCell())
         collectionView.reloadData()
     }

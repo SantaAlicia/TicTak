@@ -2,7 +2,7 @@
 //  TicCollectionViewCell.swift
 //  TicTak
 //
-//  Created by liudmila vladimirova on 27/07/2019.
+//  Created by SantaAlicia on 27/07/2019.
 //  Copyright © 2019 SantaAlicia. All rights reserved.
 //
 
@@ -12,9 +12,9 @@ class TicCollectionViewCell: UICollectionViewCell {
  
     @IBOutlet weak var imageView: UIImageView!
     
-    func fillCell(cell : Cell) {
+    func fillCell(type : CellType) {
         
-        switch cell.type {
+        switch type {
         case CellType.empty:
             imageView.image = nil
             
