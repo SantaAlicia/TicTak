@@ -59,9 +59,7 @@ extension ViewController: UICollectionViewDataSource {
 extension ViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = Cell()
-        cell.crossCell()
-        gameController.game.changeItem(atIndex: indexPath.row, newValue: cell)
+        gameController.game.changeItem(atIndex: indexPath.row, newValue: CrossCell())
         collectionView.reloadData()
     }
 }

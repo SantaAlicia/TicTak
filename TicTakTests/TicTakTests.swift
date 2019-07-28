@@ -34,10 +34,7 @@ class TicTakTests: XCTestCase {
 
     func testGameStarted() {
         let game = Game()
-        let cell = Cell()
-        cell.crossCell()
-        game.changeItem(atIndex: 4, newValue: cell)
-
+        game.changeItem(atIndex: 4, newValue: CrossCell())
         game.startGame()
         
         for i in 0..<size {
@@ -48,9 +45,7 @@ class TicTakTests: XCTestCase {
     
     func testChangeItems() {
         let game = Game()
-        let cell = Cell()
-        cell.crossCell()
-        game.changeItem(atIndex: 4, newValue: cell)
+        game.changeItem(atIndex: 4, newValue: CrossCell())
         
         for i in 0..<size {
             let cell = game.playingField.arr[i]

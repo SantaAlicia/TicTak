@@ -13,7 +13,20 @@ class TicCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     
     func fillCell(cell : Cell) {
-        imageView.image = cell.image
+        
+        switch cell.type {
+        case CellType.empty:
+            imageView.image = nil
+            
+        case CellType.cross:
+            imageView.image = UIImage(named: "cross")
+            
+        case CellType.zero:
+            imageView.image = UIImage(named: "zero")
+            
+        default:
+            imageView.image = nil
+        }
     }
 }
 

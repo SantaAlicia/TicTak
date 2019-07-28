@@ -15,18 +15,15 @@ class Game {
     static let shared = Game()
 
     init () {
-        var cell : Cell!
         for _ in 0..<dimension {
-            cell = Cell()
-            playingField.arr.append(cell)
+            playingField.arr.append(EmptyCell())
         }
     }
     
     func startGame() {
         for i in 0..<dimension {
-            let cell : Cell = playingField.arr[i]
-            cell.zeroCell()
-            playingField.arr[i] = cell
+            //let cell : Cell = playingField.arr[i]
+            playingField.arr[i] = ZeroCell()
         }
     }
     

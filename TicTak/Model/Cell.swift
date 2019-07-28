@@ -13,27 +13,35 @@ enum CellType {
     case zero
     case empty
 }
+
 class Cell {
     var isEmpty : Bool = true
-    var image : UIImage!
     var type : CellType = CellType.empty
+}
+
+class EmptyCell : Cell {
     
-    func emptyCell() {
+    override init() {
+        super.init()
         type = CellType.empty
-        isEmpty = true
-        image = nil
     }
+}
+
+class CrossCell : Cell {
     
-    func crossCell() {
+    override init() {
+        super.init()
+        isEmpty = false
         type = CellType.cross
-        isEmpty = false
-        image = UIImage(named: "cross")
     }
+}
+
+class ZeroCell : Cell {
     
-    func zeroCell() {
-        type = CellType.zero
+    override init() {
+        super.init()
         isEmpty = false
-        image = UIImage(named: "zero")
+        type = CellType.zero
     }
 }
 
