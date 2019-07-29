@@ -28,8 +28,6 @@ class TicTacUITests: XCTestCase {
         startButton.tap()
 
         let collectionViewsQuery = XCUIApplication().collectionViews
-        
-        //collectionViewsQuery.children(matching: .cell).element(boundBy: 8).children(matching: .other).element.tap()
         XCTAssertEqual(collectionViewsQuery.cells.count, 9, "Count of collection's elemets wrong")
         
     }

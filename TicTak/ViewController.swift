@@ -65,7 +65,7 @@ extension ViewController: UICollectionViewDataSource {
         collectionCell.layer.borderWidth = 2
         collectionCell.isUserInteractionEnabled = true
 
-        collectionCell.fillCell(type : gameController.typeOfCellInPosition(index : indexPath.row))
+        collectionCell.fillCell(type : gameController.game.cellAtIndex(indexPath.row).type)
         return collectionCell
     }
 }
@@ -73,7 +73,7 @@ extension ViewController: UICollectionViewDataSource {
 extension ViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if (gameController.playerChangedCellBy(index: indexPath.row)) {
+        if (gameController.playerDoesTapInCellAtIndex(indexPath.row)) {
             collectionView.reloadData()
             updateInfoLabels()
         }

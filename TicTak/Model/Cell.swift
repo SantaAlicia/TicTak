@@ -15,14 +15,15 @@ enum CellType {
 }
 
 class Cell {
-    var isEmpty : Bool = true
-    var type : CellType = CellType.empty
+    var isEmpty = true
+    var type = CellType.empty
 }
 
 class EmptyCell : Cell {
     
     override init() {
         super.init()
+        isEmpty = true
         type = CellType.empty
     }
 }

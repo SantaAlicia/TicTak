@@ -16,7 +16,8 @@ enum Player {
 class GameController {
 
     static let shared = GameController()
-    let game = Game.shared
+    //let game = Game.shared
+    let game = Game()
     var currentPlayer : Player = Player.cross
     
     init() {
@@ -29,27 +30,20 @@ class GameController {
     }
     
     func makeNextTurn() {
-        if currentPlayer == Player.cross {
-            currentPlayer = Player.zero
-        } else {
-            currentPlayer = Player.cross
-        }
+        currentPlayer = (currentPlayer == Player.cross) ? Player.zero : Player.cross
     }
+//
+//    func typeOfCellAtIndex(index : Int) -> CellType {
+//        return game.cellAtIndex(index).type
+//    }
     
-    func typeOfCellInPosition(index : Int) -> CellType {
-        return game.cellAtIndex(atIndex: index).type
-    }
-    
-    func playerChangedCellBy(index : Int) -> Bool {
-        let cell : Cell = game.cellAtIndex(atIndex: index)
+    func playerDoesTapInCellAtIndex(_ index : Int) -> Bool {
+        let cell : Cell = game.cellAtIndex(index)
+        
         if !cell.isEmpty {
             return false
         }
-        if (currentPlayer == Player.cross) {
-            game.changeCellAtIndex(atIndex: index, newValue: CrossCell())
-        } else {
-            game.changeCellAtIndex(atIndex: index, newValue: ZeroCell())
-        }
+        changeCellAtIndexByCurrentPlayer(index)
         makeNextTurn()
         return true
     }
@@ -83,3 +77,13 @@ class GameController {
     }
     
 }
+extension GameController {
+    private func changeCellAtIndexByCurrentPlayer(_ atIndex : Int) {
+        if (currentPlayer == Player.cross) {
+            game.changeCellAtIndex(atIndex, newValue: CrossCell())
+        } else {
+            game.changeCellAtIndex(atIndex, newValue: ZeroCell())
+        }
+    }
+}
+

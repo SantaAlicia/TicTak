@@ -8,15 +8,14 @@
 
 import UIKit
 
+private class Field  {
+    var arr = [Cell]()
+    //static let shared = Field()
+}
+
 class Game {
-    
-    class Field  {
-        var arr = [Cell]()
-        static let shared = Field()
-    }
-    
-    private let gameBorder = Field.shared
-    static let shared = Game()
+    private let gameBorder = Field()
+    //static let shared = Game()
 
     init () {
         for _ in 0..<GameConstants.gameDimension  {
@@ -32,18 +31,18 @@ class Game {
 }
 
 extension Game {
-    func changeCellAtIndex(atIndex : Int, newValue : Cell) {
+    func changeCellAtIndex(_ atIndex : Int, newValue : Cell) {
         gameBorder.arr[atIndex]  = newValue
     }
     
-    func cellAtIndex(atIndex : Int) -> Cell{
+    func cellAtIndex(_ atIndex : Int) -> Cell{
         let cell = gameBorder.arr[atIndex]
         return cell
     }
 }
 
 extension Game {
-    func isGameOver() -> Bool {
+     func isGameOver() -> Bool {
         var result = true
         for i in 0..<GameConstants.gameDimension  {
             let cell : Cell = gameBorder.arr[i]
@@ -52,7 +51,7 @@ extension Game {
         return result
     }
     
-    func isGameJustStarted() -> Bool {
+     func isGameJustStarted() -> Bool {
         var result = true
         for i in 0..<GameConstants.gameDimension  {
             let cell : Cell = gameBorder.arr[i]
