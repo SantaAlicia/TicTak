@@ -13,12 +13,20 @@ enum Player {
     case zero
 }
 
+enum GameState {
+    case isNotStarted
+    case isStarted
+    case isProceed
+    case isOver
+}
+
 class GameController {
 
     static let shared = GameController()
-    //let game = Game.shared
     let game = Game()
     var currentPlayer : Player = Player.cross
+    var state = GameState.isNotStarted
+    var gameResult : GameWinner?
     
     init() {
         game.preparationForNewGame()
@@ -27,15 +35,8 @@ class GameController {
     func startNewGame() {
         game.preparationForNewGame()
         currentPlayer = Player.cross
+        state = GameState.isStarted
     }
-    
-    func makeNextTurn() {
-        currentPlayer = (currentPlayer == Player.cross) ? Player.zero : Player.cross
-    }
-//
-//    func typeOfCellAtIndex(index : Int) -> CellType {
-//        return game.cellAtIndex(index).type
-//    }
     
     func playerDoesTapInCellAtIndex(_ index : Int) -> Bool {
         let cell : Cell = game.cellAtIndex(index)
@@ -44,39 +45,25 @@ class GameController {
             return false
         }
         changeCellAtIndexByCurrentPlayer(index)
-        makeNextTurn()
+        if (isGameOver()) {
+            state = GameState.isOver
+            gameResult = GameResultController.findWiiner()
+        } else {
+            state = GameState.isProceed
+            changeCurrentPlayer()
+        }
         return true
     }
     
     func isGameOver() -> Bool {
+        gameResult = GameResultController.findWiiner()
+        if (gameResult == GameWinner.crossWinner) || (gameResult == GameWinner.zeroWinner) {
+            return true
+        }
         return game.isGameOver()
     }
-    
-    func textAboutCurrentPlayer() -> String? {
-        if (isGameOver()) {
-            return nil
-        }
-        if (game.isGameJustStarted()) {
-            return "First is Turn of Player \"Cross\""
-        }
-        switch currentPlayer {
-        case Player.cross:
-           return "Turn of Player \"Cross\""
-            
-        case Player.zero:
-            return "Turn of Player \"Zero\""
-        }
-    }
-    
-    func textGameOver() -> String? {
-        var result : String?
-        if (isGameOver()) {
-            result = "Game is Over!"
-        }
-        return result
-    }
-    
 }
+
 extension GameController {
     private func changeCellAtIndexByCurrentPlayer(_ atIndex : Int) {
         if (currentPlayer == Player.cross) {
@@ -84,6 +71,10 @@ extension GameController {
         } else {
             game.changeCellAtIndex(atIndex, newValue: ZeroCell())
         }
+    }
+    
+    private func changeCurrentPlayer() {
+        currentPlayer = (currentPlayer == Player.cross) ? Player.zero : Player.cross
     }
 }
 

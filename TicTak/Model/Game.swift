@@ -63,9 +63,9 @@ extension Game {
 
 extension Game {
     private func findAllCellWithType(type : CellType) -> [Int]? {
-        if (!isGameOver()) {
-            return nil
-        }
+//        if (!isGameOver()) {
+//            return nil
+//        }
         var array : [Int] = [Int]()
         for i in 0..<GameConstants.gameDimension  {
             let cell : Cell = gameBorder.arr[i]
@@ -75,12 +75,33 @@ extension Game {
         }
         return array
     }
+    
     func fintAllCellWithCross() ->[Int]? {
         return findAllCellWithType(type: CellType.cross)
     }
     
     func fintAllCellWithZero() ->[Int]? {
         return findAllCellWithType(type: CellType.zero)
+    }
+
+    func findAllCellWithCross() ->Set<Int>? {
+        return findAllCellWithType(CellType.cross)
+    }
+    
+    func findAllCellWithZero() ->Set<Int>? {
+        return findAllCellWithType(CellType.zero)
+    }
+
+private func findAllCellWithType(_ type : CellType) ->Set<Int>? {
+        var cellsForType : Set<Int> = []
+        let arr : [Int]?  =  findAllCellWithType(type:type)
+        guard let unwrappedArr = arr else {
+            return nil
+        }
+        for element in unwrappedArr {
+            cellsForType.insert(element)
+        }
+        return cellsForType
     }
 }
 

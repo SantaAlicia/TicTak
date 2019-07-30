@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateView()
-        callFuncNewGame()
+        beforeNewGame()
     }
     
     func updateView () {
@@ -32,19 +32,8 @@ class ViewController: UIViewController {
         view.backgroundColor = UIColor(patternImage: UIImage(named: "woodBackground")!)
     }
     
-    func updateInfoLabels () {
-        currentPlayerInfo.text = gameController.textAboutCurrentPlayer()
-        gameOverInfo.text = gameController.textGameOver()
-    }
-    
-    func callFuncNewGame() {
-        gameController.startNewGame()
-        collectionView.reloadData()
-        updateInfoLabels()
-    }
-    
-    @IBAction func startNewGame(_ sender: Any) {
-        callFuncNewGame()
+    @IBAction func startNewGameButtonPressed(_ sender: Any) {
+        startNewGame()
     }
 }
 
@@ -76,7 +65,93 @@ extension ViewController: UICollectionViewDelegate {
         if (gameController.playerDoesTapInCellAtIndex(indexPath.row)) {
             collectionView.reloadData()
             updateInfoLabels()
+            updateButtonState()
         }
     }
+}
+
+extension ViewController {
+    
+private func startNewGame() {
+        gameController.startNewGame()
+        collectionView.reloadData()
+        updateInfoLabels()
+        updateButtonState()
+}
+    
+private func beforeNewGame() {
+        collectionView.reloadData()
+        updateInfoLabels()
+        updateButtonState()
+}
+    
+private func updateInfoLabels () {
+    switch gameController.state {
+        case GameState.isNotStarted:
+            currentPlayerInfo.text = ""
+            gameOverInfo.text = ""
+            gameResultInfo.text = ""
+            
+        case GameState.isStarted:
+            currentPlayerInfo.text = "First is Turn of Player \"Cross\""
+            gameOverInfo.text = ""
+            gameResultInfo.text = ""
+            
+        case GameState.isProceed:
+            currentPlayerInfo.text = currentPlayerText()
+            gameOverInfo.text = ""
+            gameResultInfo.text = ""
+        
+        case GameState.isOver:
+            currentPlayerInfo.text = ""
+            gameOverInfo.text = "Game is Over!"
+            gameResultInfo.text = winnerText()
+        }
+    }
+    
+    private func currentPlayerText() -> String {
+        switch gameController.currentPlayer {
+        case Player.cross:
+            return "Turn of Player \"Cross\""
+            
+        case Player.zero:
+            return "Turn of Player \"Zero\""
+        }
+    }
+    
+    private func winnerText() -> String {
+        
+        guard let unwrapped = gameController.gameResult else {
+            return ""
+        }
+        
+        switch unwrapped {
+        case GameWinner.crossWinner:
+            return "Player \"Cross\" is winner!"
+            
+        case GameWinner.zeroWinner:
+            return "Player \"Zero\" is winner!"
+            
+        case GameWinner.draw :
+            return "Draw. Nobody's won"
+        }
+    }
+    
+    private func updateButtonState() {
+        switch gameController.state {
+        case GameState.isNotStarted:
+            startButton.isEnabled = true
+            
+        case GameState.isStarted:
+            startButton.isEnabled = false
+            
+        case GameState.isProceed:
+            startButton.isEnabled = false
+            
+        case GameState.isOver:
+            startButton.isEnabled = true
+        }
+    }
+    
 }
 

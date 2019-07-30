@@ -20,7 +20,7 @@
 		828A2F0A22EE4BD000184CF5 /* TicTacTestsGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828A2F0722EE4BD000184CF5 /* TicTacTestsGameController.swift */; };
 		828A2F0B22EE4BD000184CF5 /* TicTcTestGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828A2F0822EE4BD000184CF5 /* TicTcTestGame.swift */; };
 		82942BC422EE211100E5EE97 /* Contants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82942BC322EE211100E5EE97 /* Contants.swift */; };
-		82942BC822EE312100E5EE97 /* CheckForWinning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82942BC722EE312100E5EE97 /* CheckForWinning.swift */; };
+		82942BC822EE312100E5EE97 /* GameResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82942BC722EE312100E5EE97 /* GameResultController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +60,7 @@
 		828A2F0822EE4BD000184CF5 /* TicTcTestGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicTcTestGame.swift; sourceTree = "<group>"; };
 		828A2F0922EE4BD000184CF5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82942BC322EE211100E5EE97 /* Contants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contants.swift; sourceTree = "<group>"; };
-		82942BC722EE312100E5EE97 /* CheckForWinning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckForWinning.swift; sourceTree = "<group>"; };
+		82942BC722EE312100E5EE97 /* GameResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,7 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				8225F02522ECCD40007F01E7 /* GameController.swift */,
-				82942BC722EE312100E5EE97 /* CheckForWinning.swift */,
+				82942BC722EE312100E5EE97 /* GameResultController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -316,7 +316,7 @@
 				8225F01A22ECAB1B007F01E7 /* Cell.swift in Sources */,
 				8225F02122ECAEAD007F01E7 /* TicTacCollectionViewCell.swift in Sources */,
 				8225F02622ECCD40007F01E7 /* GameController.swift in Sources */,
-				82942BC822EE312100E5EE97 /* CheckForWinning.swift in Sources */,
+				82942BC822EE312100E5EE97 /* GameResultController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
