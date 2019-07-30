@@ -44,6 +44,9 @@ class GameController {
         if !cell.isEmpty {
             return false
         }
+        if (isGameOver()) {
+            return false
+        }
         changeCellAtIndexByCurrentPlayer(index)
         if (isGameOver()) {
             state = GameState.isOver
@@ -60,7 +63,7 @@ class GameController {
         if (gameResult == GameWinner.crossWinner) || (gameResult == GameWinner.zeroWinner) {
             return true
         }
-        return game.isGameOver()
+        return game.gameBorderOccupied()
     }
 }
 

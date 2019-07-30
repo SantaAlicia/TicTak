@@ -65,7 +65,7 @@ extension ViewController: UICollectionViewDelegate {
         if (gameController.playerDoesTapInCellAtIndex(indexPath.row)) {
             collectionView.reloadData()
             updateInfoLabels()
-            updateButtonState()
+            updateEnabledControls()
         }
     }
 }
@@ -76,13 +76,13 @@ private func startNewGame() {
         gameController.startNewGame()
         collectionView.reloadData()
         updateInfoLabels()
-        updateButtonState()
+        updateEnabledControls()
 }
     
 private func beforeNewGame() {
         collectionView.reloadData()
         updateInfoLabels()
-        updateButtonState()
+        updateEnabledControls()
 }
     
 private func updateInfoLabels () {
@@ -137,7 +137,7 @@ private func updateInfoLabels () {
         }
     }
     
-    private func updateButtonState() {
+    private func updateEnabledControls() {
         switch gameController.state {
         case GameState.isNotStarted:
             startButton.isEnabled = true

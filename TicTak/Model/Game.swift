@@ -42,7 +42,8 @@ extension Game {
 }
 
 extension Game {
-     func isGameOver() -> Bool {
+    //isOver
+     func gameBorderOccupied() -> Bool {
         var result = true
         for i in 0..<GameConstants.gameDimension  {
             let cell : Cell = gameBorder.arr[i]
