@@ -15,9 +15,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentPlayerInfo: UILabel!
     @IBOutlet weak var gameOverInfo: UILabel!
     @IBOutlet weak var gameResultInfo: UILabel!
+    @IBOutlet weak var playWithComputerSwitch: UISwitch!
     
     let reuseIdentifier = "ticTakCell"
     let game = Game.shared
+    var gameTimer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +32,14 @@ class ViewController: UIViewController {
         startButton.clipsToBounds = true
         collectionView.backgroundColor = UIColor(patternImage: UIImage(named: "notebookBackground")!)
         view.backgroundColor = UIColor(patternImage: UIImage(named: "woodBackground")!)
+        playWithComputerSwitch.onTintColor = .blue
+        playWithComputerSwitch.tintColor = .black
     }
     
     @IBAction func startNewGameButtonPressed(_ sender: Any) {
+        startNewGame()
+    }
+    @IBAction func playWithComputerChanged(_ sender: Any) {
         startNewGame()
     }
 }
@@ -61,13 +68,39 @@ extension ViewController: UICollectionViewDataSource {
 
 extension ViewController: UICollectionViewDelegate {
     
+   func playerMakesOneMove(_ i : Int) {
+                if (game.playerMakesMoveAtIndex(i)) {
+                    
+                    if (game.currentPlayer == Player.zero) {
+                        gameTimer?.invalidate()
+                        gameTimer = nil
+                    }
+                    collectionView.reloadData()
+                    updateInfoLabels()
+                    updateEnabledControls()
+                }
+            }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if (game.playerMakesMoveAtIndex(indexPath.row)) {
-            collectionView.reloadData()
-            updateInfoLabels()
-            updateEnabledControls()
-        }
-    }
+                playerMakesOneMove(indexPath.row)
+        
+                if (game.state == GameState.isOver) {
+                    gameTimer?.invalidate()
+                    gameTimer = nil
+                    collectionView.isUserInteractionEnabled = false
+                    return
+                }
+                if ((playWithComputerSwitch.isOn) && (game.currentPlayer == Player.zero)) {
+                    
+                    guard let ramdomIndexFromEmptyCell = game.gameBoard.findOneEmptyCell() else {
+                        return
+                    }
+
+                    gameTimer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true, block: { timer in
+                        self.playerMakesOneMove(ramdomIndexFromEmptyCell)
+                    })
+                }
+            }
 }
 
 extension ViewController {
@@ -77,6 +110,7 @@ private func startNewGame() {
         collectionView.reloadData()
         updateInfoLabels()
         updateEnabledControls()
+        collectionView.isUserInteractionEnabled = true
 }
     
 private func beforeNewGame() {
@@ -88,7 +122,7 @@ private func beforeNewGame() {
 private func updateInfoLabels () {
     switch game.state {
         case GameState.isNotStarted:
-            currentPlayerInfo.text = ""
+            currentPlayerInfo.text = "First is Turn of Player \"Cross\""
             gameOverInfo.text = ""
             gameResultInfo.text = ""
             

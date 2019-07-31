@@ -103,15 +103,31 @@
                                     <action selector="startNewGameButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IVx-aJ-pIF"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play with iPhone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1s-OM-lFe">
+                                <rect key="frame" x="37" y="705" width="125.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t1e-L5-5tA">
+                                <rect key="frame" x="170.5" y="699.5" width="51" height="31"/>
+                                <connections>
+                                    <action selector="playWithComputerChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="ScI-8W-bAg"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="t1e-L5-5tA" firstAttribute="top" secondItem="QPW-hC-MU5" secondAttribute="bottom" constant="20" id="0SX-wB-voD"/>
+                            <constraint firstItem="t1s-OM-lFe" firstAttribute="top" secondItem="QPW-hC-MU5" secondAttribute="bottom" constant="25.5" id="5Yr-iK-Daz"/>
                             <constraint firstItem="pYt-1i-1zF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6Ux-EQ-obS"/>
                             <constraint firstItem="WSm-Er-f5K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CVB-BA-00A"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QPW-hC-MU5" secondAttribute="trailing" constant="30" id="FKB-EE-W5l"/>
                             <constraint firstItem="pYt-1i-1zF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="UcL-ss-fv3"/>
                             <constraint firstItem="QPW-hC-MU5" firstAttribute="top" secondItem="pYt-1i-1zF" secondAttribute="bottom" constant="40" id="W9C-80-oSC"/>
                             <constraint firstItem="WSm-Er-f5K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="oh1-pI-jdg"/>
+                            <constraint firstItem="t1s-OM-lFe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="thq-BW-jRr"/>
+                            <constraint firstItem="t1e-L5-5tA" firstAttribute="leading" secondItem="t1s-OM-lFe" secondAttribute="trailing" constant="8" id="whZ-pp-pUV"/>
                             <constraint firstItem="QPW-hC-MU5" firstAttribute="leading" secondItem="pYt-1i-1zF" secondAttribute="leading" id="zSd-hd-IXJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -121,6 +137,7 @@
                         <outlet property="currentPlayerInfo" destination="Sbi-Tn-3Mh" id="gFG-Re-ezF"/>
                         <outlet property="gameOverInfo" destination="f3l-mL-rGT" id="Glh-wy-Er4"/>
                         <outlet property="gameResultInfo" destination="DfW-w8-VVv" id="Ltb-GK-adB"/>
+                        <outlet property="playWithComputerSwitch" destination="t1e-L5-5tA" id="usX-xn-UNP"/>
                         <outlet property="startButton" destination="WSm-Er-f5K" id="Z2K-it-jJG"/>
                     </connections>
                 </viewController>

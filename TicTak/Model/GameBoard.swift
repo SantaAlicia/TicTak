@@ -74,7 +74,20 @@ extension GameBoard {
     func findAllCellWithZero() ->Set<Int>? {
         return findAllCellWithType(CellType.zero)
     }
+    func findAllCellWithEmpty() ->Set<Int>? {
+        return findAllCellWithType(CellType.empty)
+    }
 
+    func findOneEmptyCell() -> Int? {
+        guard let set = findAllCellWithEmpty() else {
+            return nil
+        }
+        guard let index = set.randomElement() else {
+            return nil
+        }
+        return index
+    }
+    
 private func findAllCellWithType(_ type : CellType) ->Set<Int>? {
         var cellsForType : Set<Int> = []
         let arr : [Int]?  =  findAllCellWithType(type:type)
