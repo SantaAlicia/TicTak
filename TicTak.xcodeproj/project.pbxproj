@@ -21,7 +21,7 @@
 		828A2F0B22EE4BD000184CF5 /* TicTcTestGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828A2F0822EE4BD000184CF5 /* TicTcTestGame.swift */; };
 		82942BC422EE211100E5EE97 /* Contants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82942BC322EE211100E5EE97 /* Contants.swift */; };
 		82942BC822EE312100E5EE97 /* GameResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82942BC722EE312100E5EE97 /* GameResultController.swift */; };
-		82AC77AB22F180C60020C20A /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 82AC77AA22F180C60020C20A /* appIcon.png */; };
+		82AC77AD22F1B2A20020C20A /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 82AC77AC22F1B2A20020C20A /* appIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +62,7 @@
 		828A2F0922EE4BD000184CF5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82942BC322EE211100E5EE97 /* Contants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contants.swift; sourceTree = "<group>"; };
 		82942BC722EE312100E5EE97 /* GameResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultController.swift; sourceTree = "<group>"; };
-		82AC77AA22F180C60020C20A /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appIcon.png; path = ../../../../../../Downloads/appIcon.png; sourceTree = "<group>"; };
+		82AC77AC22F1B2A20020C20A /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +123,7 @@
 				8225EFF122ECA89B007F01E7 /* Assets.xcassets */,
 				8225EFF322ECA89B007F01E7 /* LaunchScreen.storyboard */,
 				8225EFF622ECA89B007F01E7 /* Info.plist */,
-				82AC77AA22F180C60020C20A /* appIcon.png */,
+				82AC77AC22F1B2A20020C20A /* appIcon.png */,
 			);
 			path = TicTak;
 			sourceTree = "<group>";
@@ -285,7 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82AC77AB22F180C60020C20A /* appIcon.png in Resources */,
+				82AC77AD22F1B2A20020C20A /* appIcon.png in Resources */,
 				8225EFF522ECA89B007F01E7 /* LaunchScreen.storyboard in Resources */,
 				8225EFF222ECA89B007F01E7 /* Assets.xcassets in Resources */,
 				8225EFF022ECA89B007F01E7 /* Main.storyboard in Resources */,
