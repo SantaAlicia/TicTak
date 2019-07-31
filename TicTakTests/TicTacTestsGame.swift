@@ -103,7 +103,7 @@ class TicTacTestsGame: XCTestCase {
         for i in 0..<GameConstants.gameDimension {
             game.gameBoard.changeCellAtIndex(i, newValue: CrossCell())
         }
-        guard let set = game.gameBoard.findAllCellWithZero() else {
+        guard let set = game.gameBoard.findAllCellWithCross() else {
             XCTFail("testFundAllCrossCell is Failed")
             return
         }

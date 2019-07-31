@@ -28,10 +28,10 @@ struct GameResultController : GameResultControllerProtocol {
         if (crossWin && zeroWin) {
             return GameWinner.draw
         }
-        //both've not win combination
-        if !(crossWin || zeroWin) {
-            return GameWinner.draw
-        }
+//        //both've not win combination
+//        if !(crossWin || zeroWin) {
+//            return GameWinner.draw
+//        }
         if (zeroWin) {
             return GameWinner.zeroWinner
         }
