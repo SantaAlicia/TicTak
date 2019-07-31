@@ -20,26 +20,35 @@ enum GameState {
     case isOver
 }
 
-class GameController {
+protocol GameProtocol {
+    var gameResult : GameWinner? { get }
+    var currentPlayer : Player { get }
+    var state : GameState { get }
+    func startNewGame()
+    func playerMakesMoveAtIndex(_ index : Int) -> Bool
+    func isGameOver() -> Bool
+}
 
-    static let shared = GameController()
-    let game = Game()
+class Game : GameProtocol {
+
+    static let shared = Game()
+    let gameBoard = GameBoard()
     var currentPlayer : Player = Player.cross
     var state = GameState.isNotStarted
     var gameResult : GameWinner?
     
     init() {
-        game.preparationForNewGame()
+        gameBoard.setupInitialPosition()
     }
 
     func startNewGame() {
-        game.preparationForNewGame()
+        gameBoard.setupInitialPosition()
         currentPlayer = Player.cross
         state = GameState.isStarted
     }
     
-    func playerDoesTapInCellAtIndex(_ index : Int) -> Bool {
-        let cell : Cell = game.cellAtIndex(index)
+    func playerMakesMoveAtIndex(_ index : Int) -> Bool {
+        let cell : Cell = gameBoard.cellAtIndex(index)
         
         if !cell.isEmpty {
             return false
@@ -57,22 +66,21 @@ class GameController {
         }
         return true
     }
-    
+}
+
+extension Game {
     func isGameOver() -> Bool {
         gameResult = GameResultController.findWiiner()
         if (gameResult == GameWinner.crossWinner) || (gameResult == GameWinner.zeroWinner) {
             return true
         }
-        return game.gameBorderOccupied()
+        return gameBoard.isFull()
     }
-}
-
-extension GameController {
     private func changeCellAtIndexByCurrentPlayer(_ atIndex : Int) {
         if (currentPlayer == Player.cross) {
-            game.changeCellAtIndex(atIndex, newValue: CrossCell())
+            gameBoard.changeCellAtIndex(atIndex, newValue: CrossCell())
         } else {
-            game.changeCellAtIndex(atIndex, newValue: ZeroCell())
+            gameBoard.changeCellAtIndex(atIndex, newValue: ZeroCell())
         }
     }
     

@@ -14,7 +14,12 @@ enum CellType {
     case empty
 }
 
-class Cell {
+protocol CellProtocol {
+    var isEmpty : Bool {get}
+    var type : CellType {get}
+}
+
+class Cell : CellProtocol {
     var isEmpty = true
     var type = CellType.empty
 }

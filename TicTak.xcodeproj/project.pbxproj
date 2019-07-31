@@ -14,10 +14,10 @@
 		8225EFF522ECA89B007F01E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8225EFF322ECA89B007F01E7 /* LaunchScreen.storyboard */; };
 		8225F00B22ECA89B007F01E7 /* TicTacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F00A22ECA89B007F01E7 /* TicTacUITests.swift */; };
 		8225F01A22ECAB1B007F01E7 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F01922ECAB1B007F01E7 /* Cell.swift */; };
-		8225F01E22ECAC9A007F01E7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F01D22ECAC9A007F01E7 /* Game.swift */; };
+		8225F01E22ECAC9A007F01E7 /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F01D22ECAC9A007F01E7 /* GameBoard.swift */; };
 		8225F02122ECAEAD007F01E7 /* TicTacCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F02022ECAEAD007F01E7 /* TicTacCollectionViewCell.swift */; };
-		8225F02622ECCD40007F01E7 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F02522ECCD40007F01E7 /* GameController.swift */; };
-		828A2F0A22EE4BD000184CF5 /* TicTacTestsGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828A2F0722EE4BD000184CF5 /* TicTacTestsGameController.swift */; };
+		8225F02622ECCD40007F01E7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F02522ECCD40007F01E7 /* Game.swift */; };
+		828A2F0A22EE4BD000184CF5 /* TicTacTestsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828A2F0722EE4BD000184CF5 /* TicTacTestsGame.swift */; };
 		828A2F0B22EE4BD000184CF5 /* TicTcTestGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828A2F0822EE4BD000184CF5 /* TicTcTestGame.swift */; };
 		82942BC422EE211100E5EE97 /* Contants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82942BC322EE211100E5EE97 /* Contants.swift */; };
 		82942BC822EE312100E5EE97 /* GameResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82942BC722EE312100E5EE97 /* GameResultController.swift */; };
@@ -53,10 +53,10 @@
 		8225F00A22ECA89B007F01E7 /* TicTacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacUITests.swift; sourceTree = "<group>"; };
 		8225F00C22ECA89B007F01E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8225F01922ECAB1B007F01E7 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
-		8225F01D22ECAC9A007F01E7 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		8225F01D22ECAC9A007F01E7 /* GameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
 		8225F02022ECAEAD007F01E7 /* TicTacCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacCollectionViewCell.swift; sourceTree = "<group>"; };
-		8225F02522ECCD40007F01E7 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
-		828A2F0722EE4BD000184CF5 /* TicTacTestsGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicTacTestsGameController.swift; sourceTree = "<group>"; };
+		8225F02522ECCD40007F01E7 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		828A2F0722EE4BD000184CF5 /* TicTacTestsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicTacTestsGame.swift; sourceTree = "<group>"; };
 		828A2F0822EE4BD000184CF5 /* TicTcTestGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicTcTestGame.swift; sourceTree = "<group>"; };
 		828A2F0922EE4BD000184CF5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82942BC322EE211100E5EE97 /* Contants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contants.swift; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 		8225EFFE22ECA89B007F01E7 /* TicTakTests */ = {
 			isa = PBXGroup;
 			children = (
-				828A2F0722EE4BD000184CF5 /* TicTacTestsGameController.swift */,
+				828A2F0722EE4BD000184CF5 /* TicTacTestsGame.swift */,
 				828A2F0822EE4BD000184CF5 /* TicTcTestGame.swift */,
 				828A2F0922EE4BD000184CF5 /* Info.plist */,
 			);
@@ -148,7 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				8225F01922ECAB1B007F01E7 /* Cell.swift */,
-				8225F01D22ECAC9A007F01E7 /* Game.swift */,
+				8225F01D22ECAC9A007F01E7 /* GameBoard.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -164,7 +164,7 @@
 		8225F02422ECCCA2007F01E7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8225F02522ECCD40007F01E7 /* GameController.swift */,
+				8225F02522ECCD40007F01E7 /* Game.swift */,
 				82942BC722EE312100E5EE97 /* GameResultController.swift */,
 			);
 			path = Controllers;
@@ -310,12 +310,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8225EFED22ECA89B007F01E7 /* ViewController.swift in Sources */,
-				8225F01E22ECAC9A007F01E7 /* Game.swift in Sources */,
+				8225F01E22ECAC9A007F01E7 /* GameBoard.swift in Sources */,
 				8225EFEB22ECA89B007F01E7 /* AppDelegate.swift in Sources */,
 				82942BC422EE211100E5EE97 /* Contants.swift in Sources */,
 				8225F01A22ECAB1B007F01E7 /* Cell.swift in Sources */,
 				8225F02122ECAEAD007F01E7 /* TicTacCollectionViewCell.swift in Sources */,
-				8225F02622ECCD40007F01E7 /* GameController.swift in Sources */,
+				8225F02622ECCD40007F01E7 /* Game.swift in Sources */,
 				82942BC822EE312100E5EE97 /* GameResultController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,7 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				828A2F0A22EE4BD000184CF5 /* TicTacTestsGameController.swift in Sources */,
+				828A2F0A22EE4BD000184CF5 /* TicTacTestsGame.swift in Sources */,
 				828A2F0B22EE4BD000184CF5 /* TicTcTestGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,6 +575,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TicTakUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -594,6 +595,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TicTakUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

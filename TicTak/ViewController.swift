@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var gameResultInfo: UILabel!
     
     let reuseIdentifier = "ticTakCell"
-    let gameController = GameController.shared
+    let game = Game.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +54,7 @@ extension ViewController: UICollectionViewDataSource {
         collectionCell.layer.borderWidth = 2
         collectionCell.isUserInteractionEnabled = true
 
-        collectionCell.fillCell(type : gameController.game.cellAtIndex(indexPath.row).type)
+        collectionCell.fillCell(type : game.gameBoard.cellAtIndex(indexPath.row).type)
         return collectionCell
     }
 }
@@ -62,7 +62,7 @@ extension ViewController: UICollectionViewDataSource {
 extension ViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if (gameController.playerDoesTapInCellAtIndex(indexPath.row)) {
+        if (game.playerMakesMoveAtIndex(indexPath.row)) {
             collectionView.reloadData()
             updateInfoLabels()
             updateEnabledControls()
@@ -73,7 +73,7 @@ extension ViewController: UICollectionViewDelegate {
 extension ViewController {
     
 private func startNewGame() {
-        gameController.startNewGame()
+        game.startNewGame()
         collectionView.reloadData()
         updateInfoLabels()
         updateEnabledControls()
@@ -86,7 +86,7 @@ private func beforeNewGame() {
 }
     
 private func updateInfoLabels () {
-    switch gameController.state {
+    switch game.state {
         case GameState.isNotStarted:
             currentPlayerInfo.text = ""
             gameOverInfo.text = ""
@@ -110,7 +110,7 @@ private func updateInfoLabels () {
     }
     
     private func currentPlayerText() -> String {
-        switch gameController.currentPlayer {
+        switch game.currentPlayer {
         case Player.cross:
             return "Turn of Player \"Cross\""
             
@@ -121,16 +121,16 @@ private func updateInfoLabels () {
     
     private func winnerText() -> String {
         
-        guard let unwrapped = gameController.gameResult else {
+        guard let unwrapped = game.gameResult else {
             return ""
         }
         
         switch unwrapped {
         case GameWinner.crossWinner:
-            return "Player \"Cross\" is winner!"
+            return "Player \"Cross\" is the winner!"
             
         case GameWinner.zeroWinner:
-            return "Player \"Zero\" is winner!"
+            return "Player \"Zero\" is the winner!"
             
         case GameWinner.draw :
             return "Draw. Nobody's won"
@@ -138,7 +138,7 @@ private func updateInfoLabels () {
     }
     
     private func updateEnabledControls() {
-        switch gameController.state {
+        switch game.state {
         case GameState.isNotStarted:
             startButton.isEnabled = true
             

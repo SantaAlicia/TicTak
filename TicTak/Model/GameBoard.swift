@@ -8,68 +8,50 @@
 
 import UIKit
 
-private class Field  {
-    var arr = [Cell]()
-    //static let shared = Field()
-}
-
-class Game {
-    private let gameBorder = Field()
-    //static let shared = Game()
+class GameBoard {
+    private var cellSet = [Cell]()
 
     init () {
         for _ in 0..<GameConstants.gameDimension  {
-            gameBorder.arr.append(EmptyCell())
+            cellSet.append(EmptyCell())
         }
     }
     
-    func preparationForNewGame() {
+    func setupInitialPosition() {
         for i in 0..<GameConstants.gameDimension  {
-            gameBorder.arr[i] = EmptyCell()
+            cellSet[i] = EmptyCell()
         }
     }
 }
 
-extension Game {
+extension GameBoard {
     func changeCellAtIndex(_ atIndex : Int, newValue : Cell) {
-        gameBorder.arr[atIndex]  = newValue
+        cellSet[atIndex]  = newValue
     }
     
     func cellAtIndex(_ atIndex : Int) -> Cell{
-        let cell = gameBorder.arr[atIndex]
+        let cell = cellSet[atIndex]
         return cell
     }
 }
 
-extension Game {
+extension GameBoard {
     //isOver
-     func gameBorderOccupied() -> Bool {
+     func isFull() -> Bool {
         var result = true
         for i in 0..<GameConstants.gameDimension  {
-            let cell : Cell = gameBorder.arr[i]
+            let cell : Cell = cellSet[i]
             result = !cell.isEmpty && result
-        }
-        return result
-    }
-    
-     func isGameJustStarted() -> Bool {
-        var result = true
-        for i in 0..<GameConstants.gameDimension  {
-            let cell : Cell = gameBorder.arr[i]
-            result = cell.isEmpty && result
         }
         return result
     }
 }
 
-extension Game {
+extension GameBoard {
     private func findAllCellWithType(type : CellType) -> [Int]? {
-//        if (!isGameOver()) {
-//            return nil
-//        }
         var array : [Int] = [Int]()
         for i in 0..<GameConstants.gameDimension  {
-            let cell : Cell = gameBorder.arr[i]
+            let cell : Cell = cellSet[i]
             if (cell.type == type) {
                 array.append(i)
             }
@@ -77,13 +59,13 @@ extension Game {
         return array
     }
     
-    func fintAllCellWithCross() ->[Int]? {
-        return findAllCellWithType(type: CellType.cross)
-    }
-    
-    func fintAllCellWithZero() ->[Int]? {
-        return findAllCellWithType(type: CellType.zero)
-    }
+//    func fintAllCellWithCross() ->[Int]? {
+//        return findAllCellWithType(type: CellType.cross)
+//    }
+//
+//    func fintAllCellWithZero() ->[Int]? {
+//        return findAllCellWithType(type: CellType.zero)
+//    }
 
     func findAllCellWithCross() ->Set<Int>? {
         return findAllCellWithType(CellType.cross)
