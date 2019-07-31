@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         startButton.clipsToBounds = true
         collectionView.backgroundColor = UIColor(patternImage: UIImage(named: "notebookBackground")!)
         view.backgroundColor = UIColor(patternImage: UIImage(named: "woodBackground")!)
-        playWithComputerSwitch.onTintColor = .blue
+        playWithComputerSwitch.onTintColor = .black
         playWithComputerSwitch.tintColor = .black
     }
     
@@ -71,7 +71,7 @@ extension ViewController: UICollectionViewDelegate {
    func playerMakesOneMove(_ i : Int) {
                 if (game.playerMakesMoveAtIndex(i)) {
                     
-                    if (game.currentPlayer == Player.zero) {
+                    if ((playWithComputerSwitch.isOn) && (game.currentPlayer == Player.zero)) {
                         gameTimer?.invalidate()
                         gameTimer = nil
                     }
@@ -79,7 +79,7 @@ extension ViewController: UICollectionViewDelegate {
                     updateInfoLabels()
                     updateEnabledControls()
                 }
-            }
+    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
                 playerMakesOneMove(indexPath.row)
