@@ -148,7 +148,7 @@ class TicTacTestsGame: XCTestCase {
         game.gameBoard.changeCellAtIndex(6, newValue: CrossCell())
         game.gameBoard.changeCellAtIndex(7, newValue: EmptyCell())
         game.gameBoard.changeCellAtIndex(8, newValue: EmptyCell())
-        let res = GameResultController.findWiiner()
+        let res = GameResultController.findWiner()
         XCTAssertEqual(res, GameWinner.crossWinner, "testIfCrossWin works wrong")
     }
     
@@ -162,7 +162,7 @@ class TicTacTestsGame: XCTestCase {
         game.gameBoard.changeCellAtIndex(6, newValue: CrossCell())
         game.gameBoard.changeCellAtIndex(7, newValue: ZeroCell())
         game.gameBoard.changeCellAtIndex(8, newValue: EmptyCell())
-        let res = GameResultController.findWiiner()
+        let res = GameResultController.findWiner()
         XCTAssertEqual(res, GameWinner.zeroWinner, "testIfZeroWin works wrong")
     }
     
@@ -176,7 +176,7 @@ class TicTacTestsGame: XCTestCase {
         game.gameBoard.changeCellAtIndex(6, newValue: ZeroCell())
         game.gameBoard.changeCellAtIndex(7, newValue: CrossCell())
         game.gameBoard.changeCellAtIndex(8, newValue: ZeroCell())
-        let res = GameResultController.findWiiner()
+        let res = GameResultController.findWiner()
         XCTAssertEqual(res, GameWinner.draw, "testIfZeroNotWin works wrong")
     }
 }

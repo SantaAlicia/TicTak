@@ -59,7 +59,7 @@ class Game : GameProtocol {
         changeCellAtIndexByCurrentPlayer(index)
         if (isGameOver()) {
             state = GameState.isOver
-            gameResult = GameResultController.findWiiner()
+            //gameResult = GameResultController.findWiner()
         } else {
             state = GameState.isProceed
             changeCurrentPlayer()
@@ -70,12 +70,13 @@ class Game : GameProtocol {
 
 extension Game {
     func isGameOver() -> Bool {
-        gameResult = GameResultController.findWiiner()
+        gameResult = GameResultController.findWiner()
         if (gameResult == GameWinner.crossWinner) || (gameResult == GameWinner.zeroWinner) {
             return true
         }
         return gameBoard.isFull()
     }
+    
     private func changeCellAtIndexByCurrentPlayer(_ atIndex : Int) {
         if (currentPlayer == Player.cross) {
             gameBoard.changeCellAtIndex(atIndex, newValue: CrossCell())

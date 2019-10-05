@@ -23,11 +23,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateView()
-        beforeNewGame()
+        tuningView()
+        preparationViewsAndContols()
     }
     
-    func updateView () {
+    func tuningView () {
         startButton.layer.cornerRadius = DesignConstants.cornerRadius
         startButton.clipsToBounds = true
         collectionView.backgroundColor = UIColor(patternImage: UIImage(named: "notebookBackground")!)
@@ -58,7 +58,7 @@ extension ViewController: UICollectionViewDataSource {
         let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TicTacCollectionViewCell
 
         collectionCell.layer.borderColor = UIColor.lightGray.cgColor
-        collectionCell.layer.borderWidth = 2
+        collectionCell.layer.borderWidth = 1
         collectionCell.isUserInteractionEnabled = true
 
         collectionCell.fillCell(type : game.gameBoard.cellAtIndex(indexPath.row).type)
@@ -107,13 +107,11 @@ extension ViewController {
     
 private func startNewGame() {
         game.startNewGame()
-        collectionView.reloadData()
-        updateInfoLabels()
-        updateEnabledControls()
+        preparationViewsAndContols()
         collectionView.isUserInteractionEnabled = true
 }
     
-private func beforeNewGame() {
+private func preparationViewsAndContols() {
         collectionView.reloadData()
         updateInfoLabels()
         updateEnabledControls()
