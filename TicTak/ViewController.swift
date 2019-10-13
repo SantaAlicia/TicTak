@@ -18,13 +18,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var playWithComputerSwitch: UISwitch!
     
     let reuseIdentifier = "ticTakCell"
+    private let sectionInsets = UIEdgeInsets(top: 0.0,
+    left: 0.0,
+    bottom: 0.0,
+    right: 0.0)
+    private let itemsPerRow: CGFloat = 3
     let game = Game.shared
     var gameTimer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tuningView()
-        preparationViewsAndContols()
+       preparationViewsAndContols()
     }
     
     func tuningView () {
@@ -101,6 +106,55 @@ extension ViewController: UICollectionViewDelegate {
                     })
                 }
             }
+}
+
+extension ViewController : UICollectionViewDelegateFlowLayout {
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+//      //2
+//      let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+//      let availableWidth = view.frame.width - paddingSpace
+//      let widthPerItem = availableWidth / itemsPerRow
+//
+//      return CGSize(width: widthPerItem, height: widthPerItem)
+//    }
+    
+//    //3
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                        insetForSectionAt section: Int) -> UIEdgeInsets {
+//      return sectionInsets
+//    }
+//
+//    // 4
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//      return sectionInsets.left
+//    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let nbCol = 3
+        
+
+        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+        let totalSpace = flowLayout.sectionInset.left
+            + flowLayout.sectionInset.right
+            + (flowLayout.minimumInteritemSpacing * CGFloat(nbCol - 1))
+        let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(nbCol))
+        
+        print("***")
+             print(collectionView.bounds.size.width)
+             print(collectionView.bounds.size.height)
+        
+        let w = collectionView.bounds.size.width
+        collectionView.bounds.size = CGSize(width: w, height: w)
+        return CGSize(width: size, height: size)
+    }
 }
 
 extension ViewController {

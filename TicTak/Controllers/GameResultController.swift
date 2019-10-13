@@ -15,12 +15,12 @@ enum GameWinner {
 }
 
 protocol GameResultControllerProtocol {
-    static func findWiiner() -> GameWinner
+    static func findWiner() -> GameWinner
 }
 
 struct GameResultController : GameResultControllerProtocol {
     
-    static func findWiiner() -> GameWinner {
+    static func findWiner() -> GameWinner {
         let crossWin = isCrossWin()
         let zeroWin = isZeroWin()
         
