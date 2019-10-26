@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     }
     
     func tuningView () {
+        //coment
         startButton.layer.cornerRadius = DesignConstants.cornerRadius
         startButton.clipsToBounds = true
         collectionView.backgroundColor = UIColor(patternImage: UIImage(named: "notebookBackground2")!)
