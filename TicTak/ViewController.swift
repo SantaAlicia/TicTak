@@ -35,8 +35,8 @@ class ViewController: UIViewController {
     func tuningView () {
         startButton.layer.cornerRadius = DesignConstants.cornerRadius
         startButton.clipsToBounds = true
-        collectionView.backgroundColor = UIColor(patternImage: UIImage(named: "notebookBackground2")!)
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "background2")!)
+        collectionView.backgroundColor = UIColor(patternImage: UIImage(named: "notebookBackground")!)
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "woodBackground")!)
         playWithComputerSwitch.onTintColor = .black
         playWithComputerSwitch.tintColor = .black
     }
