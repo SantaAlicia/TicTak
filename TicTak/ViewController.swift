@@ -18,7 +18,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var playWithComputerSwitch: UISwitch!
     
     let reuseIdentifier = "ticTakCell"
-    //1
     private let sectionInsets = UIEdgeInsets(top: 0.0,
     left: 0.0,
     bottom: 0.0,

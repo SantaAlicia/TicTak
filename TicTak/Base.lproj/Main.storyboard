@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,32 +16,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="QPW-hC-MU5">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QPW-hC-MU5">
                                 <rect key="frame" x="49.5" y="501.5" width="276" height="85.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sbi-Tn-3Mh">
-                                        <rect key="frame" x="0.0" y="0.0" width="276" height="0.0"/>
-                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="22"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="current " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sbi-Tn-3Mh">
+                                        <rect key="frame" x="0.0" y="0.0" width="276" height="10"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="3zV-NK-aTZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3l-mL-rGT">
-                                        <rect key="frame" x="0.0" y="25" width="276" height="0.0"/>
-                                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
-                                        <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Game over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3l-mL-rGT">
+                                        <rect key="frame" x="0.0" y="18" width="276" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=regular-widthClass=regular">
-                                            <color key="textColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DfW-w8-VVv">
-                                        <rect key="frame" x="0.0" y="50" width="276" height="35.5"/>
-                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="result" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DfW-w8-VVv">
+                                        <rect key="frame" x="0.0" y="48.5" width="276" height="37"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Sbi-Tn-3Mh" firstAttribute="top" secondItem="QPW-hC-MU5" secondAttribute="top" id="CDw-WX-6tl"/>
                                     <constraint firstItem="Sbi-Tn-3Mh" firstAttribute="centerX" secondItem="QPW-hC-MU5" secondAttribute="centerX" id="PCv-7Q-aVu"/>
                                     <constraint firstItem="f3l-mL-rGT" firstAttribute="centerX" secondItem="QPW-hC-MU5" secondAttribute="centerX" id="WaK-ZP-7w1"/>
                                     <constraint firstItem="DfW-w8-VVv" firstAttribute="centerX" secondItem="QPW-hC-MU5" secondAttribute="centerX" id="agj-tb-nXe"/>
@@ -108,13 +110,13 @@
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t1e-L5-5tA">
-                                <rect key="frame" x="170.5" y="586" width="51" height="31"/>
+                                <rect key="frame" x="170.5" y="601" width="51" height="31"/>
                                 <connections>
                                     <action selector="playWithComputerChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="ScI-8W-bAg"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play with iPhone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1s-OM-lFe">
-                                <rect key="frame" x="37" y="597" width="125.5" height="15"/>
+                                <rect key="frame" x="37" y="597" width="125.5" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -126,14 +128,14 @@
                             <constraint firstItem="t1s-OM-lFe" firstAttribute="top" secondItem="QPW-hC-MU5" secondAttribute="bottom" constant="10" id="5Yr-iK-Daz"/>
                             <constraint firstItem="pYt-1i-1zF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6Ux-EQ-obS"/>
                             <constraint firstItem="WSm-Er-f5K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CVB-BA-00A"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="t1e-L5-5tA" secondAttribute="bottom" constant="50" id="Oda-aq-OpN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="t1e-L5-5tA" secondAttribute="bottom" constant="35" id="Oda-aq-OpN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pYt-1i-1zF" secondAttribute="trailing" constant="37" id="QJ1-Ys-cms"/>
                             <constraint firstItem="pYt-1i-1zF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="Qa3-zG-pVT"/>
                             <constraint firstItem="pYt-1i-1zF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" priority="900" constant="80" id="UcL-ss-fv3"/>
                             <constraint firstItem="pYt-1i-1zF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="WfF-aE-WUk"/>
                             <constraint firstItem="QPW-hC-MU5" firstAttribute="top" secondItem="pYt-1i-1zF" secondAttribute="bottom" constant="80.670000000000002" id="coq-Ds-NQA"/>
                             <constraint firstItem="QPW-hC-MU5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="49.666666666666657" id="gZi-02-CXh"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="t1s-OM-lFe" secondAttribute="bottom" constant="55" id="jO1-Rs-vhq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="t1s-OM-lFe" secondAttribute="bottom" constant="35" id="jO1-Rs-vhq"/>
                             <constraint firstItem="WSm-Er-f5K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="oh1-pI-jdg">
                                 <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
                             </constraint>
