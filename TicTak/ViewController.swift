@@ -12,12 +12,12 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var currentPlayerInfo: UILabel!
     @IBOutlet weak var gameOverInfo: UILabel!
-    @IBOutlet weak var gameResultInfo: UILabel!
+    @IBOutlet weak var gameInfo: UILabel!
     @IBOutlet weak var playWithComputerSwitch: UISwitch!
     
     let reuseIdentifier = "ticTakCell"
+    
     private let sectionInsets = UIEdgeInsets(top: 0.0,
     left: 0.0,
     bottom: 0.0,
@@ -47,6 +47,9 @@ class ViewController: UIViewController {
     @IBAction func playWithComputerChanged(_ sender: Any) {
         startNewGame()
     }
+//    @IBAction func updateCell(_ sender: Any) {
+//        udateCellsIfGameOver()
+//    }
 }
 
 extension ViewController: UICollectionViewDataSource {
@@ -63,10 +66,11 @@ extension ViewController: UICollectionViewDataSource {
         let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TicTacCollectionViewCell
 
         collectionCell.layer.borderColor = UIColor.lightGray.cgColor
-        collectionCell.layer.borderWidth = 1
+        
         collectionCell.isUserInteractionEnabled = true
+        let isWinCell = game.isCellInsideWinCombination(index: indexPath.row)
 
-        collectionCell.fillCell(type : game.gameBoard.cellAtIndex(indexPath.row).type)
+        collectionCell.fillCell(type : game.gameBoard.cellAtIndex(indexPath.row).type, isWinCell: isWinCell )
         return collectionCell
     }
 }
@@ -88,7 +92,6 @@ extension ViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
                 playerMakesOneMove(indexPath.row)
-        
                 if (game.state == GameState.isOver) {
                     gameTimer?.invalidate()
                     gameTimer = nil
@@ -147,9 +150,9 @@ extension ViewController : UICollectionViewDelegateFlowLayout {
             + (flowLayout.minimumInteritemSpacing * CGFloat(nbCol - 1))
         let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(nbCol))
         
-        print("***")
-             print(collectionView.bounds.size.width)
-             print(collectionView.bounds.size.height)
+//        print("***")
+//             print(collectionView.bounds.size.width)
+//             print(collectionView.bounds.size.height)
         
         let w = collectionView.bounds.size.width
         collectionView.bounds.size = CGSize(width: w, height: w)
@@ -173,35 +176,35 @@ private func preparationViewsAndContols() {
     
 private func updateInfoLabels () {
     switch game.state {
-        case GameState.isNotStarted:
-            currentPlayerInfo.text = "First is Turn of Player \"Cross\""
-            gameOverInfo.text = ""
-            gameResultInfo.text = ""
-            
-        case GameState.isStarted:
-            currentPlayerInfo.text = "First is Turn of Player \"Cross\""
-            gameOverInfo.text = ""
-            gameResultInfo.text = ""
-            
+        case GameState.isNotStarted, GameState.isStarted:
+            gameInfo.text = "First is Turn of Player \"Cross\""
+            gameInfo.font = UIFont(name: "MarkerFelt-Thin", size: 17.0)
+            gameInfo.textColor = .black
+            gameOverInfo.text = " "
         case GameState.isProceed:
-            currentPlayerInfo.text = currentPlayerText()
-            gameOverInfo.text = ""
-            gameResultInfo.text = ""
-        
+            gameInfo.text = currentPlayerText()
+            gameOverInfo.text = " "
         case GameState.isOver:
-            currentPlayerInfo.text = ""
+            gameInfo.font = UIFont(name: "MarkerFelt-Wide", size: 22.0)
+            gameInfo.textColor = .red
+            gameInfo.text = winnerText()
             gameOverInfo.text = "Game is Over!"
-            gameResultInfo.text = winnerText()
         }
     }
     
     private func currentPlayerText() -> String {
+        let textZero : String!
+        if (!playWithComputerSwitch.isOn) {
+            textZero =  "Turn of Player \"Zero\""
+        } else  {
+            textZero = " "  }
         switch game.currentPlayer {
         case Player.cross:
             return "Turn of Player \"Cross\""
             
         case Player.zero:
-            return "Turn of Player \"Zero\""
+            return textZero
+            
         }
     }
     
@@ -238,6 +241,20 @@ private func updateInfoLabels () {
             startButton.isEnabled = true
         }
     }
+    
+//    private func udateCellsIfGameOver() {
+//        if game.state != GameState.isOver {
+//            return
+//        }
+//        //let set : Set<Int>? = game.winSet()
+//        let indexPath = IndexPath(item: 1, section: 0)
+//
+//        let a = collectionView.cellForItem(at: indexPath)
+//
+//        if let cell = ((collectionView.cellForItem(at: indexPath)) as? TicTacCollectionViewCell) {
+//            cell.imageView.image = UIImage(named: "scratch")
+//        }
+//    }
     
 }
 

@@ -24,6 +24,7 @@ protocol GameProtocol {
     var gameResult : GameWinner? { get }
     var currentPlayer : Player { get }
     var state : GameState { get }
+    var winCombination : Set<Int>? {get}
     func startNewGame()
     func playerMakesMoveAtIndex(_ index : Int) -> Bool
     func isGameOver() -> Bool
@@ -36,6 +37,7 @@ class Game : GameProtocol {
     var currentPlayer : Player = Player.cross
     var state = GameState.isNotStarted
     var gameResult : GameWinner?
+    var winCombination : Set<Int>?
     
     init() {
         gameBoard.setupInitialPosition()
@@ -45,6 +47,7 @@ class Game : GameProtocol {
         gameBoard.setupInitialPosition()
         currentPlayer = Player.cross
         state = GameState.isStarted
+        winCombination = nil
     }
     
     func playerMakesMoveAtIndex(_ index : Int) -> Bool {
@@ -59,7 +62,7 @@ class Game : GameProtocol {
         changeCellAtIndexByCurrentPlayer(index)
         if (isGameOver()) {
             state = GameState.isOver
-            //gameResult = GameResultController.findWiner()
+            //winCombination = GameResultController.findWinSet()
         } else {
             state = GameState.isProceed
             changeCurrentPlayer()
@@ -77,6 +80,23 @@ extension Game {
         return gameBoard.isFull()
     }
     
+    func isCellInsideWinCombination(index : Int) -> Bool {
+        if let winC = winCombination {
+            let  tmpSet : Set<Int> = [index]
+            ////tmpSet.insert(indexPath.row)
+            if (tmpSet.isSubset(of: winC)) {
+                return true
+            }
+        }
+        return false
+    }
+    
+//    func winSet () -> Set<Int>? {
+//        return GameResultController.findWinSet()
+//    }
+}
+
+extension Game {
     private func changeCellAtIndexByCurrentPlayer(_ atIndex : Int) {
         if (currentPlayer == Player.cross) {
             gameBoard.changeCellAtIndex(atIndex, newValue: CrossCell())

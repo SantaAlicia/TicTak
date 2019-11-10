@@ -12,7 +12,7 @@ class TicTacCollectionViewCell: UICollectionViewCell {
  
     @IBOutlet weak var imageView: UIImageView!
     
-    func fillCell(type : CellType) {
+    func fillCell(type : CellType, isWinCell : Bool) {
         
         switch type {
         case CellType.empty:
@@ -23,6 +23,15 @@ class TicTacCollectionViewCell: UICollectionViewCell {
             
         case CellType.zero:
             imageView.image = UIImage(named: "zero")
+        }
+        drawCellBorder(isWinCell: isWinCell)
+    }
+    
+    func drawCellBorder(isWinCell : Bool) {
+        if isWinCell {
+            layer.borderWidth = 5
+        } else {
+            layer.borderWidth = 1
         }
     }
 }
