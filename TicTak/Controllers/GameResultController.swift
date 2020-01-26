@@ -34,18 +34,6 @@ struct GameResultController : GameResultControllerProtocol {
         }
         return GameWinner.draw
     }
-    
-//    static func findWinSet() -> Set<Int>? {
-//        let game  = Game.shared
-//        var set : Set<Int>?
-//        if game.gameResult == GameWinner.crossWinner {
-//            set = game.gameBoard.findAllCellWithCross()
-//        }
-//        if game.gameResult == GameWinner.zeroWinner {
-//            set = game.gameBoard.findAllCellWithZero()
-//        }
-//        return findWinCombination(set: set)
-//    }
 }
 
 //find winner
@@ -82,24 +70,32 @@ extension GameResultController {
 
 //find the winning combination
 extension GameResultController {
-//    private static func findWinCombination(set : Set<Int>?) -> Set<Int>? {
-//        guard let set = set else {
-//            return nil
-//        }
-//        var result : (Bool, Set<Int>?)  = (false, nil)
-//        for combination in AllWinCombinations {
-//            result = checkOneCombination(setForCheck: set, oneWinCombination: combination)
-//            if result.0 {
-//                return result.1
-//            }
-//        }
-//        return result.1
-//    }
-//
+    
     private static func checkOneCombination(setForCheck : Set<Int>, oneWinCombination : Set<Int>) -> (Bool, Set<Int>?) {
         if oneWinCombination.isSubset(of: setForCheck) {
             return (true, oneWinCombination)
         }
         return (false, nil)
+    }
+}
+
+//text - who win
+extension GameResultController {
+    
+    static func winnerText() -> String {
+        let game  = Game.shared
+        guard let result = game.gameResult else {
+            return ""
+        }
+        switch result {
+        case GameWinner.crossWinner:
+            return "Player \"Cross\" is the winner!"
+            
+        case GameWinner.zeroWinner:
+            return "Player \"Zero\" is the winner!"
+            
+        case GameWinner.draw :
+            return "Draw. Nobody's won"
+        }
     }
 }

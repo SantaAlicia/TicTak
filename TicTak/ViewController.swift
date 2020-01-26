@@ -187,7 +187,7 @@ private func updateInfoLabels () {
         case GameState.isOver:
             gameInfo.font = UIFont(name: "MarkerFelt-Wide", size: 22.0)
             gameInfo.textColor = .red
-            gameInfo.text = winnerText()
+            gameInfo.text = GameResultController.winnerText()
             gameOverInfo.text = "Game is Over!"
         }
     }
@@ -205,24 +205,6 @@ private func updateInfoLabels () {
         case Player.zero:
             return textZero
             
-        }
-    }
-    
-    private func winnerText() -> String {
-        
-        guard let unwrapped = game.gameResult else {
-            return ""
-        }
-        
-        switch unwrapped {
-        case GameWinner.crossWinner:
-            return "Player \"Cross\" is the winner!"
-            
-        case GameWinner.zeroWinner:
-            return "Player \"Zero\" is the winner!"
-            
-        case GameWinner.draw :
-            return "Draw. Nobody's won"
         }
     }
     

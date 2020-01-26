@@ -22,6 +22,7 @@
 		82942BC422EE211100E5EE97 /* Contants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82942BC322EE211100E5EE97 /* Contants.swift */; };
 		82942BC822EE312100E5EE97 /* GameResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82942BC722EE312100E5EE97 /* GameResultController.swift */; };
 		82AC77AD22F1B2A20020C20A /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 82AC77AC22F1B2A20020C20A /* appIcon.png */; };
+		82AF60DA23DE0F6200869D92 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AF60D923DE0F6200869D92 /* LeftMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		82942BC322EE211100E5EE97 /* Contants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contants.swift; sourceTree = "<group>"; };
 		82942BC722EE312100E5EE97 /* GameResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultController.swift; sourceTree = "<group>"; };
 		82AC77AC22F1B2A20020C20A /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
+		82AF60D923DE0F6200869D92 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				82942BC722EE312100E5EE97 /* GameResultController.swift */,
+				82AF60D923DE0F6200869D92 /* LeftMenuViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				8225F01E22ECAC9A007F01E7 /* GameBoard.swift in Sources */,
 				8225EFEB22ECA89B007F01E7 /* AppDelegate.swift in Sources */,
 				82942BC422EE211100E5EE97 /* Contants.swift in Sources */,
+				82AF60DA23DE0F6200869D92 /* LeftMenuViewController.swift in Sources */,
 				8225F01A22ECAB1B007F01E7 /* Cell.swift in Sources */,
 				8225F02122ECAEAD007F01E7 /* TicTacCollectionViewCell.swift in Sources */,
 				82942BC822EE312100E5EE97 /* GameResultController.swift in Sources */,
