@@ -121,6 +121,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="gameInfo" destination="DfW-w8-VVv" id="WDd-aN-Cml"/>
                         <outlet property="gameOverInfo" destination="f3l-mL-rGT" id="Glh-wy-Er4"/>
                         <outlet property="playWithComputerSwitch" destination="t1e-L5-5tA" id="usX-xn-UNP"/>
                         <outlet property="startButton" destination="WSm-Er-f5K" id="Z2K-it-jJG"/>
