@@ -17,6 +17,7 @@
 		8225F01E22ECAC9A007F01E7 /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F01D22ECAC9A007F01E7 /* GameBoard.swift */; };
 		8225F02122ECAEAD007F01E7 /* TicTacCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F02022ECAEAD007F01E7 /* TicTacCollectionViewCell.swift */; };
 		826EE54E22F17D8200B48E7D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826EE54D22F17D8200B48E7D /* Game.swift */; };
+		8282675023DFAD81005C48D4 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8282674F23DFAD81005C48D4 /* CollectionViewController.swift */; };
 		828A2F0A22EE4BD000184CF5 /* TicTacTestsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828A2F0722EE4BD000184CF5 /* TicTacTestsGame.swift */; };
 		828A2F0B22EE4BD000184CF5 /* TicTcTestGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828A2F0822EE4BD000184CF5 /* TicTcTestGame.swift */; };
 		82942BC422EE211100E5EE97 /* Contants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82942BC322EE211100E5EE97 /* Contants.swift */; };
@@ -58,6 +59,7 @@
 		8225F01D22ECAC9A007F01E7 /* GameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
 		8225F02022ECAEAD007F01E7 /* TicTacCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacCollectionViewCell.swift; sourceTree = "<group>"; };
 		826EE54D22F17D8200B48E7D /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		8282674F23DFAD81005C48D4 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		828A2F0722EE4BD000184CF5 /* TicTacTestsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicTacTestsGame.swift; sourceTree = "<group>"; };
 		828A2F0822EE4BD000184CF5 /* TicTcTestGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicTcTestGame.swift; sourceTree = "<group>"; };
 		828A2F0922EE4BD000184CF5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			children = (
 				82942BC722EE312100E5EE97 /* GameResultController.swift */,
 				82AF60D923DE0F6200869D92 /* LeftMenuViewController.swift */,
+				8282674F23DFAD81005C48D4 /* CollectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				826EE54E22F17D8200B48E7D /* Game.swift in Sources */,
 				8225F01E22ECAC9A007F01E7 /* GameBoard.swift in Sources */,
 				8225EFEB22ECA89B007F01E7 /* AppDelegate.swift in Sources */,
+				8282675023DFAD81005C48D4 /* CollectionViewController.swift in Sources */,
 				82942BC422EE211100E5EE97 /* Contants.swift in Sources */,
 				82AF60DA23DE0F6200869D92 /* LeftMenuViewController.swift in Sources */,
 				8225F01A22ECAB1B007F01E7 /* Cell.swift in Sources */,

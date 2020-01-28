@@ -40,48 +40,6 @@
                                     <constraint firstItem="DfW-w8-VVv" firstAttribute="centerX" secondItem="QPW-hC-MU5" secondAttribute="centerX" id="agj-tb-nXe"/>
                                 </constraints>
                             </stackView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pYt-1i-1zF">
-                                <rect key="frame" x="37" y="120" width="301" height="301"/>
-                                <color key="backgroundColor" red="0.63731935220187008" green="0.78330002845228475" blue="0.8971269057263056" alpha="0.35592358732876711" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="dA3-nZ-ufQ"/>
-                                    <constraint firstAttribute="width" secondItem="pYt-1i-1zF" secondAttribute="height" multiplier="1:1" id="syc-I6-Wkk"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="egW-1f-8cg">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ticTakCell" id="hMK-93-vrf" customClass="TicTacCollectionViewCell" customModule="TicTak" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W9i-ip-F0H">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                        </view>
-                                        <connections>
-                                            <outlet property="imageView" destination="W9i-ip-F0H" id="ter-W9-T7A"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <exclude reference="dA3-nZ-ufQ"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="yf9-GB-G1A"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="BNh-wo-VaD"/>
-                                </connections>
-                            </collectionView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t1e-L5-5tA">
                                 <rect key="frame" x="170.5" y="601" width="51" height="31"/>
                                 <connections>
@@ -120,6 +78,16 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="line.horizontal.3" catalog="system"/>
                             </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYt-1i-1zF">
+                                <rect key="frame" x="37" y="120" width="301" height="301"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="dA3-nZ-ufQ"/>
+                                    <constraint firstAttribute="width" secondItem="pYt-1i-1zF" secondAttribute="height" multiplier="1:1" id="syc-I6-Wkk"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="PmW-CV-Pti" kind="embed" identifier="collectionViewSegue" id="8r0-8q-Gf7"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -153,8 +121,6 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="pYt-1i-1zF" id="rYY-uE-2DB"/>
-                        <outlet property="gameInfo" destination="DfW-w8-VVv" id="FiR-an-1zH"/>
                         <outlet property="gameOverInfo" destination="f3l-mL-rGT" id="Glh-wy-Er4"/>
                         <outlet property="playWithComputerSwitch" destination="t1e-L5-5tA" id="usX-xn-UNP"/>
                         <outlet property="startButton" destination="WSm-Er-f5K" id="Z2K-it-jJG"/>
@@ -187,6 +153,75 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="emv-4W-H1r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="966.39999999999998" y="125.4872563718141"/>
+        </scene>
+        <!--Collection View Controller-->
+        <scene sceneID="Nen-eq-9ff">
+            <objects>
+                <viewController id="PmW-CV-Pti" customClass="CollectionViewController" customModule="TicTak" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JMQ-SI-Ovk">
+                        <rect key="frame" x="0.0" y="0.0" width="301" height="301"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QIL-ux-pS4">
+                                <rect key="frame" x="0.0" y="0.0" width="301" height="301"/>
+                                <color key="backgroundColor" red="0.63731935220000002" green="0.78330002850000002" blue="0.89712690569999998" alpha="0.35592358730000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="QIL-ux-pS4" secondAttribute="height" multiplier="1:1" id="h6Q-Ib-hJY"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="jMm-Fc-92B"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8NK-Wj-wIW">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ticTakCell" id="pw0-vQ-X2s" customClass="TicTacCollectionViewCell" customModule="TicTak" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pWD-tW-9jw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="imageView" destination="pWD-tW-9jw" id="5iY-cY-PIT"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="jMm-Fc-92B"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="PmW-CV-Pti" id="r2e-us-9TX"/>
+                                    <outlet property="delegate" destination="PmW-CV-Pti" id="wig-z2-UEp"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="QIL-ux-pS4" firstAttribute="top" secondItem="JMQ-SI-Ovk" secondAttribute="top" id="9SX-ql-IVy"/>
+                            <constraint firstAttribute="bottom" secondItem="QIL-ux-pS4" secondAttribute="bottom" id="QV7-am-cEd"/>
+                            <constraint firstAttribute="trailing" secondItem="QIL-ux-pS4" secondAttribute="trailing" id="ek2-uM-iHZ"/>
+                            <constraint firstItem="QIL-ux-pS4" firstAttribute="width" secondItem="QIL-ux-pS4" secondAttribute="height" multiplier="1:1" id="mZa-5a-fXx"/>
+                            <constraint firstItem="QIL-ux-pS4" firstAttribute="leading" secondItem="JMQ-SI-Ovk" secondAttribute="leading" id="vza-Xa-quv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QKg-tf-ndR"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="QIL-ux-pS4" id="NKS-Vu-iim"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RYu-qA-7A7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="359" y="756"/>
         </scene>
     </scenes>
     <resources>
