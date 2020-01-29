@@ -54,30 +54,31 @@ extension CollectionViewController: UICollectionViewDataSource {
        }
    }
 
-extension ViewController: UICollectionViewDelegate {
+extension CollectionViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-                playerMakesOneMove(indexPath.row)
+                let vcParent = self.parent as! ViewController
+                vcParent.playerMakesOneMove(indexPath.row)
                 if (game.state == GameState.isOver) {
-                    gameTimer?.invalidate()
-                    gameTimer = nil
+                    vcParent.gameTimer?.invalidate()
+                    vcParent.gameTimer = nil
                     collectionView.isUserInteractionEnabled = false
                     return
                 }
-                if ((playWithComputerSwitch.isOn) && (game.currentPlayer == Player.zero)) {
+                    if ((vcParent.playWithComputerSwitch.isOn) && (game.currentPlayer == Player.zero)) {
                     
                     guard let ramdomIndexFromEmptyCell = game.gameBoard.findOneEmptyCell() else {
                         return
                     }
 
-                    gameTimer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true, block: { timer in
-                        self.playerMakesOneMove(ramdomIndexFromEmptyCell)
+                        vcParent.gameTimer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true, block: { timer in
+                        vcParent.playerMakesOneMove(ramdomIndexFromEmptyCell)
                     })
                 }
             }
 }
 
-extension ViewController : UICollectionViewDelegateFlowLayout {
+extension CollectionViewController : UICollectionViewDelegateFlowLayout {
 //    func collectionView(_ collectionView: UICollectionView,
 //                        layout collectionViewLayout: UICollectionViewLayout,
 //                        sizeForItemAt indexPath: IndexPath) -> CGSize {
