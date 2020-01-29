@@ -191,7 +191,7 @@
                                             </subviews>
                                         </view>
                                         <connections>
-                                            <outlet property="imageView" destination="pWD-tW-9jw" id="5iY-cY-PIT"/>
+                                            <outlet property="imageView" destination="pWD-tW-9jw" id="8Pm-1z-Paq"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -201,8 +201,8 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <outlet property="dataSource" destination="PmW-CV-Pti" id="r2e-us-9TX"/>
-                                    <outlet property="delegate" destination="PmW-CV-Pti" id="wig-z2-UEp"/>
+                                    <outlet property="dataSource" destination="PmW-CV-Pti" id="fTP-p3-ouL"/>
+                                    <outlet property="delegate" destination="PmW-CV-Pti" id="vTK-ew-NuD"/>
                                 </connections>
                             </collectionView>
                         </subviews>
