@@ -41,7 +41,13 @@ class ViewController: UIViewController {
         startButton.layer.cornerRadius = DesignConstants.cornerRadius
         startButton.clipsToBounds = true
         embeddedViewController.collectionView.backgroundColor = UIColor(patternImage: UIImage(named: "notebookBackground")!)
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "woodBackground")!)
+        //view.backgroundColor = UIColor(patternImage: UIImage(named: "woodBackground")!)
+        //view.backgroundColor = UIColor(patternImage: UIImage(named: "oldBook1")!)
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "oldBook1")
+        backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
+        
         playWithComputerSwitch.onTintColor = .black
         playWithComputerSwitch.tintColor = .black
     }
