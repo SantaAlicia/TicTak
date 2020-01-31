@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Thread.sleep(forTimeInterval: 0.2)
         
+//        let containerViewController = ContainerViewController()
+//        window!.rootViewController = containerViewController
+//        window!.makeKeyAndVisible()
         
         return true
     }

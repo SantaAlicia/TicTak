@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CenterViewController: UIViewController {
 
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var gameOverInfo: UILabel!
@@ -64,7 +64,7 @@ class ViewController: UIViewController {
 }
 
 
-extension ViewController {
+extension CenterViewController {
     
     private func startNewGame() {
             game.startNewGame()

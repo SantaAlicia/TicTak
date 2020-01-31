@@ -57,7 +57,7 @@ extension CollectionViewController: UICollectionViewDataSource {
 extension CollectionViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-                let vcParent = self.parent as! ViewController
+                let vcParent = self.parent as! CenterViewController
                 vcParent.playerMakesOneMove(indexPath.row)
                 if (game.state == GameState.isOver) {
                     vcParent.gameTimer?.invalidate()

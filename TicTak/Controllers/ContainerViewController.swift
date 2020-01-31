@@ -10,8 +10,24 @@ import UIKit
 
 class ContainerViewController: UIViewController {
 
+    var centerViewController : CenterViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        centerViewController = UIStoryboard.centerViewController()
+//        centerViewController.delegate = self
+//
+//        // wrap the centerViewController in a navigation controller, so we can push views to it
+//        // and display bar button items in the navigation bar
+//        centerNavigationController = UINavigationController(rootViewController: centerViewController)
+//        view.addSubview(centerNavigationController.view)
+//        addChild(centerNavigationController)
+//
+//        centerNavigationController.didMove(toParent: self)
+//
+//        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+//        centerNavigationController.view.addGestureRecognizer(panGestureRecognizer)
 
         // Do any additional setup after loading the view.
     }
@@ -27,4 +43,12 @@ class ContainerViewController: UIViewController {
     }
     */
 
+}
+
+private extension UIStoryboard {
+  static func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: Bundle.main) }
+  
+  static func centerViewController() -> CenterViewController? {
+    return mainStoryboard().instantiateViewController(withIdentifier: "CenterViewController") as? CenterViewController
+  }
 }
