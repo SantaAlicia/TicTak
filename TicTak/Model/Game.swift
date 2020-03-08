@@ -25,6 +25,7 @@ protocol GameProtocol {
     var currentPlayer : Player { get }
     var state : GameState { get }
     var winCombination : Set<Int>? {get}
+    
     func startNewGame()
     func playerMakesMoveAtIndex(_ index : Int) -> Bool
     func isGameOver() -> Bool

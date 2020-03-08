@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +11,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="CenterViewController" id="BYZ-38-t0r" customClass="CenterViewController" customModule="TicTak" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -30,7 +29,7 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="result" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DfW-w8-VVv">
                                         <rect key="frame" x="0.0" y="40.5" width="276" height="45"/>
-                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -77,6 +76,9 @@
                                     <constraint firstAttribute="height" constant="26" id="rWo-yv-AMa"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="line.horizontal.3" catalog="system"/>
+                                <connections>
+                                    <action selector="burgerMenuTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="dhx-9L-C4H"/>
+                                </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYt-1i-1zF">
                                 <rect key="frame" x="37" y="120" width="301" height="301"/>
@@ -131,29 +133,47 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="126.38680659670166"/>
         </scene>
-        <!--Left Menu View Controller-->
+        <!--Settings  1-->
         <scene sceneID="f2T-H1-6Dl">
             <objects>
-                <viewController storyboardIdentifier="LeftMenuViewContoller" id="do5-7d-TTY" customClass="LeftMenuViewController" customModule="TicTak" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LeftMenuViewController" title="Settings  1" id="do5-7d-TTY" customClass="LeftMenuViewController" customModule="TicTak" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1DB-lB-ZwU">
-                        <rect key="frame" x="0.0" y="0.0" width="180" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e34-SZ-BJ8">
-                                <rect key="frame" x="16" y="20" width="148" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Button Button"/>
-                            </button>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftY-Qd-HCu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="Settings 2" id="wRl-PC-yP3"/>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M9u-OV-1RJ">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="settings1" translatesAutoresizingMaskIntoConstraints="NO" id="8NG-tq-k0R">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ftY-Qd-HCu" firstAttribute="top" secondItem="ub4-M9-2Da" secondAttribute="top" id="BjD-Em-tt9"/>
+                            <constraint firstItem="ftY-Qd-HCu" firstAttribute="trailing" secondItem="M9u-OV-1RJ" secondAttribute="trailing" id="F3Y-MW-AGW"/>
+                            <constraint firstItem="M9u-OV-1RJ" firstAttribute="trailing" secondItem="ub4-M9-2Da" secondAttribute="trailing" id="Hwy-3Q-4aV"/>
+                            <constraint firstItem="M9u-OV-1RJ" firstAttribute="top" secondItem="ftY-Qd-HCu" secondAttribute="bottom" symbolic="YES" id="oOh-BX-k0Z"/>
+                            <constraint firstItem="ftY-Qd-HCu" firstAttribute="leading" secondItem="M9u-OV-1RJ" secondAttribute="leading" id="pS1-hn-qHp"/>
+                            <constraint firstItem="M9u-OV-1RJ" firstAttribute="leading" secondItem="ub4-M9-2Da" secondAttribute="leading" id="qzI-DR-nhd"/>
+                            <constraint firstItem="M9u-OV-1RJ" firstAttribute="bottom" secondItem="ub4-M9-2Da" secondAttribute="bottom" id="uG6-qv-7KW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ub4-M9-2Da"/>
                     </view>
-                    <size key="freeformSize" width="180" height="667"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="emv-4W-H1r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="966.39999999999998" y="125.4872563718141"/>
+            <point key="canvasLocation" x="965.60000000000002" y="125.4872563718141"/>
         </scene>
         <!--Collection View Controller-->
         <scene sceneID="Nen-eq-9ff">
@@ -233,5 +253,6 @@
         <image name="buttonBlack" width="1280" height="720"/>
         <image name="buttonGray" width="512" height="256"/>
         <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
+        <image name="settings1" width="640" height="400"/>
     </resources>
 </document>

@@ -11,6 +11,7 @@ import UIKit
 
 struct GameConstants {
     static let gameDimension: Int = 9
+    static let itemsPerRow: CGFloat = 3
 }
 
 struct DesignConstants {

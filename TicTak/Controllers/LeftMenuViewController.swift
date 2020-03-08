@@ -8,43 +8,50 @@
 
 import UIKit
 
-extension UIViewController {
-    func add(_ child: UIViewController) {
-        addChild(child)
-        view.addSubview(child.view)
-        child.didMove(toParent: self)
-    }
-
-    func remove() {
-        // Just to be safe, we check that this view controller
-        // is actually added to a parent before removing it.
-        guard parent != nil else {
-            return
-        }
-
-        willMove(toParent: nil)
-        view.removeFromSuperview()
-        removeFromParent()
-    }
-}
+//extension UIViewController {
+//    func add(_ child: UIViewController) {
+//        addChild(child)
+//        view.addSubview(child.view)
+//        child.didMove(toParent: self)
+//    }
+//
+//    func remove() {
+//        // Just to be safe, we check that this view controller
+//        // is actually added to a parent before removing it.
+//        guard parent != nil else {
+//            return
+//        }
+//
+//        willMove(toParent: nil)
+//        view.removeFromSuperview()
+//        removeFromParent()
+//    }
+//}
 
 class LeftMenuViewController: UIViewController {
 
+    var delegate : LeftMenuViewControllerelDelegate?
+    @IBOutlet weak var navigationBar : UINavigationBar?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        self.title = "Settings"
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func gestureRecognizerShouldBegin(_ gesture: UIGestureRecognizer) -> Bool {
+        return true
     }
-    */
+    
+    @objc
+    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        delegate?.respondToSwipeGesture(gesture: gesture)
+    }
+}
 
+protocol LeftMenuViewControllerelDelegate {
+  func didSelectMenu()
+  func respondToSwipeGesture(gesture: UIGestureRecognizer)
 }

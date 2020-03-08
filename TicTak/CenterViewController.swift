@@ -16,10 +16,13 @@ class CenterViewController: UIViewController {
     @IBOutlet weak var playWithComputerSwitch: UISwitch!
     
     private var embeddedViewController: CollectionViewController!
+    var delegate : CenterViewControllerDelegate?
+    
     private let sectionInsets = UIEdgeInsets(top: 0.0,
     left: 0.0,
     bottom: 0.0,
     right: 0.0)
+    
     private let itemsPerRow: CGFloat = 3
     let game = Game.shared
     var gameTimer: Timer?
@@ -27,7 +30,7 @@ class CenterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tuningView()
-       preparationViewsAndContols()
+        preparationViewsAndContols()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -38,9 +41,22 @@ class CenterViewController: UIViewController {
     }
     
     func tuningView () {
+        embeddedViewController.view.layer.shadowOpacity = 0.2
+        embeddedViewController.view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        embeddedViewController.view.layer.shadowRadius = 5
+        embeddedViewController.view.layer.shadowColor = UIColor.blue.cgColor
+        
+        startButton.layer.shadowOpacity = 0.1
+        startButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+        startButton.layer.shadowRadius = 5
+        startButton.layer.shadowColor = UIColor.blue.cgColor
+        startButton.layer.masksToBounds = false;
+        
         startButton.layer.cornerRadius = DesignConstants.cornerRadius
         startButton.clipsToBounds = true
+        
         embeddedViewController.collectionView.backgroundColor = UIColor(patternImage: UIImage(named: "notebookBackground")!)
+       // embeddedViewController.collectionView.backgroundColor = UIColor(patternImage: UIImage(named: "settings1")!)
         //view.backgroundColor = UIColor(patternImage: UIImage(named: "woodBackground")!)
         //view.backgroundColor = UIColor(patternImage: UIImage(named: "oldBook1")!)
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
@@ -50,6 +66,8 @@ class CenterViewController: UIViewController {
         
         playWithComputerSwitch.onTintColor = .black
         playWithComputerSwitch.tintColor = .black
+        
+        self.title = "Tic-Tac-Toe"
     }
     
     @IBAction func startNewGameButtonPressed(_ sender: Any) {
@@ -58,11 +76,10 @@ class CenterViewController: UIViewController {
     @IBAction func playWithComputerChanged(_ sender: Any) {
         startNewGame()
     }
-//    @IBAction func updateCell(_ sender: Any) {
-//        udateCellsIfGameOver()
-//    }
+    @IBAction func burgerMenuTapped() {
+        delegate?.toggleLeftPanel()
+    }
 }
-
 
 extension CenterViewController {
     
@@ -154,6 +171,14 @@ private func updateInfoLabels () {
 //            cell.imageView.image = UIImage(named: "scratch")
 //        }
 //    }
-    
+}
+
+//extension CenterViewController : LeftMenuViewControllerelDelegate {
+//    func didSelectMenu() {
+//    }
+//}
+
+protocol CenterViewControllerDelegate {
+  func toggleLeftPanel()
 }
 
