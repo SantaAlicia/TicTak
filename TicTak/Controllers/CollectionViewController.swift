@@ -65,8 +65,8 @@ extension CollectionViewController: UICollectionViewDelegate {
                     collectionView.isUserInteractionEnabled = false
                     return
                 }
-                    if ((vcParent.playWithComputerSwitch.isOn) && (game.currentPlayer == Player.zero)) {
-                    
+            if ((game.playVSComputer) && (game.currentPlayer == Player.zero)) {
+
                     guard let ramdomIndexFromEmptyCell = game.gameBoard.findOneEmptyCell() else {
                         return
                     }
@@ -126,3 +126,4 @@ extension CollectionViewController : UICollectionViewDelegateFlowLayout {
         return CGSize(width: size, height: size)
     }
 }
+

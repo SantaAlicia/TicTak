@@ -1,5 +1,5 @@
 //
-//  Game.swift
+//  GameBoard.swift
 //  TicTak
 //
 //  Created by SantaAlicia on 27/07/2019.
@@ -100,4 +100,6 @@ private func findAllCellWithType(_ type : CellType) ->Set<Int>? {
         return cellsForType
     }
 }
+
+
 

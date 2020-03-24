@@ -13,10 +13,10 @@ class CenterViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var gameOverInfo: UILabel!
     @IBOutlet weak var gameInfo: UILabel!
-    @IBOutlet weak var playWithComputerSwitch: UISwitch!
-    
+    @IBOutlet weak var stackView: UIStackView!
+
     private var embeddedViewController: CollectionViewController!
-    var delegate : CenterViewControllerDelegate?
+    var delegate : CenterViewControllerLeftPanel?
     
     private let sectionInsets = UIEdgeInsets(top: 0.0,
     left: 0.0,
@@ -31,6 +31,7 @@ class CenterViewController: UIViewController {
         super.viewDidLoad()
         tuningView()
         preparationViewsAndContols()
+        //stackView.addBackground(color: UIColor.lightGray)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -41,17 +42,15 @@ class CenterViewController: UIViewController {
     }
     
     func tuningView () {
-        embeddedViewController.view.layer.shadowOpacity = 0.2
-        embeddedViewController.view.layer.shadowOffset = CGSize(width: 0, height: 0)
-        embeddedViewController.view.layer.shadowRadius = 5
-        embeddedViewController.view.layer.shadowColor = UIColor.blue.cgColor
-        
-        startButton.layer.shadowOpacity = 0.1
-        startButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-        startButton.layer.shadowRadius = 5
-        startButton.layer.shadowColor = UIColor.blue.cgColor
-        startButton.layer.masksToBounds = false;
-        
+//        embeddedViewController.view.layer.shadowOpacity = 0.2
+//        embeddedViewController.view.layer.shadowOffset = CGSize(width: 0, height: 0)
+//        embeddedViewController.view.layer.shadowRadius = 5
+//        embeddedViewController.view.layer.shadowColor = UIColor.blue.cgColor
+        makeShadow(control : embeddedViewController.view)
+        makeShadow(control : startButton)
+        makeShadow(control : gameInfo)
+        makeShadow(control : gameOverInfo)
+
         startButton.layer.cornerRadius = DesignConstants.cornerRadius
         startButton.clipsToBounds = true
         
@@ -64,8 +63,8 @@ class CenterViewController: UIViewController {
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
         
-        playWithComputerSwitch.onTintColor = .black
-        playWithComputerSwitch.tintColor = .black
+        //playWithComputerSwitch.onTintColor = .black
+        //playWithComputerSwitch.tintColor = .black
         
         self.title = "Tic-Tac-Toe"
     }
@@ -73,9 +72,7 @@ class CenterViewController: UIViewController {
     @IBAction func startNewGameButtonPressed(_ sender: Any) {
         startNewGame()
     }
-    @IBAction func playWithComputerChanged(_ sender: Any) {
-        startNewGame()
-    }
+    
     @IBAction func burgerMenuTapped() {
         delegate?.toggleLeftPanel()
     }
@@ -92,43 +89,53 @@ extension CenterViewController {
     private func preparationViewsAndContols() {
             embeddedViewController.collectionView.reloadData()
             updateInfoLabels()
-            updateEnabledControls()
+            //updateEnabledControls()
     }
         
     func playerMakesOneMove(_ i : Int) {
-                    if (game.playerMakesMoveAtIndex(i)) {
-                        
-                        if ((playWithComputerSwitch.isOn) && (game.currentPlayer == Player.zero)) {
-                            gameTimer?.invalidate()
-                            gameTimer = nil
-                        }
-                        embeddedViewController.collectionView.reloadData()
-                        updateInfoLabels()
-                        updateEnabledControls()
-                    }
+        if !(game.playerMakesMoveAtIndex(i)) {
+            return
         }
-    
-private func updateInfoLabels () {
-    switch game.state {
+        if ((game.playVSComputer) && (game.currentPlayer == Player.zero)) {
+                gameTimer?.invalidate()
+                gameTimer = nil
+            }
+            embeddedViewController.collectionView.reloadData()
+            updateInfoLabels()
+            //updateEnabledControls()
+        }
+}
+
+extension CenterViewController {
+    private func updateInfoLabels () {
+        switch game.state {
         case GameState.isNotStarted, GameState.isStarted:
-            gameInfo.text = "First is Turn of Player \"Cross\""
-            gameInfo.font = UIFont(name: "MarkerFelt-Thin", size: 17.0)
+            gameInfo.text = "First Turn is of Player \"Cross\""
+            //gameInfo.font = UIFont(name: "MarkerFelt-Thin", size: 18.0)
             gameInfo.textColor = .black
             gameOverInfo.text = " "
         case GameState.isProceed:
             gameInfo.text = currentPlayerText()
             gameOverInfo.text = " "
         case GameState.isOver:
-            gameInfo.font = UIFont(name: "MarkerFelt-Wide", size: 22.0)
-            gameInfo.textColor = .red
-            gameInfo.text = GameResultController.winnerText()
-            gameOverInfo.text = "Game is Over!"
+            //gameInfo.font = UIFont(name: "MarkerFelt-Wide", size: 22.0)
+            gameInfo.textColor = .black//.red
+            
+            //textInfo = GameResultController.winnerText()
+            (gameInfo.text, gameOverInfo.text) = GameResultController.winnerText()
+//            if game.playVSComputer {
+//                if game.
+//                gameOverInfo.text = "You Win!"
+//            }
+//            else {
+//                gameOverInfo.text = "Game Over!"
+//            }
         }
     }
     
     private func currentPlayerText() -> String {
         let textZero : String!
-        if (!playWithComputerSwitch.isOn) {
+        if (!game.playVSComputer) {
             textZero =  "Turn of Player \"Zero\""
         } else  {
             textZero = " "  }
@@ -138,7 +145,6 @@ private func updateInfoLabels () {
             
         case Player.zero:
             return textZero
-            
         }
     }
     
@@ -158,6 +164,14 @@ private func updateInfoLabels () {
         }
     }
     
+    private func makeShadow(control : UIView) {
+        control.layer.shadowOpacity = 0.2
+        control.layer.shadowOffset = CGSize(width: 0, height: 0)
+        control.layer.shadowRadius = 5
+        control.layer.shadowColor = UIColor.blue.cgColor
+        control.layer.masksToBounds = false;
+    }
+
 //    private func udateCellsIfGameOver() {
 //        if game.state != GameState.isOver {
 //            return
@@ -178,7 +192,8 @@ private func updateInfoLabels () {
 //    }
 //}
 
-protocol CenterViewControllerDelegate {
+protocol CenterViewControllerLeftPanel {
   func toggleLeftPanel()
 }
+
 

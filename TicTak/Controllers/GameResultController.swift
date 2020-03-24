@@ -82,20 +82,32 @@ extension GameResultController {
 //text - who win
 extension GameResultController {
     
-    static func winnerText() -> String {
+    static func winnerText() -> (String, String) {
         let game  = Game.shared
+        var st2 = ""
         guard let result = game.gameResult else {
-            return ""
+            return ("", "")
         }
         switch result {
         case GameWinner.crossWinner:
-            return "Player \"Cross\" is the winner!"
+            let st1 = "Player \"Cross\" is the winner"
+            if (game.playVSComputer) {
+                st2 = "You Win!"
+            }
+            return (st1, st2)
             
         case GameWinner.zeroWinner:
-            return "Player \"Zero\" is the winner!"
+            let st1 = "Player \"Zero\" is the winner"
+            if (game.playVSComputer) {
+                st2 = "iPhone Win!"
+            }
+            return (st1, st2)
             
         case GameWinner.draw :
-            return "Draw. Nobody's won"
+            let st1 = "Draw. Nobody win"
+            st2 = "Game Over"
+            return (st1, st2)
         }
     }
 }
+

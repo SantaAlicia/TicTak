@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AVFoundation
 
 enum Player {
     case cross
@@ -20,11 +21,12 @@ enum GameState {
     case isOver
 }
 
-protocol GameProtocol {
+protocol GameProtocol{
     var gameResult : GameWinner? { get }
     var currentPlayer : Player { get }
     var state : GameState { get }
     var winCombination : Set<Int>? {get}
+    var playVSComputer : Bool { get }
     
     func startNewGame()
     func playerMakesMoveAtIndex(_ index : Int) -> Bool
@@ -39,6 +41,8 @@ class Game : GameProtocol {
     var state = GameState.isNotStarted
     var gameResult : GameWinner?
     var winCombination : Set<Int>?
+    var playVSComputer = false
+    var needPlaySound = false
     
     init() {
         gameBoard.setupInitialPosition()
@@ -49,6 +53,7 @@ class Game : GameProtocol {
         currentPlayer = Player.cross
         state = GameState.isStarted
         winCombination = nil
+        GameEffectsViewController.shared.prepareToPlay()
     }
     
     func playerMakesMoveAtIndex(_ index : Int) -> Bool {
@@ -57,9 +62,9 @@ class Game : GameProtocol {
         if !cell.isEmpty {
             return false
         }
-        if (isGameOver()) {
-            return false
-        }
+//        if (isGameOver()) {
+//            return false
+//        }
         changeCellAtIndexByCurrentPlayer(index)
         if (isGameOver()) {
             state = GameState.isOver
@@ -70,17 +75,20 @@ class Game : GameProtocol {
         }
         return true
     }
-}
-
-extension Game {
+    
     func isGameOver() -> Bool {
         gameResult = GameResultController.findWiner()
         if (gameResult == GameWinner.crossWinner) || (gameResult == GameWinner.zeroWinner) {
+            if needPlaySound {
+                GameEffectsViewController.shared.playSound()
+            }
             return true
         }
         return gameBoard.isFull()
     }
-    
+}
+
+extension Game {
     func isCellInsideWinCombination(index : Int) -> Bool {
         if let winC = winCombination {
             let  tmpSet : Set<Int> = [index]
@@ -110,4 +118,5 @@ extension Game {
         currentPlayer = (currentPlayer == Player.cross) ? Player.zero : Player.cross
     }
 }
+
 

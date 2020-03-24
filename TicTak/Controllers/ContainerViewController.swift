@@ -8,16 +8,22 @@
 
 import UIKit
 
-class ContainerViewController: UIViewController {
+enum SlideOutState {
+    case leftMenuExpanded
+    case leftMenuCollapsed
+}
 
-    enum SlideOutState {
-        case leftMenuExpanded
-        case leftMenuCollapsed
-    }
+protocol ContainerViewControllerProtocol {
+    var currentState : SlideOutState {get}
+}
+
+ class ContainerViewController: UIViewController, ContainerViewControllerProtocol {
+
+    var currentState : SlideOutState = .leftMenuCollapsed
     var centerViewController : CenterViewController!
     var leftMenuViewController : LeftMenuViewController!
     var centerNavigationController : UINavigationController!
-    var currentState : SlideOutState = .leftMenuCollapsed
+    var tapGesture : UITapGestureRecognizer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,72 +34,29 @@ class ContainerViewController: UIViewController {
         // wrap the centerViewController in a navigation controller, so we can push views to it
         // and display bar button items in the navigation bar
         centerNavigationController = UINavigationController(rootViewController: centerViewController)
-        //centerNavigationController.setNavigationBarHidden(true, animated: false)
         
         view.addSubview(centerNavigationController.view)
-        self.addChild(centerNavigationController)
-        
+        addChild(centerNavigationController)
         centerNavigationController.didMove(toParent: self)
-
-        //let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
-        //centerNavigationController.view.addGestureRecognizer(panGestureRecognizer)
-
-        // Do any additional setup after loading the view.
-        
-        //centerNavigationController.navigationBar.barStyle = .black
-        //statusBarStyle = .lightContent
-        
+    
         centerNavigationController.view.layer.shadowOpacity = 0.2
         centerNavigationController.view.layer.shadowOffset = CGSize(width: -4, height: 4)
         centerNavigationController.view.layer.shadowRadius = 3
         centerNavigationController.view.layer.shadowColor = UIColor.gray.cgColor
         centerNavigationController.view.layer.masksToBounds = false;
+        
+//        tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.respondToTapGesture))
+//        guard let tapGesture = tapGesture else { return }
+//        self.view.addGestureRecognizer(tapGesture)
     }
-    
-     var statusBarHidden = false {
-            didSet(newValue) {
-                setNeedsStatusBarAppearanceUpdate()
-            }
-        }
-        
-        override var prefersStatusBarHidden: Bool {
-          return statusBarHidden
-        }
-        
-        var statusBarStyle = UIStatusBarStyle.default{
-            didSet (newValue) {
-                setNeedsStatusBarAppearanceUpdate()
-            }
-        }
-        
-        override var preferredStatusBarStyle: UIStatusBarStyle {
-            return statusBarStyle
-        }
-
-    //    @IBAction func buttonTapped(_ sender: Any) {
-    //        statusBarStyle = .darkContent
-    //        statusBarHidden = !statusBarHidden
-    //    }
-    //
-    //    @IBAction func button2Tapped(_ sender: Any) {
-    //        statusBarStyle = .lightContent
-    //    }
-    
-//    public func updateStatusBar() {
-//        UINavigationBar.appearance().barTintColor = UIColor(red: 13/225, green: 71/255, blue:161/255, alpha: 1.0)
-//        setNeedsStatusBarAppearanceUpdate()
-//    }
 }
 
-extension ContainerViewController: CenterViewControllerDelegate {
+extension ContainerViewController: CenterViewControllerLeftPanel {
     
     func toggleLeftPanel() {
         if (currentState != .leftMenuExpanded) {
             addLeftMenuViewController()
         }
-        //statusBarStyle = .lightContent
-        //statusBarHidden = false
-        
         moveControllers()
     }
     
@@ -112,7 +75,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
     }
     
     private func addChildViewController(_ vc : LeftMenuViewController) {
-        vc.delegate = self as? LeftMenuViewControllerelDelegate //centerViewController
+        vc.delegate = self as? LeftMenuViewControllerelSwipeGesture
            view.insertSubview(vc.view, at: 0)
            addChild(vc)
            vc.didMove(toParent: self)
@@ -127,12 +90,18 @@ extension ContainerViewController: CenterViewControllerDelegate {
                 if finished {
                     self.leftMenuViewController?.view.removeFromSuperview()
                     self.leftMenuViewController = nil
+                    
+                    guard let tapGesture = self.tapGesture else { return }
+                    self.view.removeGestureRecognizer(tapGesture)
                 }
             })
         } else {
             currentState  = .leftMenuExpanded
             animateCentralPanelXPositoion(targetPositionLeft: 0, targetPositionCentral: width*0.82)
             //animateCentralPanelXPositoion(targetPositionLeft: 0, targetPositionCentral: width*0.82, completion : { finished -> Void in self.updateStatusBar()})
+            tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.respondToTapGesture))
+            guard let tapGesture = tapGesture else { return }
+            view.addGestureRecognizer(tapGesture)
         }
     }
     
@@ -142,22 +111,27 @@ extension ContainerViewController: CenterViewControllerDelegate {
                        usingSpringWithDamping: 0.9,
                        initialSpringVelocity: 0,
                        options: .curveEaseOut,
-                       animations: {//self.leftMenuViewController?.view.frame.origin.x = targetPositionLeft
+                       animations: {
                         self.centerNavigationController?.view.frame.origin.x = targetPositionCentral
                         },
                        completion: completion)
     }
 }
 
-extension ContainerViewController: LeftMenuViewControllerelDelegate {
-    func didSelectMenu() {
-    }
+extension ContainerViewController: LeftMenuViewControllerelSwipeGesture {
+//    func didSelectMenu() {
+//    }
 
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         if (currentState != .leftMenuExpanded) {
             return
         }
         toggleLeftPanel()
+    }
+    
+    @objc
+    func respondToTapGesture(gesture : UIGestureRecognizer) {
+        respondToSwipeGesture(gesture: gesture)
     }
 }
 
@@ -172,5 +146,14 @@ private extension UIStoryboard {
   static func leftMenuViewController() -> LeftMenuViewController? {
       return mainStoryboard().instantiateViewController(withIdentifier: "LeftMenuViewController") as? LeftMenuViewController
   }
+}
+
+extension UIStackView {
+    func addBackground(color: UIColor) {
+        let subView = UIView(frame: bounds)
+        subView.backgroundColor = color
+        subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        insertSubview(subView, at: 0)
+    }
 }
 
