@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8225EFE622ECA89A007F01E7"
-            BuildableName = "TicTak.app"
+            BuildableName = "Tic-Tac-Toe.app"
             BlueprintName = "TicTak"
             ReferencedContainer = "container:TicTak.xcodeproj">
          </BuildableReference>
