@@ -13,7 +13,7 @@ enum GameWinner {
     case zeroWinner
     case draw
 }
-let    AllWinCombinations  : Set<Set<Int>> =  [[0,1,2],[0,3,6],[3,4,5],[1,4,7],[6,7,8],[2,5,8],[0,4,8],[2,4,6]]
+let    allWinCombinations  : Set<Set<Int>> =  [[0,1,2],[0,3,6],[3,4,5],[1,4,7],[6,7,8],[2,5,8],[0,4,8],[2,4,6]]
 
 protocol GameResultControllerProtocol {
     static func findWiner() -> GameWinner
@@ -43,9 +43,9 @@ extension GameResultController {
         guard let set = set else {
             return false
         }
-        var result : (Bool, Set<Int>?)  = (false, nil)
+        var result : (Bool, Set<Int>?) = (false, nil)
         let game  = Game.shared
-        for combination in AllWinCombinations {
+        for combination in allWinCombinations {
             result = checkOneCombination(setForCheck: set, oneWinCombination: combination)
             if result.0 {
                 game.winCombination = result.1
@@ -76,6 +76,24 @@ extension GameResultController {
             return (true, oneWinCombination)
         }
         return (false, nil)
+    }
+    
+    private static func nextStepFindSmart(setForCheck : Set<Int>, oneWinCombination : Set<Int>, partnerSet : Set<Int>, amount : Int) -> (Bool, Int?) {
+        var newSet = oneWinCombination
+        let result : (Bool, Int?) = (false, nil)
+        
+        //if at least one element of oneWinCombination is already busy by partherSet
+        guard (newSet.isDisjoint(with: partnerSet)) else {return result}
+        
+        let commonPartSet = newSet.intersection(setForCheck)
+        guard (commonPartSet.count > amount) else {return result}
+        
+        //newSet will contain only cells "Empty"
+        newSet.subtract(commonPartSet)
+        guard let index = newSet.randomElement() else {
+            return result
+        }
+        return (true, index)
     }
 }
 
@@ -111,3 +129,24 @@ extension GameResultController {
     }
 }
 
+//try to do next step (move), (playVSComputer = true) in one winCombination
+extension GameResultController {
+    
+     static func doSmartDecision () -> (Bool, Int?){
+        let game = Game.shared
+        var result : (Bool, Int?) = (false, nil)
+        guard let cellsForZero = game.gameBoard.findAllCellWithZero() else {return result}
+        guard let partnerSet = game.gameBoard.findAllCellWithCross() else {return result}
+        for combination in allWinCombinations {
+            result = nextStepFindSmart(setForCheck: cellsForZero, oneWinCombination: combination, partnerSet: partnerSet, amount: 1)
+            if (result.0) {break}
+        }
+        if !(result.0) {
+            for combination in allWinCombinations {
+                result = nextStepFindSmart(setForCheck: cellsForZero, oneWinCombination: combination, partnerSet: partnerSet, amount: 0)
+                if (result.0) {break}
+            }
+        }
+        return result
+    }
+}

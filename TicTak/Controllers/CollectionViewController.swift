@@ -11,12 +11,14 @@ import UIKit
 class CollectionViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+        
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     let reuseIdentifier = "ticTakCell"
     let game = Game.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
@@ -57,25 +59,42 @@ extension CollectionViewController: UICollectionViewDataSource {
 extension CollectionViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-                let vcParent = self.parent as! CenterViewController
-                vcParent.playerMakesOneMove(indexPath.row)
-                if (game.state == GameState.isOver) {
-                    vcParent.gameTimer?.invalidate()
-                    vcParent.gameTimer = nil
-                    collectionView.isUserInteractionEnabled = false
-                    return
-                }
-            if ((game.playVSComputer) && (game.currentPlayer == Player.zero)) {
+        let vcParent = self.parent as! CenterViewController
+        vcParent.playerMakesOneMove(indexPath.row)
 
-                    guard let ramdomIndexFromEmptyCell = game.gameBoard.findOneEmptyCell() else {
-                        return
-                    }
-
-                        vcParent.gameTimer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true, block: { timer in
-                        vcParent.playerMakesOneMove(ramdomIndexFromEmptyCell)
-                    })
-                }
-            }
+        if (game.state == GameState.isOver) {
+            gameOver_doSomething(vcParent)
+            return
+        }
+        if ((game.playVSComputer) && (game.currentPlayer == Player.zero)) {
+            doOneMoveForZeroPlayer(vcParent)
+        }
+    }
+    
+    private func gameOver_doSomething (_ vcParent: CenterViewController) {
+        vcParent.gameTimer?.invalidate()
+        vcParent.gameTimer = nil
+        collectionView.isUserInteractionEnabled = false
+    }
+    
+    private func doOneMoveForZeroPlayer(_ vcParent: CenterViewController) {
+        var indexForNextStep : Int? = 0
+        collectionView.isUserInteractionEnabled = false
+        activityIndicator.startAnimating()
+        let r = GameResultController.doSmartDecision()
+        if (r.0) {
+            indexForNextStep = r.1
+        } else {
+            indexForNextStep = game.gameBoard.findOneEmptyCell() //it is random
+        }
+        guard !(indexForNextStep == nil) else {return}
+        
+        vcParent.gameTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { timer in
+                vcParent.playerMakesOneMove(indexForNextStep!)
+                self.collectionView.isUserInteractionEnabled = true
+                self.activityIndicator.stopAnimating()
+            })
+    }
 }
 
 extension CollectionViewController : UICollectionViewDelegateFlowLayout {

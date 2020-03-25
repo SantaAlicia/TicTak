@@ -62,9 +62,9 @@ class Game : GameProtocol {
         if !cell.isEmpty {
             return false
         }
-//        if (isGameOver()) {
-//            return false
-//        }
+        if (isGameOver()) {
+            return false
+        }
         changeCellAtIndexByCurrentPlayer(index)
         if (isGameOver()) {
             state = GameState.isOver
