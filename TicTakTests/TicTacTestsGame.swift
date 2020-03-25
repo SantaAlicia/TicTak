@@ -34,7 +34,7 @@ class TicTacTestsGame: XCTestCase {
     
     func testCrossHasFirsTurm() {
         game.startNewGame()
-        let res = game.playerMakesMoveAtIndex(3)
+        let res = game.playerMakesTurnAtIndex(3)
         XCTAssertTrue(res)
         let cell = game.gameBoard.cellAtIndex(3)
          XCTAssertEqual(cell.type, CellType.cross, "testCrossHasFirsTurm is Failed")
@@ -44,7 +44,7 @@ class TicTacTestsGame: XCTestCase {
         game.startNewGame()
         game.gameBoard.changeCellAtIndex(4, newValue: CrossCell())
         game.currentPlayer = Player.zero
-        let res = game.playerMakesMoveAtIndex(4)
+        let res = game.playerMakesTurnAtIndex(4)
         XCTAssertFalse(res)
         
         let cell = game.gameBoard.cellAtIndex(4)
@@ -52,24 +52,24 @@ class TicTacTestsGame: XCTestCase {
         XCTAssertEqual(cell.type, CellType.cross, "testPlayerChangeCellBy is Failed")
     }
     
-    func testZeroPlayerplayerMakesMoveAtIndex() {
+    func testZeroPlayerplayerMakesTurnAtIndex() {
         game.startNewGame()
         game.currentPlayer = Player.zero
-        let res = game.playerMakesMoveAtIndex(5)
+        let res = game.playerMakesTurnAtIndex(5)
         
         XCTAssertTrue(res)
         let cell = game.gameBoard.cellAtIndex(5)
-        XCTAssertEqual(cell.type, CellType.zero, "testCrossPlayerplayerMakesMoveAtIndex is Failed")
+        XCTAssertEqual(cell.type, CellType.zero, "testZeroPlayerplayerMakesTurnAtIndex is Failed")
     }
     
-    func testCrossPlayerplayerMakesMoveAtIndex() {
+    func testCrossPlayerplayerMakesTurnAtIndex() {
         game.startNewGame()
         game.currentPlayer = Player.cross
-        let res = game.playerMakesMoveAtIndex(4)
+        let res = game.playerMakesTurnAtIndex(4)
     
         XCTAssertTrue(res)
         let cell : Cell = game.gameBoard.cellAtIndex(4)
-        XCTAssertEqual(cell.type, CellType.cross, "testCrossPlayerplayerMakesMoveAtIndex is Failed")
+        XCTAssertEqual(cell.type, CellType.cross, "testCrossPlayerplayerMakesTurnAtIndex is Failed")
     }
     
     func testIsGameOver() {
@@ -81,12 +81,12 @@ class TicTacTestsGame: XCTestCase {
         XCTAssertEqual(res, true, "testIsGameOver is Failed")
     }
     
-    func testPlayerMakesMoveAtIndex() {
+    func testPlayerMakesTurnAtIndex() {
         game.startNewGame()
         for i in 0..<GameConstants.gameDimension {
             game.gameBoard.changeCellAtIndex(i, newValue: CrossCell())
         }
-        let res = game.playerMakesMoveAtIndex(7)
+        let res = game.playerMakesTurnAtIndex(7)
         XCTAssertEqual(res, false, "testIsGameOver is Failed")
     }
     

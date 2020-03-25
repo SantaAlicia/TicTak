@@ -78,7 +78,7 @@ extension GameResultController {
         return (false, nil)
     }
     
-    private static func nextStepFindSmart(setForCheck : Set<Int>, oneWinCombination : Set<Int>, partnerSet : Set<Int>, amount : Int) -> (Bool, Int?) {
+    private static func findPositionToCompleteWinCombination(setForCheck : Set<Int>, oneWinCombination : Set<Int>, partnerSet : Set<Int>, amount : Int) -> (Bool, Int?) {
         var newSet = oneWinCombination
         let result : (Bool, Int?) = (false, nil)
         
@@ -94,6 +94,10 @@ extension GameResultController {
             return result
         }
         return (true, index)
+    }
+    
+    private func findStepToPreventCrossWin(oneWinCombination : Set<Int>) {
+        
     }
 }
 
@@ -129,23 +133,34 @@ extension GameResultController {
     }
 }
 
-//try to do next step (move), (playVSComputer = true) in one winCombination
+//try to do next turn, (playVSComputer = true) in one winCombination
 extension GameResultController {
     
      static func doSmartDecision () -> (Bool, Int?){
         let game = Game.shared
         var result : (Bool, Int?) = (false, nil)
         guard let cellsForZero = game.gameBoard.findAllCellWithZero() else {return result}
-        guard let partnerSet = game.gameBoard.findAllCellWithCross() else {return result}
+        guard let cellsForCross = game.gameBoard.findAllCellWithCross() else {return result}
+        
+        //find winCombination with 2 cells already have Zero type in it
+               for combination in allWinCombinations {
+                   result = findPositionToCompleteWinCombination(setForCheck: cellsForZero, oneWinCombination: combination, partnerSet: cellsForCross, amount: 1)
+                   if (result.0) {break}
+               }
+               if (result.0) {return result}
+        
+        //find winCombination with 2 cells already have Cross type in it
+        //to prevent Cross win
         for combination in allWinCombinations {
-            result = nextStepFindSmart(setForCheck: cellsForZero, oneWinCombination: combination, partnerSet: partnerSet, amount: 1)
+            result = findPositionToCompleteWinCombination(setForCheck: cellsForCross, oneWinCombination: combination, partnerSet: cellsForZero, amount: 1)
             if (result.0) {break}
         }
-        if !(result.0) {
-            for combination in allWinCombinations {
-                result = nextStepFindSmart(setForCheck: cellsForZero, oneWinCombination: combination, partnerSet: partnerSet, amount: 0)
-                if (result.0) {break}
-            }
+        if (result.0) {return result}
+        
+        //if 1 cells already have Zero type in winCombination
+        for combination in allWinCombinations {
+            result = findPositionToCompleteWinCombination(setForCheck: cellsForZero, oneWinCombination: combination, partnerSet: cellsForCross, amount: 0)
+            if (result.0) {break}
         }
         return result
     }

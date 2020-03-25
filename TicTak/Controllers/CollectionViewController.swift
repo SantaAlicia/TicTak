@@ -60,14 +60,14 @@ extension CollectionViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vcParent = self.parent as! CenterViewController
-        vcParent.playerMakesOneMove(indexPath.row)
+        vcParent.playerMakesOneTurn(indexPath.row)
 
         if (game.state == GameState.isOver) {
             gameOver_doSomething(vcParent)
             return
         }
         if ((game.playVSComputer) && (game.currentPlayer == Player.zero)) {
-            doOneMoveForZeroPlayer(vcParent)
+            doOneTurnForZeroPlayer(vcParent)
         }
     }
     
@@ -77,7 +77,7 @@ extension CollectionViewController: UICollectionViewDelegate {
         collectionView.isUserInteractionEnabled = false
     }
     
-    private func doOneMoveForZeroPlayer(_ vcParent: CenterViewController) {
+    private func doOneTurnForZeroPlayer(_ vcParent: CenterViewController) {
         var indexForNextStep : Int? = 0
         collectionView.isUserInteractionEnabled = false
         activityIndicator.startAnimating()
@@ -90,11 +90,13 @@ extension CollectionViewController: UICollectionViewDelegate {
         guard !(indexForNextStep == nil) else {return}
         
         vcParent.gameTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { timer in
-                vcParent.playerMakesOneMove(indexForNextStep!)
+                vcParent.playerMakesOneTurn(indexForNextStep!)
                 self.collectionView.isUserInteractionEnabled = true
                 self.activityIndicator.stopAnimating()
             })
     }
+    
+    //private func find
 }
 
 extension CollectionViewController : UICollectionViewDelegateFlowLayout {

@@ -29,7 +29,7 @@ protocol GameProtocol{
     var playVSComputer : Bool { get }
     
     func startNewGame()
-    func playerMakesMoveAtIndex(_ index : Int) -> Bool
+    func playerMakesTurnAtIndex(_ index : Int) -> Bool
     func isGameOver() -> Bool
 }
 
@@ -56,7 +56,7 @@ class Game : GameProtocol {
         GameEffectsViewController.shared.prepareToPlay()
     }
     
-    func playerMakesMoveAtIndex(_ index : Int) -> Bool {
+    func playerMakesTurnAtIndex(_ index : Int) -> Bool {
         let cell : Cell = gameBoard.cellAtIndex(index)
         
         if !cell.isEmpty {

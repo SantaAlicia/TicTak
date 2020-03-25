@@ -92,8 +92,8 @@ extension CenterViewController {
             //updateEnabledControls()
     }
         
-    func playerMakesOneMove(_ i : Int) {
-        if !(game.playerMakesMoveAtIndex(i)) {
+    func playerMakesOneTurn(_ i : Int) {
+        if !(game.playerMakesTurnAtIndex(i)) {
             return
         }
         if ((game.playVSComputer) && (game.currentPlayer == Player.zero)) {
