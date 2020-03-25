@@ -50,7 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8225EFE722ECA89A007F01E7 /* TicTak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTak.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8225EFE722ECA89A007F01E7 /* Tic-Tac-Toe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tic-Tac-Toe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8225EFEA22ECA89B007F01E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8225EFEC22ECA89B007F01E7 /* CenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterViewController.swift; sourceTree = "<group>"; };
 		8225EFEF22ECA89B007F01E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 		8225EFE822ECA89A007F01E7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8225EFE722ECA89A007F01E7 /* TicTak.app */,
+				8225EFE722ECA89A007F01E7 /* Tic-Tac-Toe.app */,
 				8225EFFB22ECA89B007F01E7 /* TicTakTests.xctest */,
 				8225F00622ECA89B007F01E7 /* TicTakUITests.xctest */,
 			);
@@ -239,7 +239,7 @@
 			);
 			name = TicTak;
 			productName = TicTak;
-			productReference = 8225EFE722ECA89A007F01E7 /* TicTak.app */;
+			productReference = 8225EFE722ECA89A007F01E7 /* Tic-Tac-Toe.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8225EFFA22ECA89B007F01E7 /* TicTakTests */ = {
@@ -554,7 +554,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = SantaAlicia.TicTak;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Tic-Tac-Toe";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -575,7 +575,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = SantaAlicia.TicTak;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Tic-Tac-Toe";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

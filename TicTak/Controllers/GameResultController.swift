@@ -2,7 +2,7 @@
 //  CheckForWinning.swift
 //  TicTak
 //
-//  Created by SantaAlicia on 28/07/2019.
+//  Created by liudmila vladimirova on 28/07/2019.
 //  Copyright © 2019 SantaAlicia. All rights reserved.
 //
 
