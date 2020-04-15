@@ -36,7 +36,7 @@ protocol GameProtocol{
 class Game : GameProtocol {
 
     static let shared = Game()
-    let gameBoard = GameBoard()
+    let gameBoard = GameBoard.shared//GameBoard.shared
     var currentPlayer : Player = Player.cross
     var state = GameState.isNotStarted
     var gameResult : GameWinner?

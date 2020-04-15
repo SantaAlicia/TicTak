@@ -24,7 +24,7 @@ class CenterViewController: UIViewController {
     right: 0.0)
     
     private let itemsPerRow: CGFloat = 3
-    let game = Game.shared
+    //let game = Game.shared
     var gameTimer: Timer?
     
     override func viewDidLoad() {
@@ -81,7 +81,7 @@ class CenterViewController: UIViewController {
 extension CenterViewController {
     
     private func startNewGame() {
-            game.startNewGame()
+        Game.shared.startNewGame()
             preparationViewsAndContols()
             embeddedViewController.collectionView.isUserInteractionEnabled = true
     }
@@ -93,10 +93,10 @@ extension CenterViewController {
     }
         
     func playerMakesOneTurn(_ i : Int) {
-        if !(game.playerMakesTurnAtIndex(i)) {
+        if !(Game.shared.playerMakesTurnAtIndex(i)) {
             return
         }
-        if ((game.playVSComputer) && (game.currentPlayer == Player.zero)) {
+        if ((Game.shared.playVSComputer) && (Game.shared.currentPlayer == Player.zero)) {
                 gameTimer?.invalidate()
                 gameTimer = nil
             }
@@ -108,7 +108,7 @@ extension CenterViewController {
 
 extension CenterViewController {
     private func updateInfoLabels () {
-        switch game.state {
+        switch Game.shared.state {
         case GameState.isNotStarted, GameState.isStarted:
             gameInfo.text = "First Turn is of Player \"Cross\""
             //gameInfo.font = UIFont(name: "MarkerFelt-Thin", size: 18.0)
@@ -135,11 +135,11 @@ extension CenterViewController {
     
     private func currentPlayerText() -> String {
         let textZero : String!
-        if (!game.playVSComputer) {
+        if (!Game.shared.playVSComputer) {
             textZero =  "Turn of Player \"Zero\""
         } else  {
             textZero = " "  }
-        switch game.currentPlayer {
+        switch Game.shared.currentPlayer {
         case Player.cross:
             return "Turn of Player \"Cross\""
             
@@ -149,7 +149,7 @@ extension CenterViewController {
     }
     
     private func updateEnabledControls() {
-        switch game.state {
+        switch Game.shared.state {
         case GameState.isNotStarted:
             startButton.isEnabled = true
             

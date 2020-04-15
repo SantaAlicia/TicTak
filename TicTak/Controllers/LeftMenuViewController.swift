@@ -8,58 +8,54 @@
 
 import UIKit
 
-//extension UIViewController {
-//    func add(_ child: UIViewController) {
-//        addChild(child)
-//        view.addSubview(child.view)
-//        child.didMove(toParent: self)
-//    }
-//
-//    func remove() {
-//        // Just to be safe, we check that this view controller
-//        // is actually added to a parent before removing it.
-//        guard parent != nil else {
-//            return
-//        }
-//
-//        willMove(toParent: nil)
-//        view.removeFromSuperview()
-//        removeFromParent()
-//    }
-//}
+extension UIViewController {
+    func add(_ child: UIViewController) {
+        addChild(child)
+        view.addSubview(child.view)
+        child.didMove(toParent: self)
+    }
+
+    func remove() {
+        // Just to be safe, we check that this view controller
+        // is actually added to a parent before removing it.
+        guard parent != nil else {
+            return
+        }
+
+        willMove(toParent: nil)
+        view.removeFromSuperview()
+        removeFromParent()
+    }
+}
 
 protocol LeftMenuViewControllerelSwipeGesture {
-  //func didSelectMenu()
   func respondToSwipeGesture(gesture: UIGestureRecognizer)
 }
 
-class LeftMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class LeftMenuViewController: UIViewController {
 
     var delegate : LeftMenuViewControllerelSwipeGesture?
     let game = Game.shared
     @IBOutlet weak var settingsTable: UITableView!
     
     override func viewDidLoad() {
+        title = "Settings"
+        
         super.viewDidLoad()
         let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
-        //let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.respondToTapGesture))
         swipeLeftGesture.direction = .left
         self.view.addGestureRecognizer(swipeLeftGesture)
         
-        title = "Settings"
         settingsTable.backgroundColor = UIColor(white: 1, alpha: 0.3)
-        
         let rect = CGRect(x: 10, y: 10, width: 100, height: 20)
         settingsTable.tableHeaderView =  UIView(frame: rect)
         settingsTable.tableHeaderView?.backgroundColor = UIColor(white: 1, alpha: 0.3)
-        //settingsTable.sectionHeaderHeight = 20
+        settingsTable.reloadData()
         
-//        switch_playVSComputer.isOn = game.playVSComputer
-//        switch_playVSComputer.tintColor = UIColor.black
-//        switch_playVSComputer.onTintColor = UIColor.red
-      //  switch_playVSComputer.backgroundColor = UIColor.black
+        if #available ( iOS 13.0, *){
+        overrideUserInterfaceStyle = .light
+        }
     }
-    
 }
 
 extension LeftMenuViewController {
@@ -87,7 +83,13 @@ extension LeftMenuViewController {
     }
 }
 
-extension LeftMenuViewController {
+extension LeftMenuViewController : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
+    }
+}
+
+extension LeftMenuViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        return 2

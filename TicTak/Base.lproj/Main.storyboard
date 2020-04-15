@@ -10,7 +10,7 @@
         <!--Center View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="CenterViewController" id="BYZ-38-t0r" customClass="CenterViewController" customModule="TicTak" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CenterViewController" id="BYZ-38-t0r" customClass="CenterViewController" customModule="Tic_Tac_Toe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,7 +54,7 @@
                                     <color key="titleColor" red="0.89999997620000005" green="0.89999997620000005" blue="0.89999997620000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="startNewGameButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IVx-aJ-pIF"/>
+                                    <action selector="startNewGameButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t0S-0v-ino"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2VI-h1-pqu">
@@ -119,7 +119,7 @@
         <!--Settings-->
         <scene sceneID="f2T-H1-6Dl">
             <objects>
-                <viewController storyboardIdentifier="LeftMenuViewController" title="Settings" id="do5-7d-TTY" customClass="LeftMenuViewController" customModule="TicTak" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LeftMenuViewController" title="Settings" id="do5-7d-TTY" customClass="LeftMenuViewController" customModule="Tic_Tac_Toe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1DB-lB-ZwU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -142,7 +142,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingSwitchTableViewCell" id="Txn-d6-fd5" customClass="SettingSwitchTableViewCell" customModule="TicTak" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingSwitchTableViewCell" rowHeight="43.5" id="Txn-d6-fd5" customClass="SettingSwitchTableViewCell" customModule="Tic_Tac_Toe" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Txn-d6-fd5" id="dZ1-Za-Km8">
@@ -158,7 +158,7 @@
                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cWA-QN-Qcx">
                                                             <rect key="frame" x="236" y="6" width="51" height="31"/>
                                                             <connections>
-                                                                <action selector="playVSComputerChangedWithMySwitch:" destination="do5-7d-TTY" eventType="valueChanged" id="eus-cV-3mf"/>
+                                                                <action selector="playVSComputerChangedWithMySwitch:" destination="do5-7d-TTY" eventType="valueChanged" id="gsA-lD-ud2"/>
                                                             </connections>
                                                         </switch>
                                                     </subviews>
@@ -170,7 +170,7 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="settingSwitch" destination="cWA-QN-Qcx" id="sLd-LY-85y"/>
+                                                    <outlet property="settingSwitch" destination="cWA-QN-Qcx" id="1hd-jp-SVl"/>
                                                     <outlet property="title" destination="xqx-Ko-5lY" id="jIr-GQ-rKI"/>
                                                 </connections>
                                             </tableViewCell>
@@ -214,7 +214,7 @@
         <!--Collection View Controller-->
         <scene sceneID="Nen-eq-9ff">
             <objects>
-                <viewController id="PmW-CV-Pti" customClass="CollectionViewController" customModule="TicTak" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="PmW-CV-Pti" customClass="CollectionViewController" customModule="Tic_Tac_Toe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JMQ-SI-Ovk">
                         <rect key="frame" x="0.0" y="0.0" width="301" height="301"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -238,7 +238,7 @@
                                     <color key="color" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </activityIndicatorView>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ticTakCell" id="pw0-vQ-X2s" customClass="TicTacCollectionViewCell" customModule="TicTak" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ticTakCell" id="pw0-vQ-X2s" customClass="TicTacCollectionViewCell" customModule="Tic_Tac_Toe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">

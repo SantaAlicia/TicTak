@@ -18,7 +18,7 @@ class SettingSwitchTableViewCell: UITableViewCell {
         self.backgroundColor = UIColor(white: 0.8, alpha: 0.2)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//    }
 }

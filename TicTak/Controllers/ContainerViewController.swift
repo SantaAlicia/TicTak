@@ -88,8 +88,11 @@ extension ContainerViewController: CenterViewControllerLeftPanel {
             currentState  = .leftMenuCollapsed
             animateCentralPanelXPositoion(targetPositionLeft: 0, targetPositionCentral: 0,  completion : {finished -> Void in
                 if finished {
-                    self.leftMenuViewController?.view.removeFromSuperview()
-                    self.leftMenuViewController = nil
+//                    self.leftMenuViewController?.view.removeFromSuperview()
+//                    self.leftMenuViewController.delegate = nil
+//                    self.leftMenuViewController = nil
+                      self.leftMenuViewController.remove()
+                      self.leftMenuViewController = nil
                     
                     guard let tapGesture = self.tapGesture else { return }
                     self.view.removeGestureRecognizer(tapGesture)

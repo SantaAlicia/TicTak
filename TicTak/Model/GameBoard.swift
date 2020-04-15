@@ -9,6 +9,8 @@
 import UIKit
 
 class GameBoard {
+
+    static let shared = GameBoard()
     private var cellSet = [Cell]()
 
     init () {
