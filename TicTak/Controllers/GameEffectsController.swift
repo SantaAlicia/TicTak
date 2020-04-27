@@ -9,15 +9,15 @@
 import UIKit
 import AVFoundation
 
-class GameEffectsViewController: NSObject {
+class GameEffectsController: NSObject {
 
     var audioPlayer: AVAudioPlayer?
     var audioPlayerOneStep: AVAudioPlayer?
     let audioSession : AVAudioSession = AVAudioSession.sharedInstance()
-    static let shared = GameEffectsViewController()
+    static let shared = GameEffectsController()
 }
 
-extension GameEffectsViewController {
+extension GameEffectsController {
     
     func prepareToPlayGameOver() {
         guard let url = Bundle.main.url(forResource: "sound1", withExtension: "mp3") else { return }
@@ -73,7 +73,7 @@ extension GameEffectsViewController {
     }
 }
 
-extension  GameEffectsViewController : AVAudioPlayerDelegate {
+extension  GameEffectsController : AVAudioPlayerDelegate {
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool){
 //         do {
