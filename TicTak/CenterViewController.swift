@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 class CenterViewController: UIViewController {
 
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var burgerMenuButton: UIButton!
     @IBOutlet weak var gameOverInfo: UILabel!
     @IBOutlet weak var gameInfo: UILabel!
     @IBOutlet weak var stackView: UIStackView!
@@ -31,7 +33,6 @@ class CenterViewController: UIViewController {
         super.viewDidLoad()
         tuningView()
         preparationViewsAndContols()
-        //stackView.addBackground(color: UIColor.lightGray)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -42,10 +43,6 @@ class CenterViewController: UIViewController {
     }
     
     func tuningView () {
-//        embeddedViewController.view.layer.shadowOpacity = 0.2
-//        embeddedViewController.view.layer.shadowOffset = CGSize(width: 0, height: 0)
-//        embeddedViewController.view.layer.shadowRadius = 5
-//        embeddedViewController.view.layer.shadowColor = UIColor.blue.cgColor
         makeShadow(control : embeddedViewController.view)
         makeShadow(control : startButton)
         makeShadow(control : gameInfo)
@@ -55,16 +52,10 @@ class CenterViewController: UIViewController {
         startButton.clipsToBounds = true
         
         embeddedViewController.collectionView.backgroundColor = UIColor(patternImage: UIImage(named: "notebookBackground")!)
-       // embeddedViewController.collectionView.backgroundColor = UIColor(patternImage: UIImage(named: "settings1")!)
-        //view.backgroundColor = UIColor(patternImage: UIImage(named: "woodBackground")!)
-        //view.backgroundColor = UIColor(patternImage: UIImage(named: "oldBook1")!)
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "oldBook1")
+        backgroundImage.image = UIImage(named: "oldBook")
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
-        
-        //playWithComputerSwitch.onTintColor = .black
-        //playWithComputerSwitch.tintColor = .black
         
         self.title = "Tic-Tac-Toe"
     }
@@ -82,13 +73,18 @@ extension CenterViewController {
     
     private func startNewGame() {
         Game.shared.startNewGame()
-            preparationViewsAndContols()
-            embeddedViewController.collectionView.isUserInteractionEnabled = true
+        preparationViewsAndContols()
+        embeddedViewController.collectionView.isUserInteractionEnabled = true
+        GameEffectsViewController.shared.prepareToPlayGameOver()
+        GameEffectsViewController.shared.prepareToPlayOneStep()
     }
     
     private func preparationViewsAndContols() {
             embeddedViewController.collectionView.reloadData()
             updateInfoLabels()
+        
+            burgerMenuButton.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
+
             //updateEnabledControls()
     }
         
@@ -111,25 +107,14 @@ extension CenterViewController {
         switch Game.shared.state {
         case GameState.isNotStarted, GameState.isStarted:
             gameInfo.text = "First Turn is of Player \"Cross\""
-            //gameInfo.font = UIFont(name: "MarkerFelt-Thin", size: 18.0)
             gameInfo.textColor = .black
             gameOverInfo.text = " "
         case GameState.isProceed:
             gameInfo.text = currentPlayerText()
             gameOverInfo.text = " "
         case GameState.isOver:
-            //gameInfo.font = UIFont(name: "MarkerFelt-Wide", size: 22.0)
-            gameInfo.textColor = .black//.red
-            
-            //textInfo = GameResultController.winnerText()
+            gameInfo.textColor = .black
             (gameInfo.text, gameOverInfo.text) = GameResultController.winnerText()
-//            if game.playVSComputer {
-//                if game.
-//                gameOverInfo.text = "You Win!"
-//            }
-//            else {
-//                gameOverInfo.text = "Game Over!"
-//            }
         }
     }
     
@@ -189,6 +174,14 @@ extension CenterViewController {
 
 //extension CenterViewController : LeftMenuViewControllerelDelegate {
 //    func didSelectMenu() {
+//    }
+//}
+
+//extension CenterViewController : AVAudioPlayerDelegate {
+//
+//    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool){
+//        //GameEffectsViewController.shared.stopSound()
+//        GameEffectsViewController.shared.doAudioSessioNotActive()
 //    }
 //}
 

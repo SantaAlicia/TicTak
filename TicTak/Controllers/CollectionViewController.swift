@@ -91,11 +91,12 @@ extension CollectionViewController: UICollectionViewDelegate {
         
         vcParent.gameTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { timer in
                 vcParent.playerMakesOneTurn(indexForNextStep!)
+            if (Game.shared.state != GameState.isOver) {
                 self.collectionView.isUserInteractionEnabled = true
+            }
                 self.activityIndicator.stopAnimating()
             })
     }
-    
     //private func find
 }
 

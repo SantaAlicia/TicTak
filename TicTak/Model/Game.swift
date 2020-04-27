@@ -53,7 +53,6 @@ class Game : GameProtocol {
         currentPlayer = Player.cross
         state = GameState.isStarted
         winCombination = nil
-        GameEffectsViewController.shared.prepareToPlay()
     }
     
     func playerMakesTurnAtIndex(_ index : Int) -> Bool {
@@ -80,7 +79,8 @@ class Game : GameProtocol {
         gameResult = GameResultController.findWiner()
         if (gameResult == GameWinner.crossWinner) || (gameResult == GameWinner.zeroWinner) {
             if needPlaySound {
-                GameEffectsViewController.shared.playSound()
+                //GameEffectsViewController.shared.prepareToPlayGameOver()
+                GameEffectsViewController.shared.playSoundGameOver()
             }
             return true
         }
@@ -112,6 +112,8 @@ extension Game {
         } else {
             gameBoard.changeCellAtIndex(atIndex, newValue: ZeroCell())
         }
+        //GameEffectsViewController.shared.prepareToPlayOneStep()
+        GameEffectsViewController.shared.playSoundOneStep()
     }
     
     private func changeCurrentPlayer() {

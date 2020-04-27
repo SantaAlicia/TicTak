@@ -57,13 +57,16 @@
                                     <action selector="startNewGameButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t0S-0v-ino"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2VI-h1-pqu">
-                                <rect key="frame" x="37" y="45" width="34" height="24.5"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2VI-h1-pqu">
+                                <rect key="frame" x="37" y="40" width="55" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="34" id="cSC-fr-DgS"/>
-                                    <constraint firstAttribute="height" constant="34" id="rWo-yv-AMa"/>
+                                    <constraint firstAttribute="width" constant="55" id="cSC-fr-DgS"/>
+                                    <constraint firstAttribute="height" constant="55" id="rWo-yv-AMa"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="line.horizontal.3" catalog="system"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="25" maxY="25"/>
+                                <state key="normal" image="burger-black"/>
+                                <state key="highlighted" image="burger-red"/>
                                 <connections>
                                     <action selector="burgerMenuTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="dhx-9L-C4H"/>
                                 </connections>
@@ -106,6 +109,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="burgerMenuButton" destination="2VI-h1-pqu" id="p9h-6E-Va8"/>
                         <outlet property="gameInfo" destination="DfW-w8-VVv" id="WDd-aN-Cml"/>
                         <outlet property="gameOverInfo" destination="f3l-mL-rGT" id="Glh-wy-Er4"/>
                         <outlet property="stackView" destination="QPW-hC-MU5" id="gQe-Lf-Cg9"/>
@@ -138,7 +142,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IEs-PF-tT0">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IEs-PF-tT0">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
@@ -150,13 +154,13 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play vs iPhone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqx-Ko-5lY">
-                                                            <rect key="frame" x="14" y="11" width="104.5" height="19.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <rect key="frame" x="14" y="11" width="104" height="20"/>
+                                                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cWA-QN-Qcx">
-                                                            <rect key="frame" x="236" y="6" width="51" height="31"/>
+                                                            <rect key="frame" x="206" y="6" width="51" height="31"/>
                                                             <connections>
                                                                 <action selector="playVSComputerChangedWithMySwitch:" destination="do5-7d-TTY" eventType="valueChanged" id="gsA-lD-ud2"/>
                                                             </connections>
@@ -166,7 +170,7 @@
                                                         <constraint firstItem="xqx-Ko-5lY" firstAttribute="top" secondItem="dZ1-Za-Km8" secondAttribute="top" constant="11" id="Xc0-mq-UIe"/>
                                                         <constraint firstItem="cWA-QN-Qcx" firstAttribute="top" secondItem="dZ1-Za-Km8" secondAttribute="top" constant="6" id="bOH-ju-A27"/>
                                                         <constraint firstItem="xqx-Ko-5lY" firstAttribute="leading" secondItem="dZ1-Za-Km8" secondAttribute="leading" constant="14" id="cHg-uk-NP7"/>
-                                                        <constraint firstAttribute="trailing" secondItem="cWA-QN-Qcx" secondAttribute="trailing" constant="90" id="pAd-eH-9Ht"/>
+                                                        <constraint firstAttribute="trailing" secondItem="cWA-QN-Qcx" secondAttribute="trailing" constant="120" id="pAd-eH-9Ht"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
@@ -293,9 +297,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="burger-black" width="256" height="256"/>
+        <image name="burger-red" width="256" height="256"/>
         <image name="buttonBlack" width="1280" height="720"/>
         <image name="buttonGray" width="512" height="256"/>
-        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="settings1" width="640" height="400"/>
     </resources>
 </document>

@@ -25,13 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let audioSession = AVAudioSession.sharedInstance()
         do {
-            // Set the audio session category, mode, and options.
-            try audioSession.setCategory(.soloAmbient, mode: .moviePlayback, options: [])
+            try audioSession.setCategory(AVAudioSession.Category.soloAmbient)
         } catch {
             print("Failed to set audio session category.")
         }
-        
-        
         return true
     }
 
