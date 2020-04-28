@@ -27,7 +27,6 @@ class CenterViewController: UIViewController {
     
     private let itemsPerRow: CGFloat = 3
     //let game = Game.shared
-    var gameTimer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,8 +74,8 @@ extension CenterViewController {
         Game.shared.startNewGame()
         preparationViewsAndContols()
         embeddedViewController.collectionView.isUserInteractionEnabled = true
-        GameEffectsViewController.shared.prepareToPlayGameOver()
-        GameEffectsViewController.shared.prepareToPlayOneStep()
+        GameEffectsController.shared.prepareToPlayGameOver()
+        GameEffectsController.shared.prepareToPlayOneStep()
     }
     
     private func preparationViewsAndContols() {
@@ -84,21 +83,14 @@ extension CenterViewController {
             updateInfoLabels()
         
             burgerMenuButton.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
-
-            //updateEnabledControls()
     }
         
     func playerMakesOneTurn(_ i : Int) {
         if !(Game.shared.playerMakesTurnAtIndex(i)) {
             return
         }
-        if ((Game.shared.playVSComputer) && (Game.shared.currentPlayer == Player.zero)) {
-                gameTimer?.invalidate()
-                gameTimer = nil
-            }
-            embeddedViewController.collectionView.reloadData()
-            updateInfoLabels()
-            //updateEnabledControls()
+        embeddedViewController.collectionView.reloadData()
+        updateInfoLabels()
         }
 }
 

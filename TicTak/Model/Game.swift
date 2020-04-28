@@ -80,7 +80,7 @@ class Game : GameProtocol {
         if (gameResult == GameWinner.crossWinner) || (gameResult == GameWinner.zeroWinner) {
             if needPlaySound {
                 //GameEffectsViewController.shared.prepareToPlayGameOver()
-                GameEffectsViewController.shared.playSoundGameOver()
+                GameEffectsController.shared.playSoundGameOver()
             }
             return true
         }
@@ -112,8 +112,8 @@ extension Game {
         } else {
             gameBoard.changeCellAtIndex(atIndex, newValue: ZeroCell())
         }
-        //GameEffectsViewController.shared.prepareToPlayOneStep()
-        GameEffectsViewController.shared.playSoundOneStep()
+        GameEffectsController.shared.prepareToPlayOneStep()
+        GameEffectsController.shared.playSoundOneStep()
     }
     
     private func changeCurrentPlayer() {

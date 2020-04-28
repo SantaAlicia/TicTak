@@ -19,7 +19,7 @@
 		8233FD34241EAC930029D956 /* SettingSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8233FD33241EAC930029D956 /* SettingSwitchTableViewCell.swift */; };
 		826EE54E22F17D8200B48E7D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826EE54D22F17D8200B48E7D /* Game.swift */; };
 		828226EF2427CB8900FD1744 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 828226EE2427CB8900FD1744 /* AVFoundation.framework */; };
-		828226F324281C2C00FD1744 /* GameEffectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828226F224281C2C00FD1744 /* GameEffectsViewController.swift */; };
+		828226F324281C2C00FD1744 /* GameEffectsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828226F224281C2C00FD1744 /* GameEffectsController.swift */; };
 		8282675023DFAD81005C48D4 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8282674F23DFAD81005C48D4 /* CollectionViewController.swift */; };
 		828A2F0A22EE4BD000184CF5 /* TicTacTestsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828A2F0722EE4BD000184CF5 /* TicTacTestsGame.swift */; };
 		828A2F0B22EE4BD000184CF5 /* TicTcTestGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828A2F0822EE4BD000184CF5 /* TicTcTestGame.swift */; };
@@ -67,7 +67,7 @@
 		8233FD33241EAC930029D956 /* SettingSwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSwitchTableViewCell.swift; sourceTree = "<group>"; };
 		826EE54D22F17D8200B48E7D /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		828226EE2427CB8900FD1744 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		828226F224281C2C00FD1744 /* GameEffectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEffectsViewController.swift; sourceTree = "<group>"; };
+		828226F224281C2C00FD1744 /* GameEffectsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEffectsController.swift; sourceTree = "<group>"; };
 		8282674F23DFAD81005C48D4 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		828A2F0722EE4BD000184CF5 /* TicTacTestsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicTacTestsGame.swift; sourceTree = "<group>"; };
 		828A2F0822EE4BD000184CF5 /* TicTcTestGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicTcTestGame.swift; sourceTree = "<group>"; };
@@ -192,7 +192,7 @@
 				82AF60D923DE0F6200869D92 /* LeftMenuViewController.swift */,
 				8282674F23DFAD81005C48D4 /* CollectionViewController.swift */,
 				82B6E36D23E40DF900D684FB /* ContainerViewController.swift */,
-				828226F224281C2C00FD1744 /* GameEffectsViewController.swift */,
+				828226F224281C2C00FD1744 /* GameEffectsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -360,7 +360,7 @@
 				8225EFED22ECA89B007F01E7 /* CenterViewController.swift in Sources */,
 				826EE54E22F17D8200B48E7D /* Game.swift in Sources */,
 				8225F01E22ECAC9A007F01E7 /* GameBoard.swift in Sources */,
-				828226F324281C2C00FD1744 /* GameEffectsViewController.swift in Sources */,
+				828226F324281C2C00FD1744 /* GameEffectsController.swift in Sources */,
 				82B6E36E23E40DF900D684FB /* ContainerViewController.swift in Sources */,
 				8225EFEB22ECA89B007F01E7 /* AppDelegate.swift in Sources */,
 				8282675023DFAD81005C48D4 /* CollectionViewController.swift in Sources */,

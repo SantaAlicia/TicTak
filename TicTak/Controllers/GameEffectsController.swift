@@ -57,38 +57,25 @@ extension GameEffectsController {
         audioPlayer.play()
     }
     
-    func stopSoundGameOver() {
-        guard let audioPlayer = audioPlayer else { return }
-        audioPlayer.stop()
-    }
+//    func stopSoundGameOver() {
+//        guard let audioPlayer = audioPlayer else { return }
+//        audioPlayer.stop()
+//    }
     
     func playSoundOneStep() {
         guard let audioPlayerOneStep = audioPlayerOneStep else { return }
         audioPlayerOneStep.play()
     }
     
-    func stopSoundOneStep() {
-        guard let audioPlayerOneStep = audioPlayerOneStep else { return }
-        audioPlayerOneStep.stop()
-    }
+//    func stopSoundOneStep() {
+//        guard let audioPlayerOneStep = audioPlayerOneStep else { return }
+//        audioPlayerOneStep.stop()
+//    }
 }
 
 extension  GameEffectsController : AVAudioPlayerDelegate {
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool){
-//         do {
-//             //try audioSession.setActive(false)
-//
-//         } catch let error {
-//             print(error.localizedDescription)
-//         }
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-//            do {
-//                try AVAudioSession.sharedInstance().setActive(false, options:[])
-//            } catch let error {
-//                print(error)
-//            }
-//        }
+        //
     }
 }

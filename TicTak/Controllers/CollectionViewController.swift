@@ -72,8 +72,6 @@ extension CollectionViewController: UICollectionViewDelegate {
     }
     
     private func gameOver_doSomething (_ vcParent: CenterViewController) {
-        vcParent.gameTimer?.invalidate()
-        vcParent.gameTimer = nil
         collectionView.isUserInteractionEnabled = false
     }
     
@@ -81,6 +79,7 @@ extension CollectionViewController: UICollectionViewDelegate {
         var indexForNextStep : Int? = 0
         collectionView.isUserInteractionEnabled = false
         activityIndicator.startAnimating()
+        
         let r = GameResultController.doSmartDecision()
         if (r.0) {
             indexForNextStep = r.1
@@ -89,15 +88,21 @@ extension CollectionViewController: UICollectionViewDelegate {
         }
         guard !(indexForNextStep == nil) else {return}
         
-        vcParent.gameTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { timer in
-                vcParent.playerMakesOneTurn(indexForNextStep!)
-            if (Game.shared.state != GameState.isOver) {
-                self.collectionView.isUserInteractionEnabled = true
+        let delayInSeconds = 1.0
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) { [weak self] in
+            guard let self = self else {
+                return
             }
-                self.activityIndicator.stopAnimating()
-            })
-    }
-    //private func find
+            vcParent.playerMakesOneTurn(indexForNextStep!)
+            if (Game.shared.state != GameState.isOver) {
+                      self.collectionView.isUserInteractionEnabled = true
+            }
+            self.activityIndicator.stopAnimating()
+        }
+        
+        self.navigationController?.viewIfLoaded?.setNeedsLayout()
+        }
 }
 
 extension CollectionViewController : UICollectionViewDelegateFlowLayout {
