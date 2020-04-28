@@ -32,6 +32,7 @@ class CenterViewController: UIViewController {
         super.viewDidLoad()
         tuningView()
         preparationViewsAndContols()
+        startNewGame()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -74,8 +75,7 @@ extension CenterViewController {
         Game.shared.startNewGame()
         preparationViewsAndContols()
         embeddedViewController.collectionView.isUserInteractionEnabled = true
-        GameEffectsController.shared.prepareToPlayGameOver()
-        GameEffectsController.shared.prepareToPlayOneStep()
+        GameEffectsController.shared.prepareToPlaySound()
     }
     
     private func preparationViewsAndContols() {

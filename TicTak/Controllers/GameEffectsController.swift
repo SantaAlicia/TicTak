@@ -19,13 +19,16 @@ class GameEffectsController: NSObject {
 
 extension GameEffectsController {
     
-    func prepareToPlayGameOver() {
-        guard let url = Bundle.main.url(forResource: "sound1", withExtension: "mp3") else { return }
+    func prepareToPlaySound() {
+        guard let url = Bundle.main.url(forResource: "soundGameOver", withExtension: "mp3") else { return }
+        guard let url_oneStep = Bundle.main.url(forResource: "soundChock", withExtension: "mp3") else { return }
 
         do {
             try audioSession.setActive(true)
             audioPlayer = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
             audioPlayer?.delegate = self
+            audioPlayerOneStep = try AVAudioPlayer(contentsOf: url_oneStep, fileTypeHint: AVFileType.mp3.rawValue)
+            audioPlayerOneStep?.delegate = self
 
             /* iOS 10 and earlier require the following line:
             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
@@ -33,18 +36,6 @@ extension GameEffectsController {
             guard let audioPlayer = audioPlayer else { return }
             //audioPlayer.numberOfLoops = -1
             audioPlayer.prepareToPlay()
-        } catch let error {
-            print(error.localizedDescription)
-        }
-    }
-    
-    func prepareToPlayOneStep() {
-        guard let url = Bundle.main.url(forResource: "soundChock", withExtension: "mp3") else { return }
-        do {
-            try audioSession.setActive(true)
-            audioPlayerOneStep = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-            audioPlayerOneStep?.delegate = self
-
             guard let audioPlayerOneStep = audioPlayerOneStep else { return }
             audioPlayerOneStep.prepareToPlay()
         } catch let error {

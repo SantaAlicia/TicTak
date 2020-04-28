@@ -36,13 +36,14 @@ protocol GameProtocol{
 class Game : GameProtocol {
 
     static let shared = Game()
-    let gameBoard = GameBoard.shared//GameBoard.shared
+    let gameBoard = GameBoard.shared
     var currentPlayer : Player = Player.cross
     var state = GameState.isNotStarted
     var gameResult : GameWinner?
     var winCombination : Set<Int>?
     var playVSComputer = false
-    var needPlaySound = false
+    var needPlaySoundGameOver = false
+    var needPlaySoundOneStep = false
     
     init() {
         gameBoard.setupInitialPosition()
@@ -67,7 +68,6 @@ class Game : GameProtocol {
         changeCellAtIndexByCurrentPlayer(index)
         if (isGameOver()) {
             state = GameState.isOver
-            //winCombination = GameResultController.findWinSet()
         } else {
             state = GameState.isProceed
             changeCurrentPlayer()
@@ -78,8 +78,7 @@ class Game : GameProtocol {
     func isGameOver() -> Bool {
         gameResult = GameResultController.findWiner()
         if (gameResult == GameWinner.crossWinner) || (gameResult == GameWinner.zeroWinner) {
-            if needPlaySound {
-                //GameEffectsViewController.shared.prepareToPlayGameOver()
+            if needPlaySoundGameOver {
                 GameEffectsController.shared.playSoundGameOver()
             }
             return true
@@ -92,7 +91,6 @@ extension Game {
     func isCellInsideWinCombination(index : Int) -> Bool {
         if let winC = winCombination {
             let  tmpSet : Set<Int> = [index]
-            ////tmpSet.insert(indexPath.row)
             if (tmpSet.isSubset(of: winC)) {
                 return true
             }
@@ -112,8 +110,9 @@ extension Game {
         } else {
             gameBoard.changeCellAtIndex(atIndex, newValue: ZeroCell())
         }
-        GameEffectsController.shared.prepareToPlayOneStep()
-        GameEffectsController.shared.playSoundOneStep()
+        if needPlaySoundOneStep {
+            GameEffectsController.shared.playSoundOneStep()
+        }
     }
     
     private func changeCurrentPlayer() {

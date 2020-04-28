@@ -78,7 +78,10 @@ extension LeftMenuViewController {
             game.playVSComputer = mySwitch.isOn
         }
         if( mySwitch.tag == 1) {
-            game.needPlaySound = mySwitch.isOn
+            game.needPlaySoundGameOver = mySwitch.isOn
+        }
+        if( mySwitch.tag == 2) {
+            game.needPlaySoundOneStep = mySwitch.isOn
         }
     }
 }
@@ -92,7 +95,7 @@ extension LeftMenuViewController : UITableViewDelegate {
 extension LeftMenuViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return 2
+       return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -105,10 +108,16 @@ extension LeftMenuViewController : UITableViewDataSource {
         }
         
         if (indexPath.row == 1) {
-            cell.title!.text = "Play sound"
-            cell.settingSwitch!.isOn = game.needPlaySound
+            cell.title!.text = "Play sound GameOver"
+            cell.settingSwitch!.isOn = game.needPlaySoundGameOver
             cell.settingSwitch!.tag = 1
         }
+        
+        if (indexPath.row == 2) {
+                   cell.title!.text = "Play sound One Step"
+                   cell.settingSwitch!.isOn = game.needPlaySoundOneStep
+                   cell.settingSwitch!.tag = 2
+               }
        // settingsTable.headerView(forSection: 0)!.backgroundColor = UIColor(white: 1, alpha: 0.3)
        return cell
     }

@@ -143,11 +143,11 @@ extension GameResultController {
         guard let cellsForCross = game.gameBoard.findAllCellWithCross() else {return result}
         
         //find winCombination with 2 cells wich already have Zero type in it
-               for combination in allWinCombinations {
-                   result = findPositionToCompleteWinCombination(setForCheck: cellsForZero, oneWinCombination: combination, partnerSet: cellsForCross, amount: 1)
-                   if (result.0) {break}
-               }
-               if (result.0) {return result}
+       for combination in allWinCombinations {
+           result = findPositionToCompleteWinCombination(setForCheck: cellsForZero, oneWinCombination: combination, partnerSet: cellsForCross, amount: 1)
+           if (result.0) {break}
+       }
+       if (result.0) {return result}
         
         //find winCombination with 2 cells already have Cross type in it
         //to prevent Cross win
