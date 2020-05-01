@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -252,16 +252,24 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EgN-3p-xrh">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kiq-9m-uLW">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </view>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="EgN-3p-xrh" firstAttribute="leading" secondItem="pw0-vQ-X2s" secondAttribute="leading" id="2dh-yj-aR9"/>
                                             <constraint firstAttribute="bottom" secondItem="EgN-3p-xrh" secondAttribute="bottom" id="AME-P2-QST"/>
+                                            <constraint firstItem="Kiq-9m-uLW" firstAttribute="leading" secondItem="pw0-vQ-X2s" secondAttribute="leading" id="Cbr-XE-25Q"/>
+                                            <constraint firstItem="Kiq-9m-uLW" firstAttribute="top" secondItem="pw0-vQ-X2s" secondAttribute="top" id="G0D-DZ-wyG"/>
+                                            <constraint firstAttribute="trailing" secondItem="Kiq-9m-uLW" secondAttribute="trailing" id="Rp4-aF-Fbk"/>
                                             <constraint firstItem="EgN-3p-xrh" firstAttribute="top" secondItem="pw0-vQ-X2s" secondAttribute="top" id="dRq-Tm-5ev"/>
+                                            <constraint firstAttribute="bottom" secondItem="Kiq-9m-uLW" secondAttribute="bottom" id="fxe-3L-zgI"/>
                                             <constraint firstAttribute="trailing" secondItem="EgN-3p-xrh" secondAttribute="trailing" id="wmo-0C-DQ6"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="EgN-3p-xrh" id="Tfn-Gy-RjX"/>
+                                            <outlet property="view" destination="Kiq-9m-uLW" id="OlF-ra-Kk6"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

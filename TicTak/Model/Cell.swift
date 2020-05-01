@@ -25,7 +25,6 @@ class Cell : CellProtocol {
 }
 
 class EmptyCell : Cell {
-    
     override init() {
         super.init()
         isEmpty = true
@@ -34,7 +33,6 @@ class EmptyCell : Cell {
 }
 
 class CrossCell : Cell {
-    
     override init() {
         super.init()
         isEmpty = false
@@ -43,7 +41,6 @@ class CrossCell : Cell {
 }
 
 class ZeroCell : Cell {
-    
     override init() {
         super.init()
         isEmpty = false

@@ -51,7 +51,8 @@ extension CollectionViewController: UICollectionViewDataSource {
            collectionCell.isUserInteractionEnabled = true
            let isWinCell = game.isCellInsideWinCombination(index: indexPath.row)
 
-           collectionCell.fillCell(type : game.gameBoard.cellAtIndex(indexPath.row).type, isWinCell: isWinCell )
+        let isCurrentPosition = (game.currentPosition == indexPath.row)
+           collectionCell.fillCell(type : game.gameBoard.cellAtIndex(indexPath.row).type, isWinCell: isWinCell, isCurrent: isCurrentPosition)
            return collectionCell
        }
    }
@@ -82,13 +83,13 @@ extension CollectionViewController: UICollectionViewDelegate {
         
         let r = GameResultController.doSmartDecision()
         if (r.0) {
-            indexForNextStep = r.1
+            indexForNextStep = r.1 // logical
         } else {
             indexForNextStep = game.gameBoard.findOneEmptyCell() //it is random
         }
         guard !(indexForNextStep == nil) else {return}
         
-        let delayInSeconds = 1.0
+        let delayInSeconds = 1.1
 
         DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) { [weak self] in
             guard let self = self else {

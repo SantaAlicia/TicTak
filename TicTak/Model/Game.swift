@@ -21,7 +21,7 @@ enum GameState {
     case isOver
 }
 
-protocol GameProtocol{
+protocol GameProtocol {
     var gameResult : GameWinner? { get }
     var currentPlayer : Player { get }
     var state : GameState { get }
@@ -42,8 +42,10 @@ class Game : GameProtocol {
     var gameResult : GameWinner?
     var winCombination : Set<Int>?
     var playVSComputer = false
+    
     var needPlaySoundGameOver = false
     var needPlaySoundOneStep = false
+    var currentPosition : Int = -1
     
     init() {
         gameBoard.setupInitialPosition()
@@ -58,6 +60,7 @@ class Game : GameProtocol {
     
     func playerMakesTurnAtIndex(_ index : Int) -> Bool {
         let cell : Cell = gameBoard.cellAtIndex(index)
+        currentPosition = -1
         
         if !cell.isEmpty {
             return false
@@ -72,6 +75,7 @@ class Game : GameProtocol {
             state = GameState.isProceed
             changeCurrentPlayer()
         }
+        currentPosition = index
         return true
     }
     

@@ -17,6 +17,7 @@
 		8225F01E22ECAC9A007F01E7 /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F01D22ECAC9A007F01E7 /* GameBoard.swift */; };
 		8225F02122ECAEAD007F01E7 /* TicTacCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F02022ECAEAD007F01E7 /* TicTacCollectionViewCell.swift */; };
 		8233FD34241EAC930029D956 /* SettingSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8233FD33241EAC930029D956 /* SettingSwitchTableViewCell.swift */; };
+		8248F344245882440014F405 /* viewForDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8248F343245882440014F405 /* viewForDraw.swift */; };
 		826EE54E22F17D8200B48E7D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826EE54D22F17D8200B48E7D /* Game.swift */; };
 		828226EF2427CB8900FD1744 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 828226EE2427CB8900FD1744 /* AVFoundation.framework */; };
 		828226F324281C2C00FD1744 /* GameEffectsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828226F224281C2C00FD1744 /* GameEffectsController.swift */; };
@@ -65,6 +66,7 @@
 		8225F01D22ECAC9A007F01E7 /* GameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
 		8225F02022ECAEAD007F01E7 /* TicTacCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacCollectionViewCell.swift; sourceTree = "<group>"; };
 		8233FD33241EAC930029D956 /* SettingSwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSwitchTableViewCell.swift; sourceTree = "<group>"; };
+		8248F343245882440014F405 /* viewForDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewForDraw.swift; sourceTree = "<group>"; };
 		826EE54D22F17D8200B48E7D /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		828226EE2427CB8900FD1744 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		828226F224281C2C00FD1744 /* GameEffectsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEffectsController.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			children = (
 				8225F02022ECAEAD007F01E7 /* TicTacCollectionViewCell.swift */,
 				8233FD33241EAC930029D956 /* SettingSwitchTableViewCell.swift */,
+				8248F343245882440014F405 /* viewForDraw.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				8225EFED22ECA89B007F01E7 /* CenterViewController.swift in Sources */,
 				826EE54E22F17D8200B48E7D /* Game.swift in Sources */,
 				8225F01E22ECAC9A007F01E7 /* GameBoard.swift in Sources */,
+				8248F344245882440014F405 /* viewForDraw.swift in Sources */,
 				828226F324281C2C00FD1744 /* GameEffectsController.swift in Sources */,
 				82B6E36E23E40DF900D684FB /* ContainerViewController.swift in Sources */,
 				8225EFEB22ECA89B007F01E7 /* AppDelegate.swift in Sources */,
