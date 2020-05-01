@@ -13,6 +13,7 @@ class GameEffectsController: NSObject {
 
     var audioPlayer: AVAudioPlayer?
     var audioPlayerOneStep: AVAudioPlayer?
+    var audioPlayerOneStep2: AVAudioPlayer?
     let audioSession : AVAudioSession = AVAudioSession.sharedInstance()
     static let shared = GameEffectsController()
 }
@@ -27,8 +28,12 @@ extension GameEffectsController {
             try audioSession.setActive(true)
             audioPlayer = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
             audioPlayer?.delegate = self
+            
             audioPlayerOneStep = try AVAudioPlayer(contentsOf: url_oneStep, fileTypeHint: AVFileType.mp3.rawValue)
             audioPlayerOneStep?.delegate = self
+            
+            audioPlayerOneStep2 = try AVAudioPlayer(contentsOf: url_oneStep, fileTypeHint: AVFileType.mp3.rawValue)
+            audioPlayerOneStep2?.delegate = self
 
             /* iOS 10 and earlier require the following line:
             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
@@ -48,20 +53,33 @@ extension GameEffectsController {
         audioPlayer.play()
     }
     
-//    func stopSoundGameOver() {
-//        guard let audioPlayer = audioPlayer else { return }
-//        audioPlayer.stop()
-//    }
+    func playGameSoundOverWithDelay() {
+        let delayInSeconds = 1.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) { [weak self] in
+            guard let self = self else { return }
+            self.playSoundGameOver()
+       }
+    }
     
     func playSoundOneStep() {
         guard let audioPlayerOneStep = audioPlayerOneStep else { return }
         audioPlayerOneStep.play()
     }
     
-//    func stopSoundOneStep() {
-//        guard let audioPlayerOneStep = audioPlayerOneStep else { return }
-//        audioPlayerOneStep.stop()
-//    }
+    func playSoundOneStep2() {
+        guard let audioPlayerOneStep2 = audioPlayerOneStep2 else { return }
+        audioPlayerOneStep2.play()
+       }
+    
+    func playSoundOneStepTwice(needTwice:Bool) {
+        playSoundOneStep()
+        if (!needTwice) { return }
+        let delayInSeconds = 0.7
+        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) { [weak self] in
+            guard let self = self else { return }
+            self.playSoundOneStep2()
+        }
+    }
 }
 
 extension  GameEffectsController : AVAudioPlayerDelegate {

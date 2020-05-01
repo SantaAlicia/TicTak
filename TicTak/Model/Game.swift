@@ -68,7 +68,9 @@ class Game : GameProtocol {
         if (isGameOver()) {
             return false
         }
+        playSoundForTurn()
         changeCellAtIndexByCurrentPlayer(index)
+        
         if (isGameOver()) {
             state = GameState.isOver
         } else {
@@ -79,11 +81,16 @@ class Game : GameProtocol {
         return true
     }
     
+    func playSoundForTurn() {
+        if !(needPlaySoundOneStep) { return }
+        GameEffectsController.shared.playSoundOneStepTwice(needTwice: (currentPlayer == Player.cross))
+    }
+    
     func isGameOver() -> Bool {
         gameResult = GameResultController.findWiner()
         if (gameResult == GameWinner.crossWinner) || (gameResult == GameWinner.zeroWinner) {
             if needPlaySoundGameOver {
-                GameEffectsController.shared.playSoundGameOver()
+                GameEffectsController.shared.playGameSoundOverWithDelay()
             }
             return true
         }
@@ -113,9 +120,6 @@ extension Game {
             gameBoard.changeCellAtIndex(atIndex, newValue: CrossCell())
         } else {
             gameBoard.changeCellAtIndex(atIndex, newValue: ZeroCell())
-        }
-        if needPlaySoundOneStep {
-            GameEffectsController.shared.playSoundOneStep()
         }
     }
     
