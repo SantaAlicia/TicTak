@@ -17,34 +17,22 @@ class TicTacCollectionViewCell: UICollectionViewCell {
         for subview in view.subviews {
             subview.removeFromSuperview()
         }
-        view.isHidden = true
-        
-        switch type {
-        case CellType.empty:
-            view.isHidden = true
-            
-        case CellType.cross:
-            view.isHidden = false
-            let crossView = CrossView(frame: view.frame, drawNow: isCurrent)
-            view.addSubview(crossView)
-            if isCurrent {
-                crossView.animateFigure(duration: animationDuration, identifier: "animateCross")
-            }
-            
-        case CellType.zero:
-            view.isHidden = false
-            let circleView  = CircleView(frame:view.frame, drawNow: isCurrent)
-            view.addSubview(circleView)
-            if isCurrent {
-                circleView.animateFigure(duration: animationDuration, identifier: "animateCircle")
-            }
-        }
+        let figure = Figure()
+        figure.createFigure(view : view, cellType: type, isCurrent: isCurrent)
+
         drawCellBorder(isWinCell: isWinCell)
     }
     
     func drawCellBorder(isWinCell : Bool) {
+
         if isWinCell {
             layer.borderWidth = 5
+            if (CellDesignSettings.shared.type == .whiteGray) {
+                layer.borderColor = UIColor.blue.cgColor
+            }
+            if (CellDesignSettings.shared.type == .blackRed) {
+                layer.borderColor = UIColor.lightGray.cgColor
+            }
         } else {
             layer.borderWidth = 1
         }

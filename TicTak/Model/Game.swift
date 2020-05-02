@@ -83,14 +83,14 @@ class Game : GameProtocol {
     
     func playSoundForTurn() {
         if !(needPlaySoundOneStep) { return }
-        GameEffectsController.shared.playSoundOneStepTwice(needTwice: (currentPlayer == Player.cross))
+        GameSoundEffectController.shared.playSoundOneStepTwice(needTwice: (currentPlayer == Player.cross))
     }
     
     func isGameOver() -> Bool {
         gameResult = GameResultController.findWiner()
         if (gameResult == GameWinner.crossWinner) || (gameResult == GameWinner.zeroWinner) {
             if needPlaySoundGameOver {
-                GameEffectsController.shared.playGameSoundOverWithDelay()
+                GameSoundEffectController.shared.playGameSoundOverWithDelay()
             }
             return true
         }

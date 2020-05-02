@@ -11,18 +11,19 @@ import UIKit
 class GameBoard {
 
     static let shared = GameBoard()
-    private var cellSet = [Cell]()
-
-    init () {
-        for _ in 0..<GameConstants.gameDimension  {
-            cellSet.append(EmptyCell())
-        }
-    }
+    private var cellSet = [Cell](repeating: EmptyCell(), count : GameConstants.gameDimension)
+    
+//    init () {
+//        for _ in 0..<GameConstants.gameDimension  {
+//            cellSet.append(EmptyCell())
+//        }
+//    }
     
     func setupInitialPosition() {
-        for i in 0..<GameConstants.gameDimension  {
-            cellSet[i] = EmptyCell()
-        }
+//        for i in 0..<GameConstants.gameDimension  {
+//            cellSet[i] = EmptyCell()
+//        }
+        cellSet = [Cell](repeating: EmptyCell(), count : GameConstants.gameDimension)
     }
 }
 

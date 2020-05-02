@@ -7,6 +7,44 @@
 //
 
 import UIKit
+
+enum CellDesign {
+    case whiteGray
+    case blackRed
+    case empty
+}
+
+class CellDesignSettings {
+    static let shared = CellDesignSettings()
+    var type : CellDesign = CellDesign.whiteGray
+    //var type : CellDesign = CellDesign.blackRed
+}
+
+class Figure {
+    var figureView : FigureView!
+    let animationDuration = 0.7
+    
+    func createFigure(view : UIView, cellType:CellType, isCurrent: Bool) {
+        if (CellDesignSettings.shared.type == .whiteGray) {
+            view.backgroundColor = UIColor.darkGray
+        }
+        if (CellDesignSettings.shared.type == .blackRed) {
+            view.backgroundColor = UIColor(white: 1, alpha: 0)
+        }
+        if (cellType == .empty) { return }
+        if (cellType == .cross) {
+            figureView =  CrossView(frame: view.frame, drawNow: isCurrent)
+        }
+        if (cellType == .zero) {
+            figureView =  CircleView(frame: view.frame, drawNow: isCurrent)
+        }
+        view.addSubview(figureView)
+        if isCurrent {
+            figureView.animateFigure(duration: animationDuration, identifier: "animateFigure")
+        }
+    }
+}
+
 class FigureView: UIView {
     var figureLayer : CAShapeLayer!
     
@@ -20,35 +58,6 @@ class FigureView: UIView {
         figureLayer.add(animation, forKey: identifier)
     }
 }
-//class viewForDraw: UIView {
-//
-//    /*
-//    // Only override draw() if you perform custom drawing.
-//    // An empty implementation adversely affects performance during animation.
-//    override func draw(_ rect: CGRect) {
-//        // Drawing code
-//    }
-//    */
-//
-//    override init(frame: CGRect) {
-//       super.init(frame: frame)
-//
-//       self.backgroundColor = UIColor.darkGray
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//
-//    override func draw(_ rect: CGRect) {
-//        let path = UIBezierPath()
-//        path.move(to: CGPoint(x: 0, y: 0))
-//        path.addLine(to: CGPoint(x: 100, y: 100))
-//
-//        UIColor.purple.setStroke()
-//        path.stroke()
-//    }
-//}
 
 class CircleView: FigureView {
     init(frame : CGRect, drawNow : Bool){
@@ -59,7 +68,14 @@ class CircleView: FigureView {
         figureLayer = CAShapeLayer()
         figureLayer.path = circlePath.cgPath
         figureLayer.fillColor = UIColor.clear.cgColor
-        figureLayer.strokeColor = UIColor.black.cgColor
+        
+        if (CellDesignSettings.shared.type == .whiteGray) {
+            (figureLayer.strokeColor = UIColor.white.cgColor)
+        }
+        if (CellDesignSettings.shared.type == .blackRed) {
+            (figureLayer.strokeColor = UIColor.black.cgColor)
+        }
+        
         figureLayer.lineWidth = 9.0
         
         figureLayer.strokeEnd = (drawNow) ? 0 : 1
@@ -69,16 +85,6 @@ class CircleView: FigureView {
     required init?(coder: NSCoder){
         fatalError("init(coder) is not beeing implemented")
     }
-        
-//    func animateCircle(duration: TimeInterval) {
-//        let animation  = CABasicAnimation(keyPath: "strokeEnd")
-//        animation.duration = duration
-//        animation.fromValue = 0
-//        animation.toValue = 1
-//        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-//        circleLayer.strokeEnd = 1
-//        circleLayer.add(animation, forKey: "animateCircle")
-//    }
 }
 
 class CrossView: FigureView {    
@@ -97,7 +103,12 @@ class CrossView: FigureView {
         figureLayer = CAShapeLayer()
         figureLayer.path = crossPath.cgPath
         figureLayer.fillColor = UIColor.clear.cgColor
-        figureLayer.strokeColor = UIColor.red.cgColor
+        if (CellDesignSettings.shared.type == CellDesign.whiteGray) {
+            (figureLayer.strokeColor = UIColor.white.cgColor)
+        }
+        if (CellDesignSettings.shared.type == CellDesign.blackRed) {
+            (figureLayer.strokeColor = UIColor.red.cgColor)
+        }
         figureLayer.lineWidth = 11.0
     
         figureLayer.strokeEnd = (drawNow) ?  0 : 1
@@ -107,15 +118,5 @@ class CrossView: FigureView {
     required init?(coder: NSCoder){
         fatalError("init(coder) is not beeing implemented")
     }
-        
-//    func animateCross(duration: TimeInterval) {
-//        let animation  = CABasicAnimation(keyPath: "strokeEnd")
-//        animation.duration = duration
-//        animation.fromValue = 0
-//        animation.toValue = 1
-//        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-//        crossLayer.strokeEnd = 1
-//        crossLayer.add(animation, forKey: "animateCross")
-//    }
 }
 

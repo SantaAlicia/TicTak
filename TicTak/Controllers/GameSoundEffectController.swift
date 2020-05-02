@@ -9,16 +9,16 @@
 import UIKit
 import AVFoundation
 
-class GameEffectsController: NSObject {
+class GameSoundEffectController: NSObject {
 
     var audioPlayer: AVAudioPlayer?
     var audioPlayerOneStep: AVAudioPlayer?
     var audioPlayerOneStep2: AVAudioPlayer?
     let audioSession : AVAudioSession = AVAudioSession.sharedInstance()
-    static let shared = GameEffectsController()
+    static let shared = GameSoundEffectController()
 }
 
-extension GameEffectsController {
+extension GameSoundEffectController {
     
     func prepareToPlaySound() {
         guard let url = Bundle.main.url(forResource: "soundGameOver", withExtension: "mp3") else { return }
@@ -82,7 +82,7 @@ extension GameEffectsController {
     }
 }
 
-extension  GameEffectsController : AVAudioPlayerDelegate {
+extension  GameSoundEffectController : AVAudioPlayerDelegate {
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool){
         //

@@ -75,7 +75,7 @@ extension CenterViewController {
         Game.shared.startNewGame()
         preparationViewsAndContols()
         embeddedViewController.collectionView.isUserInteractionEnabled = true
-        GameEffectsController.shared.prepareToPlaySound()
+        GameSoundEffectController.shared.prepareToPlaySound()
     }
     
     private func preparationViewsAndContols() {
