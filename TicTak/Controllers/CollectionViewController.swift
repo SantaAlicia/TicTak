@@ -19,7 +19,6 @@ class CollectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
     /*
@@ -144,7 +143,6 @@ extension CollectionViewController : UICollectionViewDelegateFlowLayout {
             + (flowLayout.minimumInteritemSpacing * CGFloat(nbCol - 1))
         let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(nbCol))
         
-//        print("***")
 //             print(collectionView.bounds.size.width)
 //             print(collectionView.bounds.size.height)
         

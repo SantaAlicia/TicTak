@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIViewController {
+    //To add a view controller as a child
     func add(_ child: UIViewController) {
         addChild(child)
         view.addSubview(child.view)
@@ -21,7 +22,6 @@ extension UIViewController {
         guard parent != nil else {
             return
         }
-
         willMove(toParent: nil)
         view.removeFromSuperview()
         removeFromParent()
@@ -39,22 +39,28 @@ class LeftMenuViewController: UIViewController {
     @IBOutlet weak var settingsTable: UITableView!
     
     override func viewDidLoad() {
-        title = "Settings"
-        
         super.viewDidLoad()
-        let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
-        swipeLeftGesture.direction = .left
-        self.view.addGestureRecognizer(swipeLeftGesture)
-        
-        settingsTable.backgroundColor = UIColor(white: 1, alpha: 0.3)
-        let rect = CGRect(x: 10, y: 10, width: 100, height: 20)
-        settingsTable.tableHeaderView =  UIView(frame: rect)
-        settingsTable.tableHeaderView?.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        title = "Settings"
+        addSwipe()
+        backgrounfForTable()
         settingsTable.reloadData()
         
         if #available ( iOS 13.0, *){
         overrideUserInterfaceStyle = .light
         }
+    }
+    
+    func addSwipe() {
+        let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeLeftGesture.direction = .left
+        self.view.addGestureRecognizer(swipeLeftGesture)
+    }
+    
+    func backgrounfForTable() {
+        settingsTable.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        let rect = CGRect(x: 10, y: 10, width: 100, height: 20)
+        settingsTable.tableHeaderView =  UIView(frame: rect)
+        settingsTable.tableHeaderView?.backgroundColor = UIColor(white: 1, alpha: 0.3)
     }
 }
 
@@ -73,7 +79,7 @@ extension LeftMenuViewController {
 //
 //    }
     
-    @IBAction func playVSComputerChanged(mySwitch: UISwitch) {
+    @IBAction func switchChanged(mySwitch: UISwitch) {
         if( mySwitch.tag == 0) {
             game.playVSComputer = mySwitch.isOn
         }

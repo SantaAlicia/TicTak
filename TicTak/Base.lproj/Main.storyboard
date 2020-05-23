@@ -112,7 +112,6 @@
                         <outlet property="burgerMenuButton" destination="2VI-h1-pqu" id="p9h-6E-Va8"/>
                         <outlet property="gameInfo" destination="DfW-w8-VVv" id="WDd-aN-Cml"/>
                         <outlet property="gameOverInfo" destination="f3l-mL-rGT" id="Glh-wy-Er4"/>
-                        <outlet property="stackView" destination="QPW-hC-MU5" id="gQe-Lf-Cg9"/>
                         <outlet property="startButton" destination="WSm-Er-f5K" id="Z2K-it-jJG"/>
                     </connections>
                 </viewController>
@@ -123,7 +122,7 @@
         <!--Settings-->
         <scene sceneID="f2T-H1-6Dl">
             <objects>
-                <viewController storyboardIdentifier="LeftMenuViewController" title="Settings" id="do5-7d-TTY" customClass="LeftMenuViewController" customModule="Tic_Tac_Toe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LeftMenuViewController" title="Settings" id="do5-7d-TTY" customClass="LeftMenuViewController" customModule="Tic_Tac_Toe" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1DB-lB-ZwU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -162,7 +161,7 @@
                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cWA-QN-Qcx">
                                                             <rect key="frame" x="206" y="6" width="51" height="31"/>
                                                             <connections>
-                                                                <action selector="playVSComputerChangedWithMySwitch:" destination="do5-7d-TTY" eventType="valueChanged" id="gsA-lD-ud2"/>
+                                                                <action selector="switchChangedWithMySwitch:" destination="do5-7d-TTY" eventType="valueChanged" id="Rfx-Rx-Vmj"/>
                                                             </connections>
                                                         </switch>
                                                     </subviews>

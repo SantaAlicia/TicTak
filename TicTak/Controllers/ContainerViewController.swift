@@ -77,7 +77,7 @@ extension ContainerViewController: CenterViewControllerLeftPanel {
     private func addChildViewController(_ vc : LeftMenuViewController) {
         vc.delegate = self as? LeftMenuViewControllerelSwipeGesture
            view.insertSubview(vc.view, at: 0)
-           addChild(vc)
+           //addChild(vc)
            vc.didMove(toParent: self)
     }
     
@@ -151,12 +151,12 @@ private extension UIStoryboard {
   }
 }
 
-extension UIStackView {
-    func addBackground(color: UIColor) {
-        let subView = UIView(frame: bounds)
-        subView.backgroundColor = color
-        subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        insertSubview(subView, at: 0)
-    }
-}
+//extension UIStackView {
+//    func addBackground(color: UIColor) {
+//        let subView = UIView(frame: bounds)
+//        subView.backgroundColor = color
+//        subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        insertSubview(subView, at: 0)
+//    }
+//}
 

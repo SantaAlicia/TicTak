@@ -15,7 +15,7 @@ class CenterViewController: UIViewController {
     @IBOutlet weak var burgerMenuButton: UIButton!
     @IBOutlet weak var gameOverInfo: UILabel!
     @IBOutlet weak var gameInfo: UILabel!
-    @IBOutlet weak var stackView: UIStackView!
+    //@IBOutlet weak var stackView: UIStackView!
 
     private var embeddedViewController: CollectionViewController!
     var delegate : CenterViewControllerLeftPanel?
@@ -26,7 +26,6 @@ class CenterViewController: UIViewController {
     right: 0.0)
     
     private let itemsPerRow: CGFloat = 3
-    //let game = Game.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +80,6 @@ extension CenterViewController {
     private func preparationViewsAndContols() {
             embeddedViewController.collectionView.reloadData()
             updateInfoLabels()
-        
             burgerMenuButton.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
     }
         
