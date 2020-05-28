@@ -28,9 +28,9 @@
 		82942BC822EE312100E5EE97 /* GameResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82942BC722EE312100E5EE97 /* GameResultController.swift */; };
 		82AC77AD22F1B2A20020C20A /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 82AC77AC22F1B2A20020C20A /* appIcon.png */; };
 		82AF4970244F9F65001A16FE /* soundChock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AF496F244F9F65001A16FE /* soundChock.mp3 */; };
-		82AF4972244F9F7D001A16FE /* soundGameOver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AF4971244F9F7D001A16FE /* soundGameOver.mp3 */; };
 		82AF60DA23DE0F6200869D92 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AF60D923DE0F6200869D92 /* LeftMenuViewController.swift */; };
 		82B6E36E23E40DF900D684FB /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B6E36D23E40DF900D684FB /* ContainerViewController.swift */; };
+		82D7C86524807BBD002A021C /* soundGameOver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82D7C86424807BBD002A021C /* soundGameOver.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,9 +78,9 @@
 		82942BC722EE312100E5EE97 /* GameResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultController.swift; sourceTree = "<group>"; };
 		82AC77AC22F1B2A20020C20A /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
 		82AF496F244F9F65001A16FE /* soundChock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = soundChock.mp3; path = ../../../../../../../Downloads/soundChock.mp3; sourceTree = "<group>"; };
-		82AF4971244F9F7D001A16FE /* soundGameOver.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = soundGameOver.mp3; path = ../../../../../../../Downloads/soundGameOver.mp3; sourceTree = "<group>"; };
 		82AF60D923DE0F6200869D92 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		82B6E36D23E40DF900D684FB /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		82D7C86424807BBD002A021C /* soundGameOver.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soundGameOver.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,7 +203,7 @@
 		828226E92427C3FC00FD1744 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				82AF4971244F9F7D001A16FE /* soundGameOver.mp3 */,
+				82D7C86424807BBD002A021C /* soundGameOver.mp3 */,
 				82AF496F244F9F65001A16FE /* soundChock.mp3 */,
 			);
 			path = Resources;
@@ -329,9 +329,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82AF4972244F9F7D001A16FE /* soundGameOver.mp3 in Resources */,
 				82AC77AD22F1B2A20020C20A /* appIcon.png in Resources */,
 				82AF4970244F9F65001A16FE /* soundChock.mp3 in Resources */,
+				82D7C86524807BBD002A021C /* soundGameOver.mp3 in Resources */,
 				8225EFF522ECA89B007F01E7 /* LaunchScreen.storyboard in Resources */,
 				8225EFF222ECA89B007F01E7 /* Assets.xcassets in Resources */,
 				8225EFF022ECA89B007F01E7 /* Main.storyboard in Resources */,
