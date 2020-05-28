@@ -77,7 +77,7 @@
 		82942BC322EE211100E5EE97 /* Contants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contants.swift; sourceTree = "<group>"; };
 		82942BC722EE312100E5EE97 /* GameResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultController.swift; sourceTree = "<group>"; };
 		82AC77AC22F1B2A20020C20A /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
-		82AF496F244F9F65001A16FE /* soundChock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = soundChock.mp3; path = ../../../../../../../Downloads/soundChock.mp3; sourceTree = "<group>"; };
+		82AF496F244F9F65001A16FE /* soundChock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soundChock.mp3; sourceTree = "<group>"; };
 		82AF60D923DE0F6200869D92 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		82B6E36D23E40DF900D684FB /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		82D7C86424807BBD002A021C /* soundGameOver.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soundGameOver.mp3; sourceTree = "<group>"; };
