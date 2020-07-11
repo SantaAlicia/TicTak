@@ -30,6 +30,7 @@
 		82AF4970244F9F65001A16FE /* soundChock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AF496F244F9F65001A16FE /* soundChock.mp3 */; };
 		82AF60DA23DE0F6200869D92 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AF60D923DE0F6200869D92 /* LeftMenuViewController.swift */; };
 		82B6E36E23E40DF900D684FB /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B6E36D23E40DF900D684FB /* ContainerViewController.swift */; };
+		82C2D35F249ACD7E00E0F024 /* LeftMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C2D35E249ACD7E00E0F024 /* LeftMenuNavigationController.swift */; };
 		82D7C86524807BBD002A021C /* soundGameOver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82D7C86424807BBD002A021C /* soundGameOver.mp3 */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		82AF496F244F9F65001A16FE /* soundChock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soundChock.mp3; sourceTree = "<group>"; };
 		82AF60D923DE0F6200869D92 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		82B6E36D23E40DF900D684FB /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		82C2D35E249ACD7E00E0F024 /* LeftMenuNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuNavigationController.swift; sourceTree = "<group>"; };
 		82D7C86424807BBD002A021C /* soundGameOver.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soundGameOver.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,6 +198,7 @@
 				8282674F23DFAD81005C48D4 /* CollectionViewController.swift */,
 				82B6E36D23E40DF900D684FB /* ContainerViewController.swift */,
 				828226F224281C2C00FD1744 /* GameSoundEffectController.swift */,
+				82C2D35E249ACD7E00E0F024 /* LeftMenuNavigationController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8233FD34241EAC930029D956 /* SettingSwitchTableViewCell.swift in Sources */,
+				82C2D35F249ACD7E00E0F024 /* LeftMenuNavigationController.swift in Sources */,
 				8225EFED22ECA89B007F01E7 /* CenterViewController.swift in Sources */,
 				826EE54E22F17D8200B48E7D /* Game.swift in Sources */,
 				8225F01E22ECAC9A007F01E7 /* GameBoard.swift in Sources */,

@@ -20,16 +20,6 @@ class CollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
 
 extension CollectionViewController: UICollectionViewDataSource {
@@ -63,16 +53,13 @@ extension CollectionViewController: UICollectionViewDelegate {
         vcParent.playerMakesOneTurn(indexPath.row)
 
         if (game.state == GameState.isOver) {
-            gameOver_doSomething(vcParent)
+            collectionView.isUserInteractionEnabled = false
             return
         }
+        //after exec playerMakesOneTurn currentPlayer changed
         if ((game.playVSComputer) && (game.currentPlayer == Player.zero)) {
             doOneTurnForZeroPlayer(vcParent)
         }
-    }
-    
-    private func gameOver_doSomething (_ vcParent: CenterViewController) {
-        collectionView.isUserInteractionEnabled = false
     }
     
     private func doOneTurnForZeroPlayer(_ vcParent: CenterViewController) {
@@ -84,7 +71,7 @@ extension CollectionViewController: UICollectionViewDelegate {
         if (r.0) {
             indexForNextStep = r.1 // logical
         } else {
-            indexForNextStep = game.gameBoard.findOneEmptyCell() //it is random
+            indexForNextStep = game.gameBoard.findOneEmptyCell() //it's random
         }
         guard !(indexForNextStep == nil) else {return}
         
@@ -100,7 +87,6 @@ extension CollectionViewController: UICollectionViewDelegate {
             }
             self.activityIndicator.stopAnimating()
         }
-        
         self.navigationController?.viewIfLoaded?.setNeedsLayout()
         }
 }

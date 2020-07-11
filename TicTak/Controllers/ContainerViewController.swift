@@ -21,7 +21,7 @@ protocol ContainerViewControllerProtocol {
 
     var currentState : SlideOutState = .leftMenuCollapsed
     var centerViewController : CenterViewController!
-    var leftMenuViewController : LeftMenuViewController!
+    var leftNavigationController : UINavigationController!
     var centerNavigationController : UINavigationController!
     var tapGesture : UITapGestureRecognizer?
     
@@ -34,20 +34,14 @@ protocol ContainerViewControllerProtocol {
         // wrap the centerViewController in a navigation controller, so we can push views to it
         // and display bar button items in the navigation bar
         centerNavigationController = UINavigationController(rootViewController: centerViewController)
-        
-        view.addSubview(centerNavigationController.view)
-        addChild(centerNavigationController)
-        centerNavigationController.didMove(toParent: self)
     
+        add(centerNavigationController)
+        
         centerNavigationController.view.layer.shadowOpacity = 0.2
         centerNavigationController.view.layer.shadowOffset = CGSize(width: -4, height: 4)
         centerNavigationController.view.layer.shadowRadius = 3
         centerNavigationController.view.layer.shadowColor = UIColor.gray.cgColor
         centerNavigationController.view.layer.masksToBounds = false;
-        
-//        tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.respondToTapGesture))
-//        guard let tapGesture = tapGesture else { return }
-//        self.view.addGestureRecognizer(tapGesture)
     }
 }
 
@@ -61,39 +55,23 @@ extension ContainerViewController: CenterViewControllerLeftPanel {
     }
     
     private func addLeftMenuViewController() {
-        guard leftMenuViewController == nil else {return}
-        if let vc =  UIStoryboard.leftMenuViewController() {
-            addChildViewController(vc)
-            leftMenuViewController = vc
+        if leftNavigationController == nil {
+             leftNavigationController = UIStoryboard.leftMenuNavigatioController()
+            (leftNavigationController.viewControllers.first as! LeftMenuViewController).delegate = self as? LeftMenuViewControllerelSwipeGesture
         }
-        
-        //let parentController = leftMenuViewController.parent as! ContainerViewController
-       
-        
-        //self.leftMenuViewController?.view.frame.size.width = self.view.frame.size.width * 0.66
-        //self.leftMenuViewController?.view.frame.origin.x = (self.leftMenuViewController?.view.frame.size.width)!*(-1)
-    }
-    
-    private func addChildViewController(_ vc : LeftMenuViewController) {
-        vc.delegate = self as? LeftMenuViewControllerelSwipeGesture
-           view.insertSubview(vc.view, at: 0)
-           //addChild(vc)
-           vc.didMove(toParent: self)
+        addChild(leftNavigationController!)
+        view.insertSubview(leftNavigationController?.view! ?? self.view, at: 0)
+        leftNavigationController?.didMove(toParent: self)
     }
     
     private func moveControllers() {
-        guard let width = self.leftMenuViewController?.view.frame.size.width else {return}
+        guard let width = leftNavigationController.viewControllers.first?.view.frame.size.width else {return}
         
         if (currentState  == .leftMenuExpanded) {
             currentState  = .leftMenuCollapsed
             animateCentralPanelXPositoion(targetPositionLeft: 0, targetPositionCentral: 0,  completion : {finished -> Void in
                 if finished {
-//                    self.leftMenuViewController?.view.removeFromSuperview()
-//                    self.leftMenuViewController.delegate = nil
-//                    self.leftMenuViewController = nil
-                      self.leftMenuViewController.remove()
-                      self.leftMenuViewController = nil
-                    
+                    self.leftNavigationController.remove()
                     guard let tapGesture = self.tapGesture else { return }
                     self.view.removeGestureRecognizer(tapGesture)
                 }
@@ -104,6 +82,7 @@ extension ContainerViewController: CenterViewControllerLeftPanel {
             //animateCentralPanelXPositoion(targetPositionLeft: 0, targetPositionCentral: width*0.82, completion : { finished -> Void in self.updateStatusBar()})
             tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.respondToTapGesture))
             guard let tapGesture = tapGesture else { return }
+            //this "view" is contanier view = current view
             view.addGestureRecognizer(tapGesture)
         }
     }
@@ -122,9 +101,11 @@ extension ContainerViewController: CenterViewControllerLeftPanel {
 }
 
 extension ContainerViewController: LeftMenuViewControllerelSwipeGesture {
+    
 //    func didSelectMenu() {
 //    }
-
+    
+    @objc
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         if (currentState != .leftMenuExpanded) {
             return
@@ -146,9 +127,13 @@ private extension UIStoryboard {
     return mainStoryboard().instantiateViewController(withIdentifier: "CenterViewController") as? CenterViewController
   }
     
-  static func leftMenuViewController() -> LeftMenuViewController? {
-      return mainStoryboard().instantiateViewController(withIdentifier: "LeftMenuViewController") as? LeftMenuViewController
-  }
+//  static func leftMenuViewController() -> LeftMenuViewController? {
+//    return mainStoryboard().instantiateViewController(withIdentifier: "LeftMenuViewController") as? LeftMenuViewController
+//  }
+    
+    static func leftMenuNavigatioController() -> LeftMenuNavigationController? {
+        return mainStoryboard().instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? LeftMenuNavigationController
+    }
 }
 
 //extension UIStackView {

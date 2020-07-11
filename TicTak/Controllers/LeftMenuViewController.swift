@@ -11,6 +11,7 @@ import UIKit
 extension UIViewController {
     //To add a view controller as a child
     func add(_ child: UIViewController) {
+        
         addChild(child)
         view.addSubview(child.view)
         child.didMove(toParent: self)
@@ -73,11 +74,6 @@ extension LeftMenuViewController {
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         delegate?.respondToSwipeGesture(gesture: gesture)
     }
-    
-//    @objc
-//    func respondToTapGesture(gesture : UIGestureRecognizer) {
-//
-//    }
     
     @IBAction func switchChanged(mySwitch: UISwitch) {
         if( mySwitch.tag == 0) {
