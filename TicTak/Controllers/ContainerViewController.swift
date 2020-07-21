@@ -45,6 +45,7 @@ protocol ContainerViewControllerProtocol {
     }
 }
 
+//MARK: CenterViewControllerLeftPanel
 extension ContainerViewController: CenterViewControllerLeftPanel {
     
     func toggleLeftPanel() {
@@ -53,18 +54,22 @@ extension ContainerViewController: CenterViewControllerLeftPanel {
         }
         moveControllers()
     }
-    
-    private func addLeftMenuViewController() {
+}
+
+private extension ContainerViewController {
+    func addLeftMenuViewController() {
         if leftNavigationController == nil {
              leftNavigationController = UIStoryboard.leftMenuNavigatioController()
             (leftNavigationController.viewControllers.first as! LeftMenuViewController).delegate = self as? LeftMenuViewControllerelSwipeGesture
         }
+        leftNavigationController.popToRootViewController(animated: true)
+        
         addChild(leftNavigationController!)
         view.insertSubview(leftNavigationController?.view! ?? self.view, at: 0)
         leftNavigationController?.didMove(toParent: self)
     }
     
-    private func moveControllers() {
+     func moveControllers() {
         guard let width = leftNavigationController.viewControllers.first?.view.frame.size.width else {return}
         
         if (currentState  == .leftMenuExpanded) {
@@ -87,7 +92,7 @@ extension ContainerViewController: CenterViewControllerLeftPanel {
         }
     }
     
-    private func animateCentralPanelXPositoion(targetPositionLeft : CGFloat, targetPositionCentral : CGFloat, completion: ((Bool) -> Void)? = nil)  {
+    func animateCentralPanelXPositoion(targetPositionLeft : CGFloat, targetPositionCentral : CGFloat, completion: ((Bool) -> Void)? = nil)  {
         UIView.animate(withDuration: 1.0,
                        delay: 0,
                        usingSpringWithDamping: 0.9,
@@ -100,10 +105,8 @@ extension ContainerViewController: CenterViewControllerLeftPanel {
     }
 }
 
+//MARK:LeftMenuViewControllerelSwipeGesture
 extension ContainerViewController: LeftMenuViewControllerelSwipeGesture {
-    
-//    func didSelectMenu() {
-//    }
     
     @objc
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {
@@ -119,18 +122,14 @@ extension ContainerViewController: LeftMenuViewControllerelSwipeGesture {
     }
 }
 
+//MARK:UIStoryboard extension
 private extension UIStoryboard {
-    
-  static func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: Bundle.main) }
+    static func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: Bundle.main) }
   
-  static func centerViewController() -> CenterViewController? {
-    return mainStoryboard().instantiateViewController(withIdentifier: "CenterViewController") as? CenterViewController
-  }
-    
-//  static func leftMenuViewController() -> LeftMenuViewController? {
-//    return mainStoryboard().instantiateViewController(withIdentifier: "LeftMenuViewController") as? LeftMenuViewController
-//  }
-    
+    static func centerViewController() -> CenterViewController? {
+        return mainStoryboard().instantiateViewController(withIdentifier: "CenterViewController") as? CenterViewController
+    }
+        
     static func leftMenuNavigatioController() -> LeftMenuNavigationController? {
         return mainStoryboard().instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? LeftMenuNavigationController
     }

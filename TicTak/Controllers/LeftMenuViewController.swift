@@ -8,6 +8,7 @@
 
 import UIKit
 
+//MARK: UIViewController extension
 extension UIViewController {
     //To add a view controller as a child
     func add(_ child: UIViewController) {
@@ -29,6 +30,7 @@ extension UIViewController {
     }
 }
 
+//MARK:protocol
 protocol LeftMenuViewControllerelSwipeGesture {
   func respondToSwipeGesture(gesture: UIGestureRecognizer)
 }
@@ -59,12 +61,13 @@ class LeftMenuViewController: UIViewController {
     
     func backgrounfForTable() {
         settingsTable.backgroundColor = UIColor(white: 1, alpha: 0.3)
-        let rect = CGRect(x: 10, y: 10, width: 100, height: 20)
-        settingsTable.tableHeaderView =  UIView(frame: rect)
-        settingsTable.tableHeaderView?.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        //let rect = CGRect(x: 10, y: 10, width: 100, height: 20)
+        //settingsTable.tableHeaderView =  UIView(frame: rect)
+        //settingsTable.tableHeaderView?.backgroundColor = UIColor(white: 1, alpha: 0.3)
     }
 }
 
+//MARK:gesture extension
 extension LeftMenuViewController {
     func gestureRecognizerShouldBegin(_ gesture: UIGestureRecognizer) -> Bool {
         return true
@@ -88,12 +91,28 @@ extension LeftMenuViewController {
     }
 }
 
+//MARK: UITableViewDelegate extension
 extension LeftMenuViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+          let v = UIView()
+          v.backgroundColor = UIColor(white: 1, alpha: 0.3)
+          return v
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+           return UIView()
+       }
+    
+        func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+            return 60
+        }
 }
 
+//MARK: UITableViewDataSource extension
 extension LeftMenuViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -124,8 +143,5 @@ extension LeftMenuViewController : UITableViewDataSource {
        return cell
     }
     
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 20
-//    }
 }
 

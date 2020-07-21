@@ -91,9 +91,9 @@ extension CenterViewController {
         updateInfoLabels()
         }
 }
-
-extension CenterViewController {
-    private func updateInfoLabels () {
+//MARK: private methods
+private extension CenterViewController {
+     func updateInfoLabels () {
         switch Game.shared.state {
         case GameState.isNotStarted, GameState.isStarted:
             gameInfo.text = "First Turn is of Player \"Cross\""
@@ -108,7 +108,7 @@ extension CenterViewController {
         }
     }
     
-    private func currentPlayerText() -> String {
+     func currentPlayerText() -> String {
         let textZero : String!
         if (!Game.shared.playVSComputer) {
             textZero =  "Turn of Player \"Zero\""
@@ -123,7 +123,7 @@ extension CenterViewController {
         }
     }
     
-    private func updateEnabledControls() {
+     func updateEnabledControls() {
         switch Game.shared.state {
         case GameState.isNotStarted:
             startButton.isEnabled = true
@@ -139,7 +139,7 @@ extension CenterViewController {
         }
     }
     
-    private func makeShadow(control : UIView) {
+    func makeShadow(control : UIView) {
         control.layer.shadowOpacity = 0.2
         control.layer.shadowOffset = CGSize(width: 0, height: 0)
         control.layer.shadowRadius = 5

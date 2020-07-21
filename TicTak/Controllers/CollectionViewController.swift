@@ -22,6 +22,7 @@ class CollectionViewController: UIViewController {
     }
 }
 
+//MARK:UICollectionViewDataSource
 extension CollectionViewController: UICollectionViewDataSource {
 
        func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -46,6 +47,7 @@ extension CollectionViewController: UICollectionViewDataSource {
        }
    }
 
+//MARK:UICollectionViewDelegate
 extension CollectionViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -91,6 +93,7 @@ extension CollectionViewController: UICollectionViewDelegate {
         }
 }
 
+//MARK:UICollectionViewDelegateFlowLayout
 extension CollectionViewController : UICollectionViewDelegateFlowLayout {
 //    func collectionView(_ collectionView: UICollectionView,
 //                        layout collectionViewLayout: UICollectionViewLayout,

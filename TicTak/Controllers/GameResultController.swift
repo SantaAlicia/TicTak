@@ -23,23 +23,20 @@ protocol GameResultControllerProtocol {
 struct GameResultController : GameResultControllerProtocol {
     
     static func findWiner() -> GameWinner {
-        let crossWin = isCrossWin()
-        let zeroWin = isZeroWin()
-        
-        if (zeroWin) {
-            return GameWinner.zeroWinner
+        if isCrossWin() {
+           return GameWinner.crossWinner
         }
-        if (crossWin) {
-            return GameWinner.crossWinner
+        if isZeroWin() {
+                    return GameWinner.zeroWinner
         }
         return GameWinner.draw
     }
 }
 
-//find winner
-extension GameResultController {
+//MARK: find winner
+private extension GameResultController {
     
-    private static func isWin(set : Set<Int>?) -> Bool {
+     static func isWin(set : Set<Int>?) -> Bool {
         guard let set = set else {
             return false
         }
@@ -55,30 +52,30 @@ extension GameResultController {
         return result.0
     }
     
-    private static func isCrossWin() -> Bool {
+    static func isCrossWin() -> Bool {
         let game  = Game.shared
         let cellsForCross = game.gameBoard.findAllCellWithCross()
         return isWin(set : cellsForCross)
     }
     
-    private static func isZeroWin() -> Bool {
+    static func isZeroWin() -> Bool {
         let game  = Game.shared
         let cellsForZero = game.gameBoard.findAllCellWithZero()
         return isWin(set : cellsForZero)
     }
 }
 
-//find the winning combination
-extension GameResultController {
+//MARK:find the winning combination
+private extension GameResultController {
     
-    private static func checkOneCombination(setForCheck : Set<Int>, oneWinCombination : Set<Int>) -> (Bool, Set<Int>?) {
+    static func checkOneCombination(setForCheck : Set<Int>, oneWinCombination : Set<Int>) -> (Bool, Set<Int>?) {
         if oneWinCombination.isSubset(of: setForCheck) {
             return (true, oneWinCombination)
         }
         return (false, nil)
     }
     
-    private static func findPositionToCompleteWinCombination(setForCheck : Set<Int>, oneWinCombination : Set<Int>, partnerSet : Set<Int>, amount : Int) -> (Bool, Int?) {
+    static func findPositionToCompleteWinCombination(setForCheck : Set<Int>, oneWinCombination : Set<Int>, partnerSet : Set<Int>, amount : Int) -> (Bool, Int?) {
         var newSet = oneWinCombination
         let result : (Bool, Int?) = (false, nil)
         
@@ -101,7 +98,7 @@ extension GameResultController {
     }
 }
 
-//text - who win
+//MARK: text - who win
 extension GameResultController {
     
     static func winnerText() -> (String, String) {
@@ -133,7 +130,7 @@ extension GameResultController {
     }
 }
 
-//try to do next turn, (playVSComputer = true) in one winCombination
+//MARK:try to do next turn, (playVSComputer = true) in one winCombination
 extension GameResultController {
     
      static func doSmartDecision () -> (Bool, Int?){
