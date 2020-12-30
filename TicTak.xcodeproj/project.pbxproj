@@ -116,6 +116,7 @@
 			children = (
 				8225EFE922ECA89A007F01E7 /* TicTak */,
 				8225EFFE22ECA89B007F01E7 /* TicTakTests */,
+				8225EFF122ECA89B007F01E7 /* Assets.xcassets */,
 				8225F00922ECA89B007F01E7 /* TicTakUITests */,
 				8225EFE822ECA89A007F01E7 /* Products */,
 				828226ED2427CB8900FD1744 /* Frameworks */,
@@ -143,7 +144,6 @@
 				8225EFEA22ECA89B007F01E7 /* AppDelegate.swift */,
 				8225EFEC22ECA89B007F01E7 /* CenterViewController.swift */,
 				8225EFEE22ECA89B007F01E7 /* Main.storyboard */,
-				8225EFF122ECA89B007F01E7 /* Assets.xcassets */,
 				8225EFF322ECA89B007F01E7 /* LaunchScreen.storyboard */,
 				8225EFF622ECA89B007F01E7 /* Info.plist */,
 				82AC77AC22F1B2A20020C20A /* appIcon.png */,
