@@ -51,10 +51,14 @@ class CenterViewController: UIViewController {
         startButton.clipsToBounds = true
         
         embeddedViewController.collectionView.backgroundColor = UIColor(patternImage: UIImage(named: "notebookBackground")!)
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "oldBook")
-        backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
-        self.view.insertSubview(backgroundImage, at: 0)
+        
+//        let guide = view.safeAreaLayoutGuide
+//        let frame = UIScreen.main.//CGRect(origin: guide.layoutFrame.origin, size: guide.layoutFrame.size)
+//        let backgroundImage = UIImageView(frame: frame)
+//        //let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+//        backgroundImage.image = UIImage(named: "oldBook")
+ //       backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
+ //       self.view.insertSubview(backgroundImage, at: 0)
         
         self.title = "Tic-Tac-Toe"
     }
