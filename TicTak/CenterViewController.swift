@@ -32,6 +32,20 @@ class CenterViewController: UIViewController {
         tuningView()
         preparationViewsAndContols()
         startNewGame()
+        
+        
+        let sharedApplication = UIApplication.shared
+        sharedApplication.delegate?.window??.tintColor = .white
+
+          if #available(iOS 13.0, *) {
+                let statusBar = UIView(frame: (sharedApplication.delegate?.window??.windowScene?.statusBarManager?.statusBarFrame)!)
+            statusBar.backgroundColor = .white
+                sharedApplication.delegate?.window??.addSubview(statusBar)
+            } else {
+                // Fallback on earlier versions
+                sharedApplication.statusBarView?.backgroundColor = .white
+          }
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -60,7 +74,7 @@ class CenterViewController: UIViewController {
  //       backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
  //       self.view.insertSubview(backgroundImage, at: 0)
         
-        self.title = "Tic-Tac-Toe"
+        self.title = "Tic-Tac-Toe 2"
     }
     
     @IBAction func startNewGameButtonPressed(_ sender: Any) {
@@ -183,4 +197,10 @@ protocol CenterViewControllerLeftPanel {
   func toggleLeftPanel()
 }
 
+extension UIApplication {
+
+var statusBarView: UIView? {
+    return value(forKey: "statusBar") as? UIView
+   }
+}
 

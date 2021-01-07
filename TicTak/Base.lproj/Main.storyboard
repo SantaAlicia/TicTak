@@ -88,7 +88,7 @@
                             </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="tintColor" systemColor="darkTextColor"/>
+                        <color key="tintColor" systemColor="systemYellowColor"/>
                         <constraints>
                             <constraint firstItem="QPW-hC-MU5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1ma-6M-hc1"/>
                             <constraint firstItem="WSm-Er-f5K" firstAttribute="top" secondItem="2VI-h1-pqu" secondAttribute="top" id="4MY-eQ-nrO"/>
@@ -195,6 +195,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gh9-Lj-cYL"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="settingsTable" destination="IEs-PF-tT0" id="rua-jE-PWm"/>
                     </connections>
@@ -318,11 +319,12 @@
         <!--Left Menu Navigation Controller-->
         <scene sceneID="Qlc-EY-FEI">
             <objects>
-                <navigationController storyboardIdentifier="LeftMenuNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="IxZ-R3-b0u" customClass="LeftMenuNavigationController" customModule="Tic_Tac_Toe" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LeftMenuNavigationController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="IxZ-R3-b0u" customClass="LeftMenuNavigationController" customModule="Tic_Tac_Toe" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="AdV-5w-sFU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="systemGreenColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -341,9 +343,6 @@
         <image name="buttonGray" width="512" height="256"/>
         <image name="oldBook" width="512" height="512"/>
         <image name="settings1" width="640" height="400"/>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -361,6 +360,9 @@
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

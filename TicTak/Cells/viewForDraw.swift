@@ -16,8 +16,8 @@ enum CellDesign {
 
 class CellDesignSettings {
     static let shared = CellDesignSettings()
-    var type : CellDesign = CellDesign.whiteGray
-    //var type : CellDesign = CellDesign.blackRed
+    //var type : CellDesign = CellDesign.whiteGray
+    var type : CellDesign = CellDesign.blackRed
 }
 
 class Figure {
@@ -26,7 +26,7 @@ class Figure {
     
     func createFigure(view : UIView, cellType:CellType, isCurrent: Bool) {
         if (CellDesignSettings.shared.type == .whiteGray) {
-            view.backgroundColor = UIColor.darkGray
+            view.backgroundColor = UIColor(white: 1, alpha: 0.5)//UIColor.darkGray
         }
         if (CellDesignSettings.shared.type == .blackRed) {
             view.backgroundColor = UIColor(white: 1, alpha: 0)

@@ -15,7 +15,6 @@ class LeftMenuNavigationController: UINavigationController {
 
         // Do any additional setup after loading the view.
     }
-    
 
     /*
     // MARK: - Navigation
@@ -28,3 +27,9 @@ class LeftMenuNavigationController: UINavigationController {
     */
 
 }
+
+//extension LeftMenuNavigationController {
+//    open override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return topViewController?.preferredStatusBarStyle ?? .darkContent
+//    }
+//}

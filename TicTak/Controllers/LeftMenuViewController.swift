@@ -51,6 +51,8 @@ class LeftMenuViewController: UIViewController {
         if #available ( iOS 13.0, *){
         overrideUserInterfaceStyle = .light
         }
+        
+        self.navigationController?.navigationBar.barStyle = .default
     }
     
     func addSwipe() {
@@ -142,6 +144,7 @@ extension LeftMenuViewController : UITableViewDataSource {
        // settingsTable.headerView(forSection: 0)!.backgroundColor = UIColor(white: 1, alpha: 0.3)
        return cell
     }
-    
 }
+
+
 

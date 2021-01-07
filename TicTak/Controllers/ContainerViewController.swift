@@ -25,6 +25,11 @@ protocol ContainerViewControllerProtocol {
     var centerNavigationController : UINavigationController!
     var tapGesture : UITapGestureRecognizer?
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        centerNavigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +40,8 @@ protocol ContainerViewControllerProtocol {
         // and display bar button items in the navigation bar
         centerNavigationController = UINavigationController(rootViewController: centerViewController)
     
+        
+        
         add(centerNavigationController)
         
         centerNavigationController.view.layer.shadowOpacity = 0.2
