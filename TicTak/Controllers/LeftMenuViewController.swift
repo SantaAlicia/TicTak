@@ -86,9 +86,11 @@ extension LeftMenuViewController {
         }
         if( mySwitch.tag == 1) {
             game.needPlaySoundGameOver = mySwitch.isOn
+            ColorShema.colorShemaType = ColorShemaType.blackRed
         }
         if( mySwitch.tag == 2) {
             game.needPlaySoundOneStep = mySwitch.isOn
+            ColorShema.colorShemaType = ColorShemaType.whiteGray
         }
     }
 }
@@ -107,18 +109,26 @@ extension LeftMenuViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
            return UIView()
-       }
+    }
     
-        func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
             return 60
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 3 {
+            newViewController = 
+            self.navigationController?.pushViewController(newViewController, animated: true)
+
         }
+    }
 }
 
 //MARK: UITableViewDataSource extension
 extension LeftMenuViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return 3
+       return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

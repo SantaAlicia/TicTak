@@ -14,10 +14,47 @@ enum CellDesign {
     case empty
 }
 
-class CellDesignSettings {
-    static let shared = CellDesignSettings()
-    //var type : CellDesign = CellDesign.whiteGray
-    var type : CellDesign = CellDesign.blackRed
+enum ColorShemaType {
+    case whiteGray
+    case blackRed
+}
+
+//class CellDesignSettings {
+//    static let shared = CellDesignSettings()
+//    var type : CellDesign = CellDesign.blackRed
+//    static var colorshema : ColorShemaType = .whiteGray
+//}
+
+class ColorShema {
+    static let shared = ColorShema()
+    static var colorShemaType : ColorShemaType = ColorShemaType.whiteGray {
+        didSet {
+            if colorShemaType == ColorShemaType.whiteGray  {
+                ColorShema.crossColor = white
+                ColorShema.circleColor = white
+                ColorShema.borderColor = borderWG
+                ColorShema.backgroungColor = backgroundWG
+            }
+            if colorShemaType == ColorShemaType.blackRed  {
+                ColorShema.crossColor = red
+                ColorShema.circleColor = black
+                ColorShema.borderColor = borderBR
+                ColorShema.backgroungColor = backgroundBR
+            }
+        }
+    }
+    static var crossColor : CGColor!
+    static var circleColor : CGColor!
+    static var borderColor : CGColor!
+    static var backgroungColor : UIColor!
+
+    private static let white: CGColor = UIColor.white.cgColor
+    private static let black : CGColor  = UIColor.black.cgColor
+    private static let red : CGColor = UIColor.red.cgColor
+    private static let borderWG : CGColor = UIColor.blue.cgColor
+    private static let borderBR : CGColor = UIColor.lightGray.cgColor
+    private static let backgroundWG : UIColor = UIColor.darkGray
+    private static let backgroundBR : UIColor = UIColor(white: 1, alpha: 0)
 }
 
 class Figure {
@@ -25,23 +62,19 @@ class Figure {
     let animationDuration = 0.7
     
     func createFigure(view : UIView, cellType:CellType, isCurrent: Bool) {
-        if (CellDesignSettings.shared.type == .whiteGray) {
-            view.backgroundColor = UIColor(white: 1, alpha: 0.5)//UIColor.darkGray
-        }
-        if (CellDesignSettings.shared.type == .blackRed) {
-            view.backgroundColor = UIColor(white: 1, alpha: 0)
-        }
-        if (cellType == .empty) { return }
-        if (cellType == .cross) {
-            figureView =  CrossView(frame: view.frame, drawNow: isCurrent)
-        }
-        if (cellType == .zero) {
-            figureView =  CircleView(frame: view.frame, drawNow: isCurrent)
-        }
-        view.addSubview(figureView)
-        if isCurrent {
-            figureView.animateFigure(duration: animationDuration, identifier: "animateFigure")
-        }
+        view.backgroundColor = ColorShema.backgroungColor
+       
+       if (cellType == .empty) { return }
+       if (cellType == .cross) {
+           figureView =  CrossView(frame: view.frame, drawNow: isCurrent)
+       }
+       if (cellType == .zero) {
+           figureView =  CircleView(frame: view.frame, drawNow: isCurrent)
+       }
+       view.addSubview(figureView)
+       if isCurrent {
+           figureView.animateFigure(duration: animationDuration, identifier: "animateFigure")
+       }
     }
 }
 
@@ -68,16 +101,8 @@ class CircleView: FigureView {
         figureLayer = CAShapeLayer()
         figureLayer.path = circlePath.cgPath
         figureLayer.fillColor = UIColor.clear.cgColor
-        
-        if (CellDesignSettings.shared.type == .whiteGray) {
-            (figureLayer.strokeColor = UIColor.white.cgColor)
-        }
-        if (CellDesignSettings.shared.type == .blackRed) {
-            (figureLayer.strokeColor = UIColor.black.cgColor)
-        }
-        
+        figureLayer.strokeColor = ColorShema.circleColor
         figureLayer.lineWidth = 9.0
-        
         figureLayer.strokeEnd = (drawNow) ? 0 : 1
         layer.addSublayer(figureLayer)
     }
@@ -103,12 +128,7 @@ class CrossView: FigureView {
         figureLayer = CAShapeLayer()
         figureLayer.path = crossPath.cgPath
         figureLayer.fillColor = UIColor.clear.cgColor
-        if (CellDesignSettings.shared.type == CellDesign.whiteGray) {
-            (figureLayer.strokeColor = UIColor.white.cgColor)
-        }
-        if (CellDesignSettings.shared.type == CellDesign.blackRed) {
-            (figureLayer.strokeColor = UIColor.red.cgColor)
-        }
+        figureLayer.strokeColor = ColorShema.crossColor
         figureLayer.lineWidth = 11.0
     
         figureLayer.strokeEnd = (drawNow) ?  0 : 1

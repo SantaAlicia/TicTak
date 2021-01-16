@@ -31,6 +31,7 @@ class CenterViewController: UIViewController {
         super.viewDidLoad()
         tuningView()
         preparationViewsAndContols()
+        ColorShema.colorShemaType = ColorShemaType.whiteGray // to do
         startNewGame()
         
         

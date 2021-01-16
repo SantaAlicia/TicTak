@@ -27,12 +27,7 @@ class TicTacCollectionViewCell: UICollectionViewCell {
 
         if isWinCell {
             layer.borderWidth = 5
-            if (CellDesignSettings.shared.type == .whiteGray) {
-                layer.borderColor = UIColor.blue.cgColor
-            }
-            if (CellDesignSettings.shared.type == .blackRed) {
-                layer.borderColor = UIColor.lightGray.cgColor
-            }
+            layer.borderColor = ColorShema.borderColor
         } else {
             layer.borderWidth = 1
         }

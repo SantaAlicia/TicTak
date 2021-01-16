@@ -91,7 +91,6 @@ private extension ContainerViewController {
         } else {
             currentState  = .leftMenuExpanded
             animateCentralPanelXPositoion(targetPositionLeft: 0, targetPositionCentral: width*0.82)
-            //animateCentralPanelXPositoion(targetPositionLeft: 0, targetPositionCentral: width*0.82, completion : { finished -> Void in self.updateStatusBar()})
             tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.respondToTapGesture))
             guard let tapGesture = tapGesture else { return }
             //this "view" is contanier view = current view
