@@ -17,6 +17,8 @@
 		8225F01E22ECAC9A007F01E7 /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F01D22ECAC9A007F01E7 /* GameBoard.swift */; };
 		8225F02122ECAEAD007F01E7 /* TicTacCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F02022ECAEAD007F01E7 /* TicTacCollectionViewCell.swift */; };
 		8233FD34241EAC930029D956 /* SettingSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8233FD33241EAC930029D956 /* SettingSwitchTableViewCell.swift */; };
+		82422FF625B398B400E7BE85 /* LeftMenuColorShemaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82422FF525B398B400E7BE85 /* LeftMenuColorShemaViewController.swift */; };
+		82422FFB25B39D5300E7BE85 /* ColorSchemaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82422FFA25B39D5300E7BE85 /* ColorSchemaTableViewCell.swift */; };
 		8248F344245882440014F405 /* viewForDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8248F343245882440014F405 /* viewForDraw.swift */; };
 		826EE54E22F17D8200B48E7D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826EE54D22F17D8200B48E7D /* Game.swift */; };
 		828226EF2427CB8900FD1744 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 828226EE2427CB8900FD1744 /* AVFoundation.framework */; };
@@ -67,6 +69,8 @@
 		8225F01D22ECAC9A007F01E7 /* GameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
 		8225F02022ECAEAD007F01E7 /* TicTacCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacCollectionViewCell.swift; sourceTree = "<group>"; };
 		8233FD33241EAC930029D956 /* SettingSwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSwitchTableViewCell.swift; sourceTree = "<group>"; };
+		82422FF525B398B400E7BE85 /* LeftMenuColorShemaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuColorShemaViewController.swift; sourceTree = "<group>"; };
+		82422FFA25B39D5300E7BE85 /* ColorSchemaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSchemaTableViewCell.swift; sourceTree = "<group>"; };
 		8248F343245882440014F405 /* viewForDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewForDraw.swift; sourceTree = "<group>"; };
 		826EE54D22F17D8200B48E7D /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		828226EE2427CB8900FD1744 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -186,6 +190,7 @@
 				8225F02022ECAEAD007F01E7 /* TicTacCollectionViewCell.swift */,
 				8233FD33241EAC930029D956 /* SettingSwitchTableViewCell.swift */,
 				8248F343245882440014F405 /* viewForDraw.swift */,
+				82422FFA25B39D5300E7BE85 /* ColorSchemaTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				82B6E36D23E40DF900D684FB /* ContainerViewController.swift */,
 				828226F224281C2C00FD1744 /* GameSoundEffectController.swift */,
 				82C2D35E249ACD7E00E0F024 /* LeftMenuNavigationController.swift */,
+				82422FF525B398B400E7BE85 /* LeftMenuColorShemaViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -365,8 +371,10 @@
 				8233FD34241EAC930029D956 /* SettingSwitchTableViewCell.swift in Sources */,
 				82C2D35F249ACD7E00E0F024 /* LeftMenuNavigationController.swift in Sources */,
 				8225EFED22ECA89B007F01E7 /* CenterViewController.swift in Sources */,
+				82422FFB25B39D5300E7BE85 /* ColorSchemaTableViewCell.swift in Sources */,
 				826EE54E22F17D8200B48E7D /* Game.swift in Sources */,
 				8225F01E22ECAC9A007F01E7 /* GameBoard.swift in Sources */,
+				82422FF625B398B400E7BE85 /* LeftMenuColorShemaViewController.swift in Sources */,
 				8248F344245882440014F405 /* viewForDraw.swift in Sources */,
 				828226F324281C2C00FD1744 /* GameSoundEffectController.swift in Sources */,
 				82B6E36E23E40DF900D684FB /* ContainerViewController.swift in Sources */,

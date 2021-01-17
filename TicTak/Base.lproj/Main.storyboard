@@ -130,7 +130,7 @@
         <!--Settings-->
         <scene sceneID="f2T-H1-6Dl">
             <objects>
-                <viewController storyboardIdentifier="LeftMenuViewController" title="Settings" id="do5-7d-TTY" customClass="LeftMenuViewController" customModule="Tic_Tac_Toe" sceneMemberID="viewController">
+                <viewController restorationIdentifier="LeftMenuViewController" storyboardIdentifier="LeftMenuViewController" title="Settings" id="do5-7d-TTY" customClass="LeftMenuViewController" customModule="Tic_Tac_Toe" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1DB-lB-ZwU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -163,6 +163,7 @@
                                                 </switch>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="cWA-QN-Qcx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xqx-Ko-5lY" secondAttribute="trailing" constant="8" symbolic="YES" id="4hU-5g-yUH"/>
                                                 <constraint firstItem="xqx-Ko-5lY" firstAttribute="top" secondItem="dZ1-Za-Km8" secondAttribute="top" constant="11" id="Xc0-mq-UIe"/>
                                                 <constraint firstItem="cWA-QN-Qcx" firstAttribute="top" secondItem="dZ1-Za-Km8" secondAttribute="top" constant="6" id="bOH-ju-A27"/>
                                                 <constraint firstItem="xqx-Ko-5lY" firstAttribute="leading" secondItem="dZ1-Za-Km8" secondAttribute="leading" constant="14" id="cHg-uk-NP7"/>
@@ -172,6 +173,57 @@
                                         <connections>
                                             <outlet property="settingSwitch" destination="cWA-QN-Qcx" id="RvV-rq-0bo"/>
                                             <outlet property="title" destination="xqx-Ko-5lY" id="XYs-gA-d2F"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingColorSchemeiewCell" rowHeight="43.5" id="Y9J-u0-yKb" customClass="ColorSchemaTableViewCell" customModule="Tic_Tac_Toe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="71.5" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y9J-u0-yKb" id="upR-rW-ZV2">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color scheme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faE-hM-et0">
+                                                    <rect key="frame" x="14" y="11" width="109" height="20"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="color schemaType" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vui-hp-PMm">
+                                                    <rect key="frame" x="131" y="13" width="116" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="116" id="dSU-5d-BRh"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
+                                                    <color key="textColor" systemColor="systemGrayColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nn-kp-OB7">
+                                                    <rect key="frame" x="230" y="0.0" width="50" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="KDl-4K-Nsz"/>
+                                                    </constraints>
+                                                    <state key="normal" image="disclogure"/>
+                                                    <connections>
+                                                        <segue destination="2vO-Rt-1Lk" kind="presentation" identifier="showLeftMenuColorSchema" modalPresentationStyle="pageSheet" id="fgX-1e-gpe"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="6Nn-kp-OB7" secondAttribute="bottom" id="4Os-t0-KOv"/>
+                                                <constraint firstItem="faE-hM-et0" firstAttribute="leading" secondItem="upR-rW-ZV2" secondAttribute="leading" constant="14" id="6eH-lp-Kfs"/>
+                                                <constraint firstItem="6Nn-kp-OB7" firstAttribute="top" secondItem="upR-rW-ZV2" secondAttribute="top" id="H04-Jw-g4Y"/>
+                                                <constraint firstAttribute="trailing" secondItem="6Nn-kp-OB7" secondAttribute="trailing" constant="95" id="HD9-Tk-mDN"/>
+                                                <constraint firstAttribute="bottom" secondItem="6Nn-kp-OB7" secondAttribute="bottom" id="LoR-5s-o3F"/>
+                                                <constraint firstItem="vui-hp-PMm" firstAttribute="leading" secondItem="faE-hM-et0" secondAttribute="trailing" constant="8" id="exQ-LD-499"/>
+                                                <constraint firstItem="6Nn-kp-OB7" firstAttribute="top" secondItem="upR-rW-ZV2" secondAttribute="top" id="i3F-5Y-xzN"/>
+                                                <constraint firstItem="faE-hM-et0" firstAttribute="top" secondItem="upR-rW-ZV2" secondAttribute="top" constant="11" id="nMn-Qk-ezl"/>
+                                                <constraint firstItem="6Nn-kp-OB7" firstAttribute="leading" secondItem="vui-hp-PMm" secondAttribute="trailing" priority="900" constant="-17" id="vkX-l4-wAZ"/>
+                                                <constraint firstItem="vui-hp-PMm" firstAttribute="centerY" secondItem="faE-hM-et0" secondAttribute="centerY" constant="1" id="wBu-mJ-VV0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="colotSchemaTypeLabel" destination="vui-hp-PMm" id="H8V-Oc-qHc"/>
+                                            <outlet property="title" destination="faE-hM-et0" id="A8E-EW-863"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -204,15 +256,66 @@
             </objects>
             <point key="canvasLocation" x="2844" y="125.4872563718141"/>
         </scene>
-        <!--View Controller-->
+        <!--Left Menu Color Shema View Controller-->
         <scene sceneID="i59-9W-vWt">
             <objects>
-                <viewController id="2vO-Rt-1Lk" sceneMemberID="viewController">
+                <viewController id="2vO-Rt-1Lk" customClass="LeftMenuColorShemaViewController" customModule="Tic_Tac_Toe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="63j-0J-Ajv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vpU-m0-b9I">
+                                <rect key="frame" x="0.0" y="50" width="375" height="597"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="settingColorShemaTableViewCell" id="Zez-vc-eU9" customClass="ColorSchemaTableViewCell" customModule="Tic_Tac_Toe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="65.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zez-vc-eU9" id="xpZ-wA-S1F">
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="65.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNE-kD-7V2">
+                                                    <rect key="frame" x="30" y="22" width="183" height="22"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KNE-kD-7V2" firstAttribute="top" secondItem="xpZ-wA-S1F" secondAttribute="topMargin" constant="11" id="JR6-Rf-kKD"/>
+                                                <constraint firstItem="KNE-kD-7V2" firstAttribute="leading" secondItem="xpZ-wA-S1F" secondAttribute="leadingMargin" constant="14" id="JxX-eE-2qr"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="KNE-kD-7V2" secondAttribute="bottom" constant="12" id="K3L-bY-9gt"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="title" destination="KNE-kD-7V2" id="q6F-5L-u0e"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2vO-Rt-1Lk" id="BZ0-1G-cog"/>
+                                    <outlet property="delegate" destination="2vO-Rt-1Lk" id="UmZ-rm-VOe"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbh-d5-RmO">
+                                <rect key="frame" x="274" y="6" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Close">
+                                    <color key="titleColor" systemColor="systemPinkColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeThisWindow" destination="2vO-Rt-1Lk" eventType="touchUpInside" id="8Gh-Ez-sWl"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="M5I-9G-OHe"/>
-                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <constraints>
+                            <constraint firstItem="M5I-9G-OHe" firstAttribute="bottom" secondItem="vpU-m0-b9I" secondAttribute="bottom" id="7CI-Xd-pUq"/>
+                            <constraint firstItem="vpU-m0-b9I" firstAttribute="leading" secondItem="M5I-9G-OHe" secondAttribute="leading" id="ACx-Z2-iGm"/>
+                            <constraint firstItem="vpU-m0-b9I" firstAttribute="top" secondItem="M5I-9G-OHe" secondAttribute="top" constant="50" id="X0E-ig-6bb"/>
+                            <constraint firstItem="vpU-m0-b9I" firstAttribute="trailing" secondItem="M5I-9G-OHe" secondAttribute="trailing" id="n2G-jw-Xyh"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JRy-g3-KO5"/>
                 </viewController>
@@ -341,6 +444,7 @@
         <image name="burger-red" width="256" height="256"/>
         <image name="buttonBlack" width="1280" height="720"/>
         <image name="buttonGray" width="512" height="256"/>
+        <image name="disclogure" width="25" height="40"/>
         <image name="oldBook" width="512" height="512"/>
         <image name="settings1" width="640" height="400"/>
         <systemColor name="systemBackgroundColor">
@@ -349,17 +453,20 @@
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

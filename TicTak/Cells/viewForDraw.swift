@@ -14,9 +14,9 @@ enum CellDesign {
     case empty
 }
 
-enum ColorShemaType {
-    case whiteGray
-    case blackRed
+enum ColorShemaType : Int {
+    case whiteGray = 0
+    case blackRed = 1
 }
 
 //class CellDesignSettings {

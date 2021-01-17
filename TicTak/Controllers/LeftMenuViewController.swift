@@ -8,7 +8,6 @@
 
 import UIKit
 
-//MARK: UIViewController extension
 extension UIViewController {
     //To add a view controller as a child
     func add(_ child: UIViewController) {
@@ -51,8 +50,18 @@ class LeftMenuViewController: UIViewController {
         if #available ( iOS 13.0, *){
         overrideUserInterfaceStyle = .light
         }
-        
         self.navigationController?.navigationBar.barStyle = .default
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        settingsTable.reloadData()
+    }
+    
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "showLeftMenuColorSchema") {
+            segue.destination.presentationController?.delegate = self
+        }
     }
     
     func addSwipe() {
@@ -86,11 +95,9 @@ extension LeftMenuViewController {
         }
         if( mySwitch.tag == 1) {
             game.needPlaySoundGameOver = mySwitch.isOn
-            ColorShema.colorShemaType = ColorShemaType.blackRed
         }
         if( mySwitch.tag == 2) {
             game.needPlaySoundOneStep = mySwitch.isOn
-            ColorShema.colorShemaType = ColorShemaType.whiteGray
         }
     }
 }
@@ -114,14 +121,6 @@ extension LeftMenuViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
             return 60
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 3 {
-            newViewController = 
-            self.navigationController?.pushViewController(newViewController, animated: true)
-
-        }
-    }
 }
 
 //MARK: UITableViewDataSource extension
@@ -132,29 +131,51 @@ extension LeftMenuViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "settingSwitchTableViewCell", for: indexPath) as! SettingSwitchTableViewCell
-
         if (indexPath.row == 0) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "settingSwitchTableViewCell", for: indexPath) as! SettingSwitchTableViewCell
             cell.title!.text = "Play vs iPhone"
             cell.settingSwitch!.isOn = game.playVSComputer
             cell.settingSwitch!.tag = 0
-        }
-        
-        if (indexPath.row == 1) {
+            return cell
+        } else if (indexPath.row == 1) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "settingSwitchTableViewCell", for: indexPath) as! SettingSwitchTableViewCell
             cell.title!.text = "Play sound GameOver"
             cell.settingSwitch!.isOn = game.needPlaySoundGameOver
             cell.settingSwitch!.tag = 1
-        }
-        
-        if (indexPath.row == 2) {
+            return cell
+        } else if (indexPath.row == 2) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "settingSwitchTableViewCell", for: indexPath) as! SettingSwitchTableViewCell
                    cell.title!.text = "Play sound One Step"
                    cell.settingSwitch!.isOn = game.needPlaySoundOneStep
                    cell.settingSwitch!.tag = 2
-               }
-       // settingsTable.headerView(forSection: 0)!.backgroundColor = UIColor(white: 1, alpha: 0.3)
-       return cell
+            return cell
+        } else {
+            let cellColorScheme = tableView.dequeueReusableCell(withIdentifier: "settingColorSchemeiewCell", for: indexPath) as! ColorSchemaTableViewCell
+            cellColorScheme.colotSchemaTypeLabel.text = (ColorShema.colorShemaType.rawValue == 0) ? "White and grey" : "Black and red"
+            return cellColorScheme
+        }
     }
 }
 
-
+//MARK: UIAdaptivePresentationControllerDelegate extension
+extension LeftMenuViewController : UIAdaptivePresentationControllerDelegate {
+//    func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+//        print("presentationControllerWillDismiss")
+//        //changeColorShemaColorShemaType()
+//        settingsTable.reloadData()
+//
+//    }
+    
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        print("presentationControllerDidDismiss")
+        //changeColorShemaColorShemaType()
+        settingsTable.reloadData()
+    }
+    
+//    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+//        print("presentationControllerDidAttemptToDismiss")
+//        //changeColorShemaColorShemaType()
+//        settingsTable.reloadData()
+//    }
+}
 

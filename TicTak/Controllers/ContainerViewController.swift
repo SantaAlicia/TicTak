@@ -32,6 +32,7 @@ protocol ContainerViewControllerProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.restorationIdentifier = "ContainerViewController"
         
         centerViewController = UIStoryboard.centerViewController()
         centerViewController.delegate = self
