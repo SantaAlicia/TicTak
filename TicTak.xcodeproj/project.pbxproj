@@ -140,9 +140,11 @@
 		8225EFE922ECA89A007F01E7 /* TicTak */ = {
 			isa = PBXGroup;
 			children = (
+				829C6F4325B57C9300A0FD6C /* Sound */,
 				828226E92427C3FC00FD1744 /* Resources */,
 				82942BC222EE20F800E5EE97 /* Utils */,
-				8225F02422ECCCA2007F01E7 /* Controllers */,
+				829C6F4225B57C8000A0FD6C /* Logic */,
+				8225F02422ECCCA2007F01E7 /* ViewControllers */,
 				8225F01F22ECAE6D007F01E7 /* Cells */,
 				8225F01822ECAAE3007F01E7 /* Model */,
 				8225EFEA22ECA89B007F01E7 /* AppDelegate.swift */,
@@ -195,18 +197,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		8225F02422ECCCA2007F01E7 /* Controllers */ = {
+		8225F02422ECCCA2007F01E7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				82942BC722EE312100E5EE97 /* GameResultController.swift */,
-				82AF60D923DE0F6200869D92 /* LeftMenuViewController.swift */,
+				829C6F4125B5791800A0FD6C /* LeftMenu */,
 				8282674F23DFAD81005C48D4 /* CollectionViewController.swift */,
 				82B6E36D23E40DF900D684FB /* ContainerViewController.swift */,
-				828226F224281C2C00FD1744 /* GameSoundEffectController.swift */,
-				82C2D35E249ACD7E00E0F024 /* LeftMenuNavigationController.swift */,
-				82422FF525B398B400E7BE85 /* LeftMenuColorShemaViewController.swift */,
 			);
-			path = Controllers;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		828226E92427C3FC00FD1744 /* Resources */ = {
@@ -232,6 +230,32 @@
 				82942BC322EE211100E5EE97 /* Contants.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		829C6F4125B5791800A0FD6C /* LeftMenu */ = {
+			isa = PBXGroup;
+			children = (
+				82AF60D923DE0F6200869D92 /* LeftMenuViewController.swift */,
+				82C2D35E249ACD7E00E0F024 /* LeftMenuNavigationController.swift */,
+				82422FF525B398B400E7BE85 /* LeftMenuColorShemaViewController.swift */,
+			);
+			path = LeftMenu;
+			sourceTree = "<group>";
+		};
+		829C6F4225B57C8000A0FD6C /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				82942BC722EE312100E5EE97 /* GameResultController.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		829C6F4325B57C9300A0FD6C /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				828226F224281C2C00FD1744 /* GameSoundEffectController.swift */,
+			);
+			path = Sound;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

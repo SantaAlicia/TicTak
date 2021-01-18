@@ -1,5 +1,5 @@
 //
-//  CheckForWinning.swift
+//  GameResultController.swift
 //  TicTak
 //
 //  Created by liudmila vladimirova on 28/07/2019.
@@ -17,7 +17,6 @@ let    allWinCombinations  : Set<Set<Int>> =  [[0,1,2],[0,3,6],[3,4,5],[1,4,7],[
 
 protocol GameResultControllerProtocol {
     static func findWiner() -> GameWinner
-    //static func findWinSet() -> Set<Int>?
 }
 
 struct GameResultController : GameResultControllerProtocol {
