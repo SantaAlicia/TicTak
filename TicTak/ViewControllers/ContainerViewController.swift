@@ -41,8 +41,6 @@ protocol ContainerViewControllerProtocol {
         // and display bar button items in the navigation bar
         centerNavigationController = UINavigationController(rootViewController: centerViewController)
     
-        
-        
         add(centerNavigationController)
         
         centerNavigationController.view.layer.shadowOpacity = 0.2
@@ -59,6 +57,8 @@ extension ContainerViewController: CenterViewControllerLeftPanel {
     func toggleLeftPanel() {
         if (currentState != .leftMenuExpanded) {
             addLeftMenuViewController()
+        } else {
+            centerViewController.refreshBoard()
         }
         moveControllers()
     }

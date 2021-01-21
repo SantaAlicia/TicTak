@@ -265,7 +265,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vpU-m0-b9I">
-                                <rect key="frame" x="0.0" y="50" width="375" height="597"/>
+                                <rect key="frame" x="0.0" y="60" width="375" height="587"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="settingColorShemaTableViewCell" id="Zez-vc-eU9" customClass="ColorSchemaTableViewCell" customModule="Tic_Tac_Toe" customModuleProvider="target">
@@ -299,8 +299,9 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbh-d5-RmO">
-                                <rect key="frame" x="274" y="6" width="39" height="30"/>
+                                <rect key="frame" x="277" y="7" width="35" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                                 <state key="normal" title="Close">
                                     <color key="titleColor" systemColor="systemPinkColor"/>
                                 </state>
@@ -310,10 +311,11 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="M5I-9G-OHe"/>
+                        <color key="backgroundColor" systemColor="systemGray3Color"/>
                         <constraints>
                             <constraint firstItem="M5I-9G-OHe" firstAttribute="bottom" secondItem="vpU-m0-b9I" secondAttribute="bottom" id="7CI-Xd-pUq"/>
                             <constraint firstItem="vpU-m0-b9I" firstAttribute="leading" secondItem="M5I-9G-OHe" secondAttribute="leading" id="ACx-Z2-iGm"/>
-                            <constraint firstItem="vpU-m0-b9I" firstAttribute="top" secondItem="M5I-9G-OHe" secondAttribute="top" constant="50" id="X0E-ig-6bb"/>
+                            <constraint firstItem="vpU-m0-b9I" firstAttribute="top" secondItem="M5I-9G-OHe" secondAttribute="top" constant="60" id="X0E-ig-6bb"/>
                             <constraint firstItem="vpU-m0-b9I" firstAttribute="trailing" secondItem="M5I-9G-OHe" secondAttribute="trailing" id="n2G-jw-Xyh"/>
                         </constraints>
                     </view>

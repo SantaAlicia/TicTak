@@ -15,8 +15,7 @@ class CenterViewController: UIViewController {
     @IBOutlet weak var burgerMenuButton: UIButton!
     @IBOutlet weak var gameOverInfo: UILabel!
     @IBOutlet weak var gameInfo: UILabel!
-    //@IBOutlet weak var stackView: UIStackView!
-
+    
     private var embeddedViewController: CollectionViewController!
     var delegate : CenterViewControllerLeftPanel?
     
@@ -36,7 +35,7 @@ class CenterViewController: UIViewController {
         
         
         let sharedApplication = UIApplication.shared
-        sharedApplication.delegate?.window??.tintColor = .white
+        //sharedApplication.delegate?.window??.tintColor = .white
 
           if #available(iOS 13.0, *) {
                 let statusBar = UIView(frame: (sharedApplication.delegate?.window??.windowScene?.statusBarManager?.statusBarFrame)!)
@@ -85,6 +84,10 @@ class CenterViewController: UIViewController {
     @IBAction func burgerMenuTapped() {
         delegate?.toggleLeftPanel()
     }
+    
+    func refreshBoard() {
+        embeddedViewController.collectionView.reloadData()
+    }
 }
 
 extension CenterViewController {
@@ -95,12 +98,6 @@ extension CenterViewController {
         embeddedViewController.collectionView.isUserInteractionEnabled = true
         GameSoundEffectController.shared.prepareToPlaySound()
     }
-    
-    private func preparationViewsAndContols() {
-            embeddedViewController.collectionView.reloadData()
-            updateInfoLabels()
-            burgerMenuButton.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
-    }
         
     func playerMakesOneTurn(_ i : Int) {
         if !(Game.shared.playerMakesTurnAtIndex(i)) {
@@ -110,8 +107,16 @@ extension CenterViewController {
         updateInfoLabels()
         }
 }
+
 //MARK: private methods
 private extension CenterViewController {
+    
+    func preparationViewsAndContols() {
+            embeddedViewController.collectionView.reloadData()
+            updateInfoLabels()
+            burgerMenuButton.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
+    }
+    
      func updateInfoLabels () {
         switch Game.shared.state {
         case GameState.isNotStarted, GameState.isStarted:
