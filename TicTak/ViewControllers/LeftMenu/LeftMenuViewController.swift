@@ -167,8 +167,6 @@ extension LeftMenuViewController : UIAdaptivePresentationControllerDelegate {
 //    }
     
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-        print("presentationControllerDidDismiss")
-        //changeColorShemaColorShemaType()
         settingsTable.reloadData()
     }
     
