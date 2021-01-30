@@ -1,6 +1,6 @@
 //
 //  SettingSwitchTableViewCell.swift
-//  TicTak
+//  Tic-Tac-Toe
 //
 //  Created by liudmila vladimirova on 15/03/2020.
 //  Copyright © 2020 SantaAlicia. All rights reserved.

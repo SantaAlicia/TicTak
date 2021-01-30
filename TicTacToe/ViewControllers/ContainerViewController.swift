@@ -1,6 +1,6 @@
 //
 //  ContainerViewController.swift
-//  TicTak
+//  Tic-Tac-Toe
 //
 //  Created by liudmila vladimirova on 31/01/2020.
 //  Copyright © 2020 SantaAlicia. All rights reserved.

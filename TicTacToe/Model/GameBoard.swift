@@ -1,6 +1,6 @@
 //
 //  GameBoard.swift
-//  TicTak
+//  Tic-Tac-Toe
 //
 //  Created by SantaAlicia on 27/07/2019.
 //  Copyright © 2019 SantaAlicia. All rights reserved.

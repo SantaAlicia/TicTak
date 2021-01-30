@@ -1,6 +1,6 @@
 //
 //  ColorSchemaTableViewCell.swift
-//  TicTak
+//  Tic-Tac-Toe
 //
 //  Created by liudmila vladimirova on 16/01/2021.
 //  Copyright © 2021 SantaAlicia. All rights reserved.

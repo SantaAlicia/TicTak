@@ -1,6 +1,6 @@
 //
 //  viewForDraw.swift
-//  TicTak
+//  Tic-Tac-Toe
 //
 //  Created by liudmila vladimirova on 28/04/2020.
 //  Copyright © 2020 SantaAlicia. All rights reserved.
