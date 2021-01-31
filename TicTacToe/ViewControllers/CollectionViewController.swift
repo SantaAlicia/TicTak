@@ -20,6 +20,11 @@ class CollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    func refreshView() {
+        game.currentPosition = -1
+        self.collectionView.reloadData()
+    }
 }
 
 //MARK:UICollectionViewDataSource

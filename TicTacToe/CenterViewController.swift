@@ -86,9 +86,7 @@ class CenterViewController: UIViewController {
     }
     
     func refreshBoard() {
-        let game = Game.shared
-        game.currentPosition = -1
-        embeddedViewController.collectionView.reloadData()
+        embeddedViewController.refreshView()
     }
 }
 
