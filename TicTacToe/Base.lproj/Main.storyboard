@@ -150,8 +150,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play vs iPhone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqx-Ko-5lY">
-                                                    <rect key="frame" x="14" y="11" width="104" height="42"/>
-                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
+                                                    <rect key="frame" x="14" y="11" width="115.5" height="42"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -181,43 +181,43 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color scheme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faE-hM-et0">
-                                                    <rect key="frame" x="14" y="12" width="94.5" height="41"/>
+                                                    <rect key="frame" x="14" y="12" width="112" height="41"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="94.5" id="8fi-vt-kh2"/>
+                                                        <constraint firstAttribute="width" constant="112" id="8fi-vt-kh2"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="color schemaType" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vui-hp-PMm">
-                                                    <rect key="frame" x="121.5" y="23" width="115.5" height="19"/>
-                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
-                                                    <color key="textColor" systemColor="systemGrayColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nn-kp-OB7">
-                                                    <rect key="frame" x="252" y="0.0" width="50" height="65"/>
+                                                    <rect key="frame" x="252" y="0.0" width="39" height="65"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="50" id="KDl-4K-Nsz"/>
+                                                        <constraint firstAttribute="width" constant="39" id="KDl-4K-Nsz"/>
                                                     </constraints>
                                                     <state key="normal" image="disclogure"/>
                                                     <connections>
                                                         <segue destination="2vO-Rt-1Lk" kind="presentation" identifier="showLeftMenuColorSchema" modalPresentationStyle="pageSheet" id="fgX-1e-gpe"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="color schemaType" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vui-hp-PMm">
+                                                    <rect key="frame" x="134" y="23" width="128.5" height="19"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
+                                                    <color key="textColor" systemColor="systemGrayColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="6Nn-kp-OB7" secondAttribute="bottom" id="4Os-t0-KOv"/>
                                                 <constraint firstItem="faE-hM-et0" firstAttribute="leading" secondItem="upR-rW-ZV2" secondAttribute="leading" constant="14" id="6eH-lp-Kfs"/>
                                                 <constraint firstItem="6Nn-kp-OB7" firstAttribute="top" secondItem="upR-rW-ZV2" secondAttribute="top" id="H04-Jw-g4Y"/>
-                                                <constraint firstAttribute="trailing" secondItem="6Nn-kp-OB7" secondAttribute="trailing" constant="73" id="HD9-Tk-mDN"/>
+                                                <constraint firstAttribute="trailing" secondItem="6Nn-kp-OB7" secondAttribute="trailing" constant="84" id="HD9-Tk-mDN"/>
                                                 <constraint firstItem="vui-hp-PMm" firstAttribute="centerY" secondItem="6Nn-kp-OB7" secondAttribute="centerY" id="Ksr-D1-eIC"/>
                                                 <constraint firstAttribute="bottom" secondItem="6Nn-kp-OB7" secondAttribute="bottom" id="LoR-5s-o3F"/>
                                                 <constraint firstItem="vui-hp-PMm" firstAttribute="top" secondItem="upR-rW-ZV2" secondAttribute="topMargin" constant="12" id="Yrb-il-m0P"/>
                                                 <constraint firstItem="6Nn-kp-OB7" firstAttribute="top" secondItem="upR-rW-ZV2" secondAttribute="top" id="i3F-5Y-xzN"/>
-                                                <constraint firstItem="vui-hp-PMm" firstAttribute="leading" secondItem="faE-hM-et0" secondAttribute="trailing" constant="13" id="mau-xe-Sbk"/>
+                                                <constraint firstItem="vui-hp-PMm" firstAttribute="leading" secondItem="faE-hM-et0" secondAttribute="trailing" constant="8" id="mau-xe-Sbk"/>
                                                 <constraint firstItem="faE-hM-et0" firstAttribute="top" secondItem="upR-rW-ZV2" secondAttribute="top" constant="12" id="nMn-Qk-ezl"/>
-                                                <constraint firstItem="6Nn-kp-OB7" firstAttribute="leading" secondItem="vui-hp-PMm" secondAttribute="trailing" constant="15" id="oG5-GN-Upj"/>
+                                                <constraint firstItem="6Nn-kp-OB7" firstAttribute="leading" secondItem="vui-hp-PMm" secondAttribute="trailing" constant="-10.5" id="oG5-GN-Upj"/>
                                                 <constraint firstAttribute="bottom" secondItem="faE-hM-et0" secondAttribute="bottom" constant="12" id="qZr-hm-RNX"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -269,15 +269,15 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="colorSchemaTableViewCell" id="Zez-vc-eU9" customClass="ColorSchemaTableViewCell" customModule="Tic_Tac_Toe" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="65.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="67.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zez-vc-eU9" id="xpZ-wA-S1F">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="65.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="67.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNE-kD-7V2">
                                                     <rect key="frame" x="30" y="22" width="183" height="22"/>
-                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -299,9 +299,9 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbh-d5-RmO">
-                                <rect key="frame" x="277" y="7" width="35" height="31"/>
+                                <rect key="frame" x="275" y="7" width="39" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="19"/>
                                 <state key="normal" title="Close">
                                     <color key="titleColor" systemColor="systemPinkColor"/>
                                 </state>
