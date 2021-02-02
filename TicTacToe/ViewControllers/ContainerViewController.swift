@@ -51,7 +51,7 @@ protocol ContainerViewControllerProtocol {
     }
 }
 
-//MARK: CenterViewControllerLeftPanel
+//MARK: protocol CenterViewControllerLeftPanel
 extension ContainerViewController: CenterViewControllerLeftPanel {
     
     func toggleLeftPanel() {
@@ -96,6 +96,7 @@ private extension ContainerViewController {
             guard let tapGesture = tapGesture else { return }
             //this "view" is contanier view = current view
             view.addGestureRecognizer(tapGesture)
+            tapGesture.delegate = self
         }
     }
     
@@ -109,6 +110,17 @@ private extension ContainerViewController {
                         self.centerNavigationController?.view.frame.origin.x = targetPositionCentral
                         },
                        completion: completion)
+    }
+}
+//MARK:UIGestureRecognizerDelegate
+extension ContainerViewController : UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+                      shouldReceive touch: UITouch) -> Bool
+    {
+        if (touch.view!.superview!.isKind(of: SettingSwitchTableViewCell.self)) || (touch.view!.superview!.isKind(of: ColorSchemaTableViewCell.self)){
+            return false
+        }
+        return true
     }
 }
 

@@ -11,14 +11,14 @@ import UIKit
 class SettingSwitchTableViewCell: UITableViewCell {
     
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var settingSwitch: UISwitch!
+    @IBOutlet weak var checkmarkImage : UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = UIColor(white: 0.8, alpha: 0.2)
     }
 
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//    }
+   override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+   }
 }

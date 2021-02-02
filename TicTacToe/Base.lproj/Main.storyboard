@@ -138,67 +138,65 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings1" translatesAutoresizingMaskIntoConstraints="NO" id="8NG-tq-k0R">
                                 <rect key="frame" x="0.0" y="22" width="375" height="645"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IEs-PF-tT0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IEs-PF-tT0">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingSwitchTableViewCell" rowHeight="43.5" id="Txn-d6-fd5" customClass="SettingSwitchTableViewCell" customModule="Tic_Tac_Toe">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingSwitchTableViewCell" rowHeight="65" id="Txn-d6-fd5" customClass="SettingSwitchTableViewCell" customModule="Tic_Tac_Toe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Txn-d6-fd5" id="dZ1-Za-Km8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play vs iPhone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqx-Ko-5lY">
-                                                    <rect key="frame" x="14" y="11" width="104" height="20"/>
+                                                    <rect key="frame" x="14" y="11" width="104" height="42"/>
                                                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cWA-QN-Qcx">
-                                                    <rect key="frame" x="206" y="6" width="51" height="31"/>
-                                                    <connections>
-                                                        <action selector="switchChangedWithMySwitch:" destination="do5-7d-TTY" eventType="valueChanged" id="SRR-X9-tGl"/>
-                                                    </connections>
-                                                </switch>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5ki-Fn-ZH7">
+                                                    <rect key="frame" x="266.5" y="13" width="18.5" height="39.5"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="cWA-QN-Qcx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xqx-Ko-5lY" secondAttribute="trailing" constant="8" symbolic="YES" id="4hU-5g-yUH"/>
+                                                <constraint firstAttribute="bottom" secondItem="xqx-Ko-5lY" secondAttribute="bottom" constant="12" id="QH6-aF-lYK"/>
+                                                <constraint firstItem="5ki-Fn-ZH7" firstAttribute="top" secondItem="dZ1-Za-Km8" secondAttribute="topMargin" id="Qlg-Tt-hfL"/>
                                                 <constraint firstItem="xqx-Ko-5lY" firstAttribute="top" secondItem="dZ1-Za-Km8" secondAttribute="top" constant="11" id="Xc0-mq-UIe"/>
-                                                <constraint firstItem="cWA-QN-Qcx" firstAttribute="top" secondItem="dZ1-Za-Km8" secondAttribute="top" constant="6" id="bOH-ju-A27"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="5ki-Fn-ZH7" secondAttribute="trailing" constant="74" id="cHR-tF-aaA"/>
                                                 <constraint firstItem="xqx-Ko-5lY" firstAttribute="leading" secondItem="dZ1-Za-Km8" secondAttribute="leading" constant="14" id="cHg-uk-NP7"/>
-                                                <constraint firstAttribute="trailing" secondItem="cWA-QN-Qcx" secondAttribute="trailing" constant="120" id="pAd-eH-9Ht"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="5ki-Fn-ZH7" secondAttribute="bottom" id="fdE-MU-4ue"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="settingSwitch" destination="cWA-QN-Qcx" id="RvV-rq-0bo"/>
+                                            <outlet property="checkmarkImage" destination="5ki-Fn-ZH7" id="b8p-Z1-ygZ"/>
                                             <outlet property="title" destination="xqx-Ko-5lY" id="XYs-gA-d2F"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingColorSchemeiewCell" rowHeight="43.5" id="Y9J-u0-yKb" customClass="ColorSchemaTableViewCell" customModule="Tic_Tac_Toe" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="71.5" width="375" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingColorSchemeiewCell" rowHeight="65" id="Y9J-u0-yKb" customClass="ColorSchemaTableViewCell" customModule="Tic_Tac_Toe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="93" width="375" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y9J-u0-yKb" id="upR-rW-ZV2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color scheme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faE-hM-et0">
-                                                    <rect key="frame" x="14" y="11" width="109" height="20"/>
+                                                    <rect key="frame" x="14" y="12" width="94.5" height="41"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="94.5" id="8fi-vt-kh2"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="color schemaType" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vui-hp-PMm">
-                                                    <rect key="frame" x="131" y="13" width="116" height="18"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="116" id="dSU-5d-BRh"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="121.5" y="23" width="115.5" height="19"/>
                                                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nn-kp-OB7">
-                                                    <rect key="frame" x="230" y="0.0" width="50" height="43.5"/>
+                                                    <rect key="frame" x="252" y="0.0" width="50" height="65"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="KDl-4K-Nsz"/>
                                                     </constraints>
@@ -212,13 +210,15 @@
                                                 <constraint firstAttribute="bottom" secondItem="6Nn-kp-OB7" secondAttribute="bottom" id="4Os-t0-KOv"/>
                                                 <constraint firstItem="faE-hM-et0" firstAttribute="leading" secondItem="upR-rW-ZV2" secondAttribute="leading" constant="14" id="6eH-lp-Kfs"/>
                                                 <constraint firstItem="6Nn-kp-OB7" firstAttribute="top" secondItem="upR-rW-ZV2" secondAttribute="top" id="H04-Jw-g4Y"/>
-                                                <constraint firstAttribute="trailing" secondItem="6Nn-kp-OB7" secondAttribute="trailing" constant="95" id="HD9-Tk-mDN"/>
+                                                <constraint firstAttribute="trailing" secondItem="6Nn-kp-OB7" secondAttribute="trailing" constant="73" id="HD9-Tk-mDN"/>
+                                                <constraint firstItem="vui-hp-PMm" firstAttribute="centerY" secondItem="6Nn-kp-OB7" secondAttribute="centerY" id="Ksr-D1-eIC"/>
                                                 <constraint firstAttribute="bottom" secondItem="6Nn-kp-OB7" secondAttribute="bottom" id="LoR-5s-o3F"/>
-                                                <constraint firstItem="vui-hp-PMm" firstAttribute="leading" secondItem="faE-hM-et0" secondAttribute="trailing" constant="8" id="exQ-LD-499"/>
+                                                <constraint firstItem="vui-hp-PMm" firstAttribute="top" secondItem="upR-rW-ZV2" secondAttribute="topMargin" constant="12" id="Yrb-il-m0P"/>
                                                 <constraint firstItem="6Nn-kp-OB7" firstAttribute="top" secondItem="upR-rW-ZV2" secondAttribute="top" id="i3F-5Y-xzN"/>
-                                                <constraint firstItem="faE-hM-et0" firstAttribute="top" secondItem="upR-rW-ZV2" secondAttribute="top" constant="11" id="nMn-Qk-ezl"/>
-                                                <constraint firstItem="6Nn-kp-OB7" firstAttribute="leading" secondItem="vui-hp-PMm" secondAttribute="trailing" priority="900" constant="-17" id="vkX-l4-wAZ"/>
-                                                <constraint firstItem="vui-hp-PMm" firstAttribute="centerY" secondItem="faE-hM-et0" secondAttribute="centerY" constant="1" id="wBu-mJ-VV0"/>
+                                                <constraint firstItem="vui-hp-PMm" firstAttribute="leading" secondItem="faE-hM-et0" secondAttribute="trailing" constant="13" id="mau-xe-Sbk"/>
+                                                <constraint firstItem="faE-hM-et0" firstAttribute="top" secondItem="upR-rW-ZV2" secondAttribute="top" constant="12" id="nMn-Qk-ezl"/>
+                                                <constraint firstItem="6Nn-kp-OB7" firstAttribute="leading" secondItem="vui-hp-PMm" secondAttribute="trailing" constant="15" id="oG5-GN-Upj"/>
+                                                <constraint firstAttribute="bottom" secondItem="faE-hM-et0" secondAttribute="bottom" constant="12" id="qZr-hm-RNX"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -268,7 +268,7 @@
                                 <rect key="frame" x="0.0" y="60" width="375" height="587"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="settingColorShemaTableViewCell" id="Zez-vc-eU9" customClass="ColorSchemaTableViewCell" customModule="Tic_Tac_Toe" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="colorSchemaTableViewCell" id="Zez-vc-eU9" customClass="ColorSchemaTableViewCell" customModule="Tic_Tac_Toe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="65.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zez-vc-eU9" id="xpZ-wA-S1F">
@@ -446,6 +446,7 @@
         <image name="burger-red" width="256" height="256"/>
         <image name="buttonBlack" width="1280" height="720"/>
         <image name="buttonGray" width="512" height="256"/>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="disclogure" width="25" height="40"/>
         <image name="oldBook" width="512" height="512"/>
         <image name="settings1" width="640" height="400"/>

@@ -51,6 +51,9 @@ class LeftMenuViewController: UIViewController {
         overrideUserInterfaceStyle = .light
         }
         self.navigationController?.navigationBar.barStyle = .default
+        
+        //guard let tapGesture = self.ta.tapGesture else { return }
+        //self.view.removeGestureRecognizer(tapGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,24 +91,12 @@ extension LeftMenuViewController {
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         delegate?.respondToSwipeGesture(gesture: gesture)
     }
-    
-    @IBAction func switchChanged(mySwitch: UISwitch) {
-        if( mySwitch.tag == 0) {
-            game.playVSComputer = mySwitch.isOn
-        }
-        if( mySwitch.tag == 1) {
-            game.needPlaySoundGameOver = mySwitch.isOn
-        }
-        if( mySwitch.tag == 2) {
-            game.needPlaySoundOneStep = mySwitch.isOn
-        }
-    }
 }
 
 //MARK: UITableViewDelegate extension
 extension LeftMenuViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        return 65
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -121,6 +112,19 @@ extension LeftMenuViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
             return 60
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (indexPath.row == 0) {
+            game.playVSComputer = !game.playVSComputer
+        }
+        if (indexPath.row == 1) {
+            game.needPlaySoundGameOver = !game.needPlaySoundGameOver
+        }
+        if (indexPath.row == 2) {
+            game.needPlaySoundOneStep = !game.needPlaySoundOneStep
+        }
+        tableView.reloadData()
+    }
 }
 
 //MARK: UITableViewDataSource extension
@@ -134,20 +138,17 @@ extension LeftMenuViewController : UITableViewDataSource {
         if (indexPath.row == 0) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "settingSwitchTableViewCell", for: indexPath) as! SettingSwitchTableViewCell
             cell.title!.text = "Play vs iPhone"
-            cell.settingSwitch!.isOn = game.playVSComputer
-            cell.settingSwitch!.tag = 0
+            cell.checkmarkImage.isHidden = !game.playVSComputer
             return cell
         } else if (indexPath.row == 1) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "settingSwitchTableViewCell", for: indexPath) as! SettingSwitchTableViewCell
             cell.title!.text = "Play sound GameOver"
-            cell.settingSwitch!.isOn = game.needPlaySoundGameOver
-            cell.settingSwitch!.tag = 1
+            cell.checkmarkImage.isHidden = !game.needPlaySoundGameOver
             return cell
         } else if (indexPath.row == 2) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "settingSwitchTableViewCell", for: indexPath) as! SettingSwitchTableViewCell
-                   cell.title!.text = "Play sound One Step"
-                   cell.settingSwitch!.isOn = game.needPlaySoundOneStep
-                   cell.settingSwitch!.tag = 2
+            cell.title!.text = "Play sound One Step"
+            cell.checkmarkImage.isHidden = !game.needPlaySoundOneStep
             return cell
         } else {
             let cellColorScheme = tableView.dequeueReusableCell(withIdentifier: "settingColorSchemeiewCell", for: indexPath) as! ColorSchemaTableViewCell

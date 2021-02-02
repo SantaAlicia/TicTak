@@ -21,7 +21,7 @@ class LeftMenuColorShemaViewController: UIViewController {
     }
 }
 
-    //MARK: UITableViewDelegate extension
+//MARK: UITableViewDelegate extension
 extension LeftMenuColorShemaViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         ColorShema.colorShemaType = ColorShemaType(rawValue: indexPath.row) ?? ColorShemaType.whiteGray
@@ -36,7 +36,7 @@ extension LeftMenuColorShemaViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "settingColorShemaTableViewCell", for: indexPath) as! ColorSchemaTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "colorSchemaTableViewCell", for: indexPath) as! ColorSchemaTableViewCell
         cell.title.text = (indexPath.row == 0) ? "White and grey" : "Black and red"
         cell.accessoryType = ifNeedCheckmark(indexPath: indexPath)
         return cell
